@@ -573,6 +573,9 @@ The project can be containerized using Docker. The `Dockerfile` and `docker-comp
 5. **Dependencies**:
   - Ensure all required dependencies are installed, using `pip install -r requirements.txt` and `npm install`.
 
+6. **UI Issues**:
+  - Check the Angular console for errors and warnings. Alternatively, you can try clearing the cache using `npm cache clean --force` and `npm install`.
+
 ### Debugging Tips
 
 - Use browser Developer Tools to inspect requests and console logs.
