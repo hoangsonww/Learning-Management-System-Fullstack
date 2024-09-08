@@ -14,6 +14,8 @@ This is the backend of a Learning Management System (LMS) built using Django and
   - [Using `curl`](#using-curl)
   - [Using Postman](#using-postman)
   - [Using Swagger UI](#using-swagger-ui)
+  - [Using Redoc](#using-redoc)
+  - [Using Django REST Framework Browsable API](#using-django-rest-framework-browsable-api)
 - [Seeding Sample Data](#seeding-sample-data)
 
 ## Prerequisites
@@ -21,6 +23,7 @@ This is the backend of a Learning Management System (LMS) built using Django and
 - Python 3.6 or higher
 - MongoDB running locally or remotely
 - Redis running locally or remotely
+- Django 3.0 or higher
 
 ## Setup Instructions
 
@@ -111,26 +114,68 @@ To use the Django admin interface:
 2. Log in using the superuser credentials you created.
 3. You can manage users, courses, categories, lessons, quizzes, questions, choices, enrollments, progress, and notifications directly from the admin interface.
 
+Here is how the admin interface looks like:
+
+<p align="center" style="cursor: pointer">
+  <a href="https://movie-verse.com">
+    <img src="../docs/admin-ui.png" alt="Admin Interface" style="border-radius: 10px" width="100%"/>
+  </a>
+</p>
+
 ## API Endpoints
 
-| Endpoint                             | Method | Description                                |
-|--------------------------------------|--------|--------------------------------------------|
-| `/api/users/`                        | GET    | Retrieve a list of all users.              |
-| `/api/users/{id}/`                   | GET    | Retrieve a specific user instance.         |
-| `/api/users/`                        | POST   | Create a new user instance.                |
-| `/api/users/{id}/`                   | PUT    | Update a specific user instance.           |
-| `/api/users/{id}/`                   | DELETE | Delete a specific user instance.           |
-| `/api/courses/`                      | GET    | Retrieve a list of all courses.            |
-| `/api/courses/{id}/`                 | GET    | Retrieve a specific course instance.       |
-| `/api/courses/`                      | POST   | Create a new course instance.              |
-| `/api/courses/{id}/`                 | PUT    | Update a specific course instance.         |
-| `/api/courses/{id}/`                 | DELETE | Delete a specific course instance.         |
-| `/api/categories/`                   | GET    | Retrieve a list of all categories.         |
-| `/api/categories/{id}/`              | GET    | Retrieve a specific category instance.     |
-| `/api/categories/`                   | POST   | Create a new category instance.            |
-| `/api/categories/{id}/`              | PUT    | Update a specific category instance.       |
-| `/api/categories/{id}/`              | DELETE | Delete a specific category instance.       |
-| ...                                  | ...    | ... (Add endpoints for lessons, quizzes, etc.) |
+| Endpoint                   | Method | Description                                   |
+|----------------------------|--------|-----------------------------------------------|
+| `/api/users/`              | GET    | Retrieve a list of all users.                 |
+| `/api/users/{id}/`         | GET    | Retrieve a specific user instance.            |
+| `/api/users/`              | POST   | Create a new user instance.                   |
+| `/api/users/{id}/`         | PUT    | Update a specific user instance.              |
+| `/api/users/{id}/`         | DELETE | Delete a specific user instance.              |
+| `/api/courses/`            | GET    | Retrieve a list of all courses.               |
+| `/api/courses/{id}/`       | GET    | Retrieve a specific course instance.          |
+| `/api/courses/`            | POST   | Create a new course instance.                 |
+| `/api/courses/{id}/`       | PUT    | Update a specific course instance.            |
+| `/api/courses/{id}/`       | DELETE | Delete a specific course instance.            |
+| `/api/categories/`         | GET    | Retrieve a list of all categories.            |
+| `/api/categories/{id}/`    | GET    | Retrieve a specific category instance.        |
+| `/api/categories/`         | POST   | Create a new category instance.               |
+| `/api/categories/{id}/`    | PUT    | Update a specific category instance.          |
+| `/api/categories/{id}/`    | DELETE | Delete a specific category instance.          |
+| `/api/lessons/`            | GET    | Retrieve a list of all lessons.               |
+| `/api/lessons/{id}/`       | GET    | Retrieve a specific lesson instance.          |
+| `/api/lessons/`            | POST   | Create a new lesson instance.                 |
+| `/api/lessons/{id}/`       | PUT    | Update a specific lesson instance.            |
+| `/api/lessons/{id}/`       | DELETE | Delete a specific lesson instance.            |
+| `/api/quizzes/`            | GET    | Retrieve a list of all quizzes.               |
+| `/api/quizzes/{id}/`       | GET    | Retrieve a specific quiz instance.            |
+| `/api/quizzes/`            | POST   | Create a new quiz instance.                   |
+| `/api/quizzes/{id}/`       | PUT    | Update a specific quiz instance.              |
+| `/api/quizzes/{id}/`       | DELETE | Delete a specific quiz instance.              |
+| `/api/questions/`          | GET    | Retrieve a list of all questions.             |
+| `/api/questions/{id}/`     | GET    | Retrieve a specific question instance.        |
+| `/api/questions/`          | POST   | Create a new question instance.               |
+| `/api/questions/{id}/`     | PUT    | Update a specific question instance.          |
+| `/api/questions/{id}/`     | DELETE | Delete a specific question instance.          |
+| `/api/choices/`            | GET    | Retrieve a list of all choices.               |
+| `/api/choices/{id}/`       | GET    | Retrieve a specific choice instance.          |
+| `/api/choices/`            | POST   | Create a new choice instance.                 |
+| `/api/choices/{id}/`       | PUT    | Update a specific choice instance.            |
+| `/api/choices/{id}/`       | DELETE | Delete a specific choice instance.            |
+| `/api/enrollments/`        | GET    | Retrieve a list of all enrollments.           |
+| `/api/enrollments/{id}/`   | GET    | Retrieve a specific enrollment instance.      |
+| `/api/enrollments/`        | POST   | Create a new enrollment instance.             |
+| `/api/enrollments/{id}/`   | PUT    | Update a specific enrollment instance.        |
+| `/api/enrollments/{id}/`   | DELETE | Delete a specific enrollment instance.        |
+| `/api/progress/`           | GET    | Retrieve a list of all progress records.      |
+| `/api/progress/{id}/`      | GET    | Retrieve a specific progress record instance. |
+| `/api/progress/`           | POST   | Create a new progress record instance.        |
+| `/api/progress/{id}/`      | PUT    | Update a specific progress record instance.   |
+| `/api/progress/{id}/`      | DELETE | Delete a specific progress record instance.   |
+| `/api/notifications/`      | GET    | Retrieve a list of all notifications.         |
+| `/api/notifications/{id}/` | GET    | Retrieve a specific notification instance.    |
+| `/api/notifications/`      | POST   | Create a new notification instance.           |
+| `/api/notifications/{id}/` | PUT    | Update a specific notification instance.      |
+| `/api/notifications/{id}/` | DELETE | Delete a specific notification instance.      |
 
 ## Authentication
 
@@ -146,6 +191,8 @@ To use the Django admin interface:
      "password": "your_password"
    }'
    ```
+   
+   Replace `your_username` and `your_password` with your superuser credentials.
 
    This will return a response with a token. You must include this token in the `Authorization` header as `Token <your_token_here>` for all subsequent API requests.
 
@@ -201,16 +248,55 @@ Repeat similar `curl` commands for other endpoints.
 3. Click the "Try it out" button.
 4. Enter the required parameters and authentication token (`Bearer <your_token_here>`) in the "Authorization" header.
 5. Click "Execute" to see the API response.
+6. Alternatively, you can simply click the "Authorize" button in the top right corner of the page and enter your token there. This will automatically include the token in all requests. Then repeat steps 3 and 5 to test the endpoints.
+
+Here is how the Swagger UI looks like:
+
+<p align="center" style="cursor: pointer">
+  <a href="https://movie-verse.com">
+    <img src="../docs/swagger-ui.png" alt="Swagger UI" style="border-radius: 10px" width="100%"/>
+  </a>
+</p>
+
+### Using Redoc
+
+1. Navigate to the Redoc UI at [http://127.0.0.1:8000/redoc/](http://127.0.1:8000/redoc/).
+2. Click on an endpoint to expand it.
+3. View the API documentation and test the endpoints.
+
+Here is how the Redoc UI looks like:
+
+<p align="center" style="cursor: pointer">
+  <a href="https://movie-verse.com">
+    <img src="../docs/redoc-ui.png" alt="Redoc UI" style="border-radius: 10px" width="100%"/>
+  </a>
+
+### Using Django REST Framework Browsable API
+
+1. Choose any endpoint from the list above.
+2. Navigate to the endpoint URL in your browser.
+3. Log in using the superuser credentials.
+4. You will see a browsable interface where you can view the details of the endpoint.
+
+For example, to view the list of all lessons, go to [http://127.0.0.1:8000/api/lessons/](http://127.0.0.1:8000/api/lessons/). The interface should look like this:
+
+<p align="center" style="cursor: pointer">
+  <a href="https://movie-verse.com">
+    <img src="../docs/browsable-api.png" alt="Browsable API" style="border-radius: 10px" width="100%"/>
+  </a>
+</p>
 
 ## Seeding Sample Data
 
-If you want to seed the database with realistic sample data, you can run the `seed_sample_data` management command:
+If you want to seed the database with realistic sample data, you can also run the `seed_sample_data` management command:
 
 ```bash
 python manage.py seed_sample_data
 ```
 
 This command will populate the database with randomly generated users, courses, categories, lessons, quizzes, questions, choices, enrollments, progress records, and notifications.
+
+**Note:** By default, the `seed_sample_data` command will be executed when you run the `python manage.py migrate` command. If you don't want to seed the database at that time, you can disable it by setting `SEED_SAMPLE_DATA_ON_MIGRATE = False` in the `settings.py` file.
 
 ## Conclusion
 
