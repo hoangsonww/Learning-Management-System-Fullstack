@@ -8,7 +8,7 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthService {
   private apiUrl = 'http://127.0.0.1:8000/api/auth/login/';
-  private tokenKey = 'authToken'; // Key used for storing the token in local storage
+  private tokenKey = 'authToken';
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
 
   constructor(private http: HttpClient) {}

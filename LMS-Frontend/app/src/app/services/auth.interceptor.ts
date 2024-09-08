@@ -8,17 +8,19 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = this.authService.getToken(); // Retrieve token from AuthInterceptor
+    const token = this.authService.getToken(); // Retrieve the token from AuthService
 
     if (token) {
       // Clone the request and add the Authorization header
       const cloned = req.clone({
-        headers: req.headers.set('Authorization', `Token ${token}`)
+        setHeaders: {
+          Authorization: `Token ${token}` // Correctly set the Authorization header
+        }
       });
-      console.log('Attaching token to request:', token);
+      console.log('AuthInterceptor: Attaching token to request:', cloned);
       return next.handle(cloned);
+    } else {
+      return next.handle(req);
     }
-
-    return next.handle(req);
   }
 }

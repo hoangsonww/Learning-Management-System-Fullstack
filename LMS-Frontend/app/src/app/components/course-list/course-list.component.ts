@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../../services/course.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-course-list',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './course-list.component.html',
   styleUrls: ['./course-list.component.css']
 })

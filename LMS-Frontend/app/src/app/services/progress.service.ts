@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AuthService } from './auth.service'; // Import AuthService to get the token
 
 @Injectable({
   providedIn: 'root'
@@ -8,25 +9,44 @@ import { Observable } from 'rxjs';
 export class ProgressService {
   private apiUrl = 'http://127.0.0.1:8000/api/progress/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
+  // Helper method to get the authorization headers
+  private getAuthHeaders(): HttpHeaders {
+    const token = this.authService.getToken(); // Retrieve the token from AuthService
+    return new HttpHeaders({
+      'Authorization': `Token ${token}`,
+      'Content-Type': 'application/json'
+    });
+  }
+
+  // Get all progress records
   getProgress(): Observable<any> {
-    return this.http.get(this.apiUrl);
+    const headers = this.getAuthHeaders();
+    return this.http.get(this.apiUrl, { headers });
   }
 
+  // Get a specific progress record by ID
   getProgressRecord(id: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}${id}/`);
+    const headers = this.getAuthHeaders();
+    return this.http.get(`${this.apiUrl}${id}/`, { headers });
   }
 
+  // Create a new progress record
   createProgress(progress: any): Observable<any> {
-    return this.http.post(this.apiUrl, progress);
+    const headers = this.getAuthHeaders();
+    return this.http.post(this.apiUrl, progress, { headers });
   }
 
+  // Update an existing progress record by ID
   updateProgress(id: number, progress: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}${id}/`, progress);
+    const headers = this.getAuthHeaders();
+    return this.http.put(`${this.apiUrl}${id}/`, progress, { headers });
   }
 
+  // Delete a progress record by ID
   deleteProgress(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}${id}/`);
+    const headers = this.getAuthHeaders();
+    return this.http.delete(`${this.apiUrl}${id}/`, { headers });
   }
 }
