@@ -331,6 +331,8 @@ Ensure the following prerequisites are installed:
     SECRET_KEY = 'your_secret_key_here'
     DEBUG = True
     ```
+   
+    Replace `your_secret_key_here` with a random string of characters. This key is used for cryptographic signing and should be kept secret. Or you can also contact me to get the secret key.
 
 8. **Seed the database with sample data:**
 
