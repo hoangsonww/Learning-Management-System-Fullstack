@@ -218,6 +218,21 @@ To test the API using `curl`, use the commands below. Replace `<your_token_here>
   ```bash
   curl -X GET http://127.0.0.1:8000/api/users/ -H "Content-Type: application/json" -H "Authorization: Token <your_token_here>"
   ```
+  
+  - You should get something like this:
+  
+      ```json
+      [
+        {
+          "id":"66dde39af395abfee65d1f86",
+          "username":"gibsonstacey",
+          "email":"xcaldwell@example.org",
+          "is_instructor":false,"is_student":false,
+          "bio":"Consider red specific within chance fund successful out.",
+          "profile_picture":"https://placekitten.com/970/531"
+        }
+      ]
+      ```
 
 - **Create a New Course**
 

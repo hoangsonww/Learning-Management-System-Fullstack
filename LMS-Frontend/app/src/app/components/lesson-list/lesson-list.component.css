@@ -1,0 +1,49 @@
+/* lesson-list.component.css */
+
+/* General Container Styling */
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Chart Section Styling */
+.chart-section {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.chart-container {
+  width: 300px;
+  height: 300px;
+}
+
+/* Card Styling */
+.card {
+  border: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 15px; /* Add padding for more space within the card */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Rounded Borders */
+.rounded-custom {
+  border-radius: 15px; /* Rounded corners for cards */
+  margin: 15px; /* Add space between cards */
+}
