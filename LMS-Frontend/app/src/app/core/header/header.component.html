@@ -25,7 +25,7 @@
     <li class="nav-item">
       <a class="nav-link" routerLink="/progress">Progress</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" style="margin-right: 0">
       <!-- Conditional Login/Logout Button -->
       <a class="nav-link" *ngIf="isLoggedIn(); else loggedOut" (click)="logout()" style="cursor: pointer">
         Logout
