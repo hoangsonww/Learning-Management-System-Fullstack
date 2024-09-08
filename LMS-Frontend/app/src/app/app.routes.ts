@@ -1,12 +1,19 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './auth/login.component';
-import { RegisterComponent } from './auth/register.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './auth/login/login.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { CourseListComponent } from './components/course-list/course-list.component';
+import { LessonListComponent } from './components/lesson-list/lesson-list.component';
+import { EnrollmentListComponent } from './components/enrollment-list/enrollment-list.component';
+import { ProgressListComponent } from './components/progress-list/progress-list.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: '**', component: NotFoundComponent }
+  { path: 'users', component: UserListComponent },
+  { path: 'courses', component: CourseListComponent },
+  { path: 'lessons', component: LessonListComponent },
+  { path: 'enrollments', component: EnrollmentListComponent },
+  { path: 'progress', component: ProgressListComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

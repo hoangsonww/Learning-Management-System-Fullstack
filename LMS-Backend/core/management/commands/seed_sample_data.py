@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from core.models import User, Course, Category, Lesson, Quiz, Question, Choice, Enrollment, Progress, Notification
 from datetime import datetime
-from mongoengine import connect, disconnect
+from mongoengine import connect  # No need to import `disconnect`
 from faker import Faker
 import random
 
@@ -11,12 +11,6 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         # Initialize Faker
         fake = Faker()
-
-        # Disconnect any existing connections
-        disconnect()
-
-        # Connect to MongoDB
-        connect(db="lms_database", host="mongodb://localhost:27017/lms_database")
 
         # Clear existing data
         User.drop_collection()

@@ -1,0 +1,11 @@
+<div class="user-list">
+  <h2>User List</h2>
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  <ul *ngIf="!errorMessage">
+    <li *ngFor="let user of users">
+      {{ user.username }} ({{ user.email }})
+    </li>
+  </ul>
+</div>

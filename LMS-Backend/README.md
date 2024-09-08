@@ -247,7 +247,7 @@ Repeat similar `curl` commands for other endpoints.
 1. Navigate to the Swagger UI at [http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/).
 2. Click on an endpoint to expand it.
 3. Click the "Try it out" button.
-4. Enter the required parameters and authentication token (`Bearer <your_token_here>`) in the "Authorization" header.
+4. Enter the required parameters and authentication token (`Token <your_token_here>`) in the "Authorization" header. **Note that the token should be prefixed with `Token` and a space.**
 5. Click "Execute" to see the API response.
 6. Alternatively, you can simply click the "Authorize" button in the top right corner of the page and enter your token there. This will automatically include the token in all requests. Then repeat steps 3 and 5 to test the endpoints.
 

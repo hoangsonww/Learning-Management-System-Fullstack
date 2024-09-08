@@ -1,0 +1,11 @@
+<div class="progress-list">
+  <h2>Progress Records</h2>
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  <ul *ngIf="!errorMessage">
+    <li *ngFor="let progress of progressRecords">
+      User: {{ progress.user }} - Lesson: {{ progress.lesson }} - Status: {{ progress.status }}
+    </li>
+  </ul>
+</div>

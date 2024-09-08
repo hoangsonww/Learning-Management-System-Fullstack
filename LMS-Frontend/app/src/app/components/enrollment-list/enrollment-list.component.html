@@ -1,0 +1,11 @@
+<div class="enrollment-list">
+  <h2>Enrollment List</h2>
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  <ul *ngIf="!errorMessage">
+    <li *ngFor="let enrollment of enrollments">
+      User: {{ enrollment.user }} - Course: {{ enrollment.course }}
+    </li>
+  </ul>
+</div>

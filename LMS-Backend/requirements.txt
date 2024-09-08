@@ -5,6 +5,7 @@ dataclasses==0.6
 dj-rest-auth==6.0.0
 Django==4.2.16
 django-allauth==64.2.1
+django-cors-headers==4.4.0
 django-mongoengine==0.5.6
 django-redis==5.4.0
 django-rest-framework-mongoengine==3.4.1

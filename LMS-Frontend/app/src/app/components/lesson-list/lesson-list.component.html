@@ -1,0 +1,11 @@
+<div class="lesson-list">
+  <h2>Lesson List</h2>
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  <ul *ngIf="!errorMessage">
+    <li *ngFor="let lesson of lessons">
+      {{ lesson.title }} - {{ lesson.content }}
+    </li>
+  </ul>
+</div>

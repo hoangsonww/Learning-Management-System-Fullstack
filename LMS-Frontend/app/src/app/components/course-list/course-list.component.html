@@ -1,0 +1,16 @@
+<div class="course-list">
+  <h2>Course List</h2>
+
+  <!-- Display error message if any -->
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Display course list if no error -->
+  <ul *ngIf="!errorMessage">
+    <li *ngFor="let course of courses">
+      <h4>{{ course.name }}</h4>
+      <p>{{ course.description }}</p>
+    </li>
+  </ul>
+</div>
