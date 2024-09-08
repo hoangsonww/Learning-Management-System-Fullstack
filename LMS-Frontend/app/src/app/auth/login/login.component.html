@@ -1,32 +1,37 @@
-<div class="login-container">
-  <h2>Login</h2>
-  <form (ngSubmit)="login()">
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input
-        type="text"
-        id="username"
-        [(ngModel)]="username"
-        name="username"
-        class="form-control"
-        required
-      />
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        [(ngModel)]="password"
-        name="password"
-        class="form-control"
-        required
-      />
-    </div>
-    <button type="submit" class="btn btn-primary">Login</button>
-    <!-- Display error message if any -->
-    <div *ngIf="errorMessage" class="alert alert-danger mt-2">
-      {{ errorMessage }}
-    </div>
-  </form>
+<div class="login-container d-flex justify-content-center align-items-center">
+  <div class="card p-5 shadow-lg login-card">
+    <h2 class="text-center text-primary mb-4">Login</h2>
+    <form (ngSubmit)="login()">
+      <div class="form-group mb-3">
+        <label for="username" class="form-label">Username:</label>
+        <input
+          type="text"
+          id="username"
+          [(ngModel)]="username"
+          name="username"
+          class="form-control form-control-lg"
+          placeholder="Enter your username"
+          required
+        />
+      </div>
+      <div class="form-group mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input
+          type="password"
+          id="password"
+          [(ngModel)]="password"
+          name="password"
+          class="form-control form-control-lg"
+          placeholder="Enter your password"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg w-100 mt-3">Login</button>
+
+      <!-- Display error message if any -->
+      <div *ngIf="errorMessage" class="alert alert-danger mt-4 text-center">
+        {{ errorMessage }}
+      </div>
+    </form>
+  </div>
 </div>
