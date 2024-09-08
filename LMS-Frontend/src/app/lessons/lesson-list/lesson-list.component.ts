@@ -1,12 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LessonService } from '../../core/services/lesson.service';
+import { Lesson } from '../../core/models/lesson.model';
 
 @Component({
   selector: 'app-lesson-list',
-  standalone: true,
-  imports: [],
   templateUrl: './lesson-list.component.html',
-  styleUrl: './lesson-list.component.css'
+  styleUrls: ['./lesson-list.component.css'],
 })
-export class LessonListComponent {
+export class LessonListComponent implements OnInit {
+  lessons: Lesson[] = [];
 
+  constructor(private lessonService: LessonService) {}
+
+  ngOnInit(): void {
+    this.loadLessons();
+  }
+
+  loadLessons(): void {
+    this.lessonService.getLessons().subscribe(
+      (data) => {
+        this.lessons = data;
+      },
+      (error) => {
+        console.error('Error fetching lessons:', error);
+      }
+    );
+  }
 }

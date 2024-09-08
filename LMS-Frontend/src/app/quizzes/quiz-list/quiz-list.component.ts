@@ -1,12 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { QuizService } from '../../core/services/quiz.service';
+import { Quiz } from '../../core/models/quiz.model';
 
 @Component({
   selector: 'app-quiz-list',
-  standalone: true,
-  imports: [],
   templateUrl: './quiz-list.component.html',
-  styleUrl: './quiz-list.component.css'
+  styleUrls: ['./quiz-list.component.css'],
 })
-export class QuizListComponent {
+export class QuizListComponent implements OnInit {
+  quizzes: Quiz[] = [];
 
+  constructor(private quizService: QuizService) {}
+
+  ngOnInit(): void {
+    this.loadQuizzes();
+  }
+
+  loadQuizzes(): void {
+    this.quizService.getQuizzes().subscribe(
+      (data) => {
+        this.quizzes = data;
+      },
+      (error) => {
+        console.error('Error fetching quizzes:', error);
+      }
+    );
+  }
 }
