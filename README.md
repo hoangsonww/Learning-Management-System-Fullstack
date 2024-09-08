@@ -54,6 +54,7 @@ The **MAD-Stack** is a powerful combination that allows developers to build scal
 - **Progress Tracking**: Monitor and visualize user progress.
 - **Notification System**: Send and manage notifications.
 - **Responsive Design**: Optimized for all devices.
+- **Search and Filtering**: Search and filter courses and lessons.
 - **Data Visualization**: Dynamic charts using Chart.js.
 - **Comprehensive APIs**: Powerful RESTful APIs for all operations.
 - **API Documentation**: Comprehensive REST API documentation with Swagger and Redoc.
