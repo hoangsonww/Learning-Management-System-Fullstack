@@ -484,9 +484,7 @@ Repeat similar `curl` commands for other endpoints.
 Here is how the Swagger UI looks like:
 
 <p align="center" style="cursor: pointer">
-  <a href="https://movie-verse.com">
-    <img src="docs/swagger-ui.png" alt="Swagger UI" style="border-radius: 10px" width="100%"/>
-  </a>
+  <img src="docs/swagger-ui.png" alt="Swagger UI" style="border-radius: 10px" width="100%"/>
 </p>
 
 #### Using Redoc
@@ -498,9 +496,8 @@ Here is how the Swagger UI looks like:
 Here is how the Redoc UI looks like:
 
 <p align="center" style="cursor: pointer">
-  <a href="https://movie-verse.com">
-    <img src="docs/redoc-ui.png" alt="Redoc UI" style="border-radius: 10px" width="100%"/>
-  </a>
+  <img src="docs/redoc-ui.png" alt="Redoc UI" style="border-radius: 10px" width="100%"/>
+</p>
 
 #### Using Django REST Framework Browsable API
 
@@ -512,9 +509,7 @@ Here is how the Redoc UI looks like:
 For example, to view the list of all lessons, go to [http://127.0.0.1:8000/api/lessons/](http://127.0.0.1:8000/api/lessons/). The interface should look like this:
 
 <p align="center" style="cursor: pointer">
-  <a href="https://movie-verse.com">
-    <img src="docs/browsable-api.png" alt="Browsable API" style="border-radius: 10px" width="100%"/>
-  </a>
+  <img src="docs/browsable-api.png" alt="Browsable API" style="border-radius: 10px" width="100%"/>
 </p>
 
 **Well, remember to log in first before accessing the API... Don't forget to log in!**
