@@ -274,6 +274,12 @@ Learning-Management-System/
   <img src="docs/login-ui.png" alt="Login Page" style="border-radius: 10px" width="100%"/>
 </p>
 
+**Footer**:
+
+<p align="center" style="cursor: pointer">
+  <img src="docs/footer-ui.png" alt="Footer" style="border-radius: 10px" width="100%"/>
+</p>
+
 ## Getting Started
 
 ### Prerequisites
@@ -590,6 +596,13 @@ These README files contain additional information on how to run, test, and contr
 ## Contributing
 
 We welcome contributions! Feel free to submit issues and create pull requests.
+
+1. **Fork** the repository.
+2. **Clone** the forked repository to your local machine.
+3. **Create a new branch** and make your changes.
+4. **Commit** your changes and **push** them to your fork.
+5. **Create a pull request** to the main repository.
+6. I will **review your changes** and **merge them if they are accepted**.
 
 ## License
 
