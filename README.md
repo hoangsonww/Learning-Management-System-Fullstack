@@ -552,6 +552,15 @@ To interact with the APIs and databases more easily, you can use the following G
 - Use browser Developer Tools to inspect requests and console logs.
 - Check the network tab for failed requests.
 
+## Additional Information
+
+Refer to the README files in the `LMS-Backend` and `LMS-Frontend` directories for more detailed information on each part of the system.
+
+- [Backend README](LMS-Backend/README.md)
+- [Frontend README](LMS-Frontend/README.md)
+
+These README files contain additional information on how to run, test, and contribute to the project.
+
 ## Contributing
 
 We welcome contributions! Feel free to submit issues and create pull requests.
