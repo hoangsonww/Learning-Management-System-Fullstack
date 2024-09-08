@@ -1,4 +1,4 @@
-# E-Learning Management System
+# E-Learning Management System Frontend
 
 The **E-Learning Management System Frontend** is the frontend component of the E-Learning Management System, a web-based application that allows administrators and users to interact with the e-learning platform's various components. The frontend is developed with Angular, and the backend is built using Django REST Framework.
 
@@ -6,6 +6,7 @@ The **E-Learning Management System Frontend** is the frontend component of the E
 
 - [Project Overview](#project-overview)
 - [Features](#features)
+- [User Interfaces](#user-interfaces)
 - [File Structure](#file-structure)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
@@ -13,6 +14,9 @@ The **E-Learning Management System Frontend** is the frontend component of the E
   - [Frontend Setup (Angular)](#frontend-setup)
 - [Styling and Design](#styling-and-design)
 - [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ## Project Overview
 
@@ -80,17 +84,7 @@ The repository is organized as follows:
 ```plaintext
 Learning-Management-System/
 ├── LMS-Backend
-│   ├── manage.py
-│   ├── requirements.txt
-│   ├── LMS/
-│   │   ├── settings.py
-│   │   ├── urls.py
-│   │   └── wsgi.py
-│   ├── api/
-│   │   ├── models.py
-│   │   ├── views.py
-│   │   ├── serializers.py
-│   │   └── urls.py
+│   ├── (Backend code)
 │   └── ...
 ├── LMS-Frontend
 │   ├── angular.json
@@ -154,20 +148,23 @@ Learning-Management-System/
 │   │   │   │   ├── app.config.service.ts
 │   │   │   │   ├── app.component.html
 │   │   │   │   └── app.component.css
-│   │   ├── assets/
-│   │   │   └── images/
-│   │   │   └── .gitkeep
-│   │   ├── main.ts
-│   │   ├── styles.css
-│   │   └── index.html
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── angular.json
-│   ├── package.json 
-│   ├── package-lock.json
-│   ├── tsconfig.json
-│   ├── tsconfig.app.json
-│   └── tsconfig.spec.json
+│   │   │   ├── assets/
+│   │   │   │   └── images/
+│   │   │   │   └── .gitkeep
+│   │   │   ├── main.ts
+│   │   │   ├── styles.css
+│   │   │   └── index.html
+│   │   ├── .editorconfig
+│   │   ├── .gitignore
+│   │   ├── angular.json
+│   │   ├── package.json 
+│   │   ├── package-lock.json
+│   │   ├── tsconfig.json
+│   │   ├── tsconfig.app.json
+│   │   └── tsconfig.spec.json
+│   ├── LICENSE
+│   ├── README.md
+├── .gitignore
 ├── LICENSE
 └── README.md
 ```
@@ -263,7 +260,7 @@ It is of utmost importance to set up the backend server before running the front
 ### Common Issues
 
 1. **CORS Errors:**
-  - Ensure your backend server is configured to accept requests from `http://localhost:4200`.
+  - Ensure your backend server is configured to accept requests from `http://localhost:4200`. This should have been set up already in the Django backend.
 
 2. **Unauthorized Access Errors:**
   - Make sure the token is correctly stored in `localStorage` after login and is sent with each request that requires authorization.
@@ -284,6 +281,10 @@ Feel free to submit issues and contribute to the development of this project by 
 
 This project is licensed under the [MIT License](LICENSE).
 
+## Contact
+
+If you have any questions or need further assistance, feel free to contact me at [hoangson091104@gmail.com](mailto:hoangson091104@gmail.com).
+
 ---
 
-**[⬆ Back to Top](#e-learning-management-system)**
+**[⬆ Back to Top](#e-learning-management-system-frontend)**

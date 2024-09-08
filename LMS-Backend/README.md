@@ -9,6 +9,7 @@ This is the backend of a Learning Management System (LMS) built using Django and
 - [Running the Server](#running-the-server)
 - [Using the Admin Interface](#using-the-admin-interface)
 - [API Endpoints](#api-endpoints)
+- [File Structure](#file-structure)
 - [Authentication](#authentication)
 - [Testing the APIs](#testing-the-apis)
   - [Using `curl`](#using-curl)
@@ -177,6 +178,42 @@ Here is how the admin interface looks like:
 | `/api/notifications/`      | POST   | Create a new notification instance.           |
 | `/api/notifications/{id}/` | PUT    | Update a specific notification instance.      |
 | `/api/notifications/{id}/` | DELETE | Delete a specific notification instance.      |
+
+## File Structure
+
+```plaintext
+Learning-Management-System/
+├── LMS-Backend
+│   ├── manage.py
+│   ├── requirements.txt
+│   ├── LICENSE
+│   ├── db.sqlite3
+│   ├── README.md
+│   ├── LMSBackend/
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   ├── asgi.py
+│   │   └── wsgi.py
+│   ├── core/
+│   │   ├── management/
+│   │   │   └── commands/
+│   │   │       └── seed_sample_data.py
+│   │   ├── migrations/
+│   │   ├── models.py
+│   │   ├── views.py
+│   │   ├── tests.py
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── serializers.py
+│   │   └── urls.py
+│   └── ...
+├── LMS-Frontend
+│   ├── (Frontend code)
+│   └── ...
+├── LICENSE
+├── .gitignore
+└── README.md
+```
 
 ## Authentication
 
