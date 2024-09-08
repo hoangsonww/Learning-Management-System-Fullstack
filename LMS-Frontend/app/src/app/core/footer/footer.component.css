@@ -26,7 +26,7 @@
 .nav-link {
   color: white !important;
   text-decoration: none;
-  margin: 0 15px;
+  margin: 5px 15px;
   font-size: 16px;
   font-weight: 500;
   transition: color 0.3s, transform 0.3s;
@@ -52,4 +52,5 @@
 .nav-link:hover {
   color: #dfe6e9 !important;
   transform: scale(1.1);
+  cursor: pointer;
 }
