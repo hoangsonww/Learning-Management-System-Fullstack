@@ -553,6 +553,12 @@ To interact with the APIs and databases more easily, you can use the following G
 
 - Use browser Developer Tools to inspect requests and console logs.
 - Check the network tab for failed requests.
+- Use `console.log` statements in the frontend code to debug.
+- Use `print` statements in the backend code to debug.
+- Check the Django console for server-side errors.
+- Check the Angular console for client-side errors.
+- Refer to the official documentation for troubleshooting tips.
+- Feel free to open an issue or contact me for help. Refer to the [Contact](#contact) section below.
 
 ## Additional Information
 
