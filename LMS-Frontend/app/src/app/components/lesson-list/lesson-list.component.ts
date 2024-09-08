@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { LessonService } from '../../services/lesson.service';
-import { CommonModule } from '@angular/common'; // Import CommonModule
-import Chart from 'chart.js/auto'; // Import Chart.js
+import { CommonModule } from '@angular/common';
+import Chart from 'chart.js/auto';
 
 @Component({
   selector: 'app-lesson-list',
   standalone: true,
-  imports: [CommonModule], // Add CommonModule
+  imports: [CommonModule],
   templateUrl: './lesson-list.component.html',
   styleUrls: ['./lesson-list.component.css']
 })
@@ -20,7 +20,7 @@ export class LessonListComponent implements OnInit {
     this.lessonService.getLessons().subscribe(
       (data) => {
         this.lessons = data;
-        this.renderChart(); // Render the chart after fetching lessons
+        this.renderChart();
       },
       (error) => {
         if (error.status === 401) {
@@ -40,7 +40,7 @@ export class LessonListComponent implements OnInit {
       data: {
         labels: ['Lessons', 'Courses', 'Enrollments'],
         datasets: [{
-          data: [this.lessons.length, 10, 30], // Replace with dynamic data as needed
+          data: [this.lessons.length, 10, 30],
           backgroundColor: ['#007bff', '#ffc107', '#28a745']
         }]
       },
