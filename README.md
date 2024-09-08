@@ -19,7 +19,7 @@ Welcome to the **E-Learning Management System (LMS)**! This project consists of 
   - [Authentication](#authentication)
   - [Testing the APIs](#testing-the-apis)
   - [Seeding Sample Data](#seeding-sample-data)
-- [Styling and Design](#styling-and-design)
+- [Recommended GUI Tools](#recommended-gui-tools)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
 - [License](#license)
@@ -55,7 +55,8 @@ The **MAD-Stack** is a powerful combination that allows developers to build scal
 - **Notification System**: Send and manage notifications.
 - **Responsive Design**: Optimized for all devices.
 - **Data Visualization**: Dynamic charts using Chart.js.
-- **API Endpoints**: Comprehensive REST API documentation with Swagger and Redoc.
+- **Comprehensive APIs**: Powerful RESTful APIs for all operations.
+- **API Documentation**: Comprehensive REST API documentation with Swagger and Redoc.
 
 ## File Structure
 
@@ -324,18 +325,40 @@ Ensure the following prerequisites are installed:
    
     Follow the prompts to create a superuser account. Remember to note down the username and password because you will need it to authenticate when using the APIs later, as well as to access the Django admin panel.
 
+7. **Put the `SECRET_KEY` and set `Debug` to `True` in the `settings.py` file:**
 
-7. **Seed the database with sample data:**
+    ```plaintext
+    SECRET_KEY = 'your_secret_key_here'
+    DEBUG = True
+    ```
+
+8. **Seed the database with sample data:**
 
    ```bash
    python manage.py seed_sample_data
    ```
 
-8. **Run the backend server:**
+9. **Run the backend server:**
 
    ```bash
    python manage.py runserver
    ```
+   
+    The backend server should now be running at `http://127.0.0.1:8000/`. If the server is run successfully, you should see the Django REST Framework browsable API interface at `http://127.0.0.1:8000`, as well as the following console output:
+
+    ```plaintext
+    python manage.py runserver
+    Successfully seeded realistic sample data
+    Successfully seeded realistic sample data
+    Watching for file changes with StatReloader
+    Performing system checks...
+    
+    System check identified no issues (0 silenced).
+    September 08, 2024 - 20:35:21
+    Django version 4.2.16, using settings 'LMSBackend.settings'
+    Starting development server at http://127.0.0.1:8000/
+    Quit the server with CONTROL-C.
+    ```
 
 ### Frontend Setup
 
@@ -481,6 +504,8 @@ For example, to view the list of all lessons, go to [http://127.0.0.1:8000/api/l
   </a>
 </p>
 
+**Well, remember to log in first before accessing the API... Don't forget to log in!**
+
 ### Seeding Sample Data
 
 If you want to seed the database with realistic sample data, you can also run the `seed_sample_data` management command:
@@ -493,15 +518,15 @@ This command will populate the database with randomly generated users, courses, 
 
 **Note:** By default, the `seed_sample_data` command will be executed when you run the `python manage.py migrate` command. If you don't want to seed the database at that time, you can disable it by setting `SEED_SAMPLE_DATA_ON_MIGRATE = False` in the `settings.py` file.
 
-## Styling and Design
+#### Recommended GUI Tools
 
-- **Framework**: Bootstrap for responsive design.
-- **Custom CSS**: Component-specific styles.
-- **Charts**: Data visualized using Chart.js.
-- **Icons**: Font Awesome icons.
-- **Typography**: Google Poppins.
-- **Layout**: Intuitive and user-friendly.
-- **Responsive Design**: Optimized for all screen sizes.
+To interact with the APIs and databases more easily, you can use the following GUI tools:
+
+- **MongoDB Compass**: A GUI tool for MongoDB that allows you to explore and interact with your MongoDB databases. You can download it from [here](https://www.mongodb.com/try/download/compass).
+- **RedisInsight**: A GUI tool for Redis that allows you to explore and interact with your Redis databases. You can download it from [here](https://redislabs.com/redis-enterprise/redis-insight/).
+- **Postman**: A powerful GUI tool for testing APIs. You can download it from [here](https://www.postman.com/downloads/).
+- **Swagger UI**: An interactive API documentation tool. You can access the Swagger UI at [http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/). Ensure the server is running before accessing the UI.
+- **Redoc**: Another interactive API documentation tool. You can access the Redoc UI at [http://127.0.0.1:8000/redoc/](http://127.0.0.1:8000/redoc/). Ensure the server is running before accessing the UI.
 
 ## Troubleshooting
 
