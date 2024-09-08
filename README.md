@@ -300,7 +300,7 @@ Ensure the following prerequisites are installed:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/hoangsonww/Fullstack-Learning-Management-System.git
+   git clone https://github.com/hoangsonww/Learning-Management-System-Fullstack.git
    cd Fullstack-Learning-Management-System/LMS-Backend
    ```
 
@@ -613,7 +613,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 If you have any questions or need further assistance, contact us at [hoangson091104@gmail.com](mailto:hoangson091104@gmail.com).
 
-Alternatively, you can also open an issue in the repository [here](https://github.com/hoangsonww/Learning-Management-System/issues).
+Alternatively, you can also open an issue in the repository [here](https://github.com/hoangsonww/Learning-Management-System-Fullstack/issues).
 
 ---
 
