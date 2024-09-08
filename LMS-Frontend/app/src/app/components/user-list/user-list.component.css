@@ -1,12 +1,8 @@
-/* user-list.component.css */
-
-/* General Container Styling */
 .container {
   max-width: 1200px;
   margin: auto;
 }
 
-/* Chart Section Styling */
 .chart-section {
   margin-bottom: 20px;
   display: flex;
@@ -19,11 +15,10 @@
   height: 300px;
 }
 
-/* Card Styling */
 .card {
   border: none;
   transition: transform 0.3s, box-shadow 0.3s;
-  padding: 15px; /* Add padding for more space within the card */
+  padding: 15px;
 }
 
 .card:hover {
@@ -42,8 +37,7 @@
   font-size: 0.95rem;
 }
 
-/* Rounded Borders */
 .rounded-custom {
-  border-radius: 15px; /* Rounded corners for cards */
-  margin: 15px; /* Add space between cards */
+  border-radius: 15px;
+  margin: 15px;
 }
