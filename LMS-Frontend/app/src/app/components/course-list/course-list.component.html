@@ -1,16 +1,21 @@
-<div class="course-list">
-  <h2>Course List</h2>
+<div class="container mt-4">
+  <h2 class="mb-4 text-primary">Courses</h2>
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  <div *ngIf="courses.length === 0 && !errorMessage" class="alert alert-info">No courses available.</div>
 
-  <!-- Display error message if any -->
-  <div *ngIf="errorMessage" class="alert alert-danger">
-    {{ errorMessage }}
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let course of courses">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ course.title }}</h5>
+          <p class="card-text">{{ course.description }}</p>
+          <small>Instructor: {{ course.instructor }}</small>
+          <div class="mt-3 d-flex justify-content-between">
+            <button class="btn btn-outline-primary btn-sm">View Details</button>
+            <button class="btn btn-outline-danger btn-sm">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <!-- Display course list if no error -->
-  <ul *ngIf="!errorMessage">
-    <li *ngFor="let course of courses">
-      <h4>{{ course.name }}</h4>
-      <p>{{ course.description }}</p>
-    </li>
-  </ul>
 </div>

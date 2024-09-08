@@ -1,11 +1,21 @@
-<div class="lesson-list">
-  <h2>Lesson List</h2>
-  <div *ngIf="errorMessage" class="alert alert-danger">
-    {{ errorMessage }}
+<div class="container mt-4">
+  <h2 class="mb-4 text-primary">Lessons</h2>
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  <div *ngIf="lessons.length === 0 && !errorMessage" class="alert alert-info">No lessons available.</div>
+
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let lesson of lessons">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ lesson.title }}</h5>
+          <p class="card-text">{{ lesson.description }}</p>
+          <small>Duration: {{ lesson.duration }} minutes</small>
+          <div class="mt-3 d-flex justify-content-between">
+            <button class="btn btn-outline-primary btn-sm">View Details</button>
+            <button class="btn btn-outline-danger btn-sm">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <ul *ngIf="!errorMessage">
-    <li *ngFor="let lesson of lessons">
-      {{ lesson.title }} - {{ lesson.content }}
-    </li>
-  </ul>
 </div>

@@ -1,5 +1,6 @@
 from mongoengine import Document, fields
 
+
 class User(Document):
     username = fields.StringField(required=True, max_length=100, unique=True)
     email = fields.EmailField(required=True, unique=True)
@@ -10,11 +11,13 @@ class User(Document):
 
     meta = {'collection': 'users'}
 
+
 class Category(Document):
     name = fields.StringField(max_length=100)
     description = fields.StringField()
 
     meta = {'collection': 'categories'}
+
 
 class Course(Document):
     title = fields.StringField(max_length=255)
@@ -29,6 +32,7 @@ class Course(Document):
 
     meta = {'collection': 'courses'}
 
+
 class Lesson(Document):
     title = fields.StringField(max_length=255)
     course = fields.ReferenceField(Course, reverse_delete_rule='CASCADE')
@@ -39,12 +43,14 @@ class Lesson(Document):
 
     meta = {'collection': 'lessons'}
 
+
 class Quiz(Document):
     lesson = fields.ReferenceField(Lesson, reverse_delete_rule='CASCADE')
     title = fields.StringField(max_length=255)
     created_at = fields.DateTimeField()
 
     meta = {'collection': 'quizzes'}
+
 
 class Question(Document):
     quiz = fields.ReferenceField(Quiz, reverse_delete_rule='CASCADE')
@@ -54,12 +60,14 @@ class Question(Document):
 
     meta = {'collection': 'questions'}
 
+
 class Choice(Document):
     question = fields.ReferenceField(Question, reverse_delete_rule='CASCADE')
     text = fields.StringField(max_length=255)
     is_correct = fields.BooleanField(default=False)
 
     meta = {'collection': 'choices'}
+
 
 class Enrollment(Document):
     student = fields.ReferenceField(User, reverse_delete_rule='CASCADE')
@@ -68,6 +76,7 @@ class Enrollment(Document):
 
     meta = {'collection': 'enrollments'}
 
+
 class Progress(Document):
     student = fields.ReferenceField(User, reverse_delete_rule='CASCADE')
     lesson = fields.ReferenceField(Lesson, reverse_delete_rule='CASCADE')
@@ -75,6 +84,7 @@ class Progress(Document):
     completed_at = fields.DateTimeField()
 
     meta = {'collection': 'progress'}
+
 
 class Notification(Document):
     recipient = fields.ReferenceField(User, reverse_delete_rule='CASCADE')

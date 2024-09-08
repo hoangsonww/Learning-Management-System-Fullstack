@@ -1,0 +1,51 @@
+.home {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.welcome-section {
+  margin-bottom: 30px;
+}
+
+.welcome-section h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.welcome-section p {
+  font-size: 1.25rem;
+  color: #555;
+}
+
+.card {
+  border: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.card-text {
+  color: #777;
+  text-align: center;
+}
+
+.btn-outline-primary {
+  font-weight: 500;
+  transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}

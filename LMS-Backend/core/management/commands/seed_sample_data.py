@@ -1,9 +1,9 @@
 from django.core.management.base import BaseCommand
 from core.models import User, Course, Category, Lesson, Quiz, Question, Choice, Enrollment, Progress, Notification
 from datetime import datetime
-from mongoengine import connect  # No need to import `disconnect`
 from faker import Faker
 import random
+
 
 class Command(BaseCommand):
     help = 'Seed realistic sample data for all API endpoints'

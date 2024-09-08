@@ -1,11 +1,72 @@
-<div class="home">
-  <h1>Welcome to My Angular App</h1>
-  <p>Use the links below to navigate:</p>
-  <ul>
-    <li><a routerLink="/users">User List</a></li>
-    <li><a routerLink="/courses">Course List</a></li>
-    <li><a routerLink="/lessons">Lesson List</a></li>
-    <li><a routerLink="/enrollments">Enrollment List</a></li>
-    <li><a routerLink="/progress">Progress Records</a></li>
-  </ul>
+<div class="home container text-center mt-5">
+  <!-- Welcome Section -->
+  <div class="welcome-section mb-5">
+    <h1 class="display-4 text-primary mb-3" style="text-align: center">Welcome to the E-Learning Management System</h1>
+    <p class="lead">Explore courses, track your progress, and manage enrollments easily.</p>
+  </div>
+
+  <!-- Navigation Section -->
+  <div class="navigation-section">
+    <div class="row">
+      <!-- User List Card -->
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body d-flex flex-column justify-content-center align-items-center">
+            <i class="fas fa-users fa-3x mb-3 text-primary"></i>
+            <h5 class="card-title">User List</h5>
+            <p class="card-text">Manage all registered users.</p>
+            <a class="btn btn-outline-primary mt-3" routerLink="/users">Go to Users</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course List Card -->
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body d-flex flex-column justify-content-center align-items-center">
+            <i class="fas fa-book fa-3x mb-3 text-primary"></i>
+            <h5 class="card-title">Course List</h5>
+            <p class="card-text">Browse all available courses.</p>
+            <a class="btn btn-outline-primary mt-3" routerLink="/courses">Go to Courses</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson List Card -->
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body d-flex flex-column justify-content-center align-items-center">
+            <i class="fas fa-chalkboard-teacher fa-3x mb-3 text-primary"></i>
+            <h5 class="card-title">Lesson List</h5>
+            <p class="card-text">View all lessons in courses.</p>
+            <a class="btn btn-outline-primary mt-3" routerLink="/lessons">Go to Lessons</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enrollment List Card -->
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body d-flex flex-column justify-content-center align-items-center">
+            <i class="fas fa-clipboard-list fa-3x mb-3 text-primary"></i>
+            <h5 class="card-title">Enrollment List</h5>
+            <p class="card-text">Manage course enrollments.</p>
+            <a class="btn btn-outline-primary mt-3" routerLink="/enrollments">Go to Enrollments</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress Records Card -->
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body d-flex flex-column justify-content-center align-items-center">
+            <i class="fas fa-chart-line fa-3x mb-3 text-primary"></i>
+            <h5 class="card-title">Progress Records</h5>
+            <p class="card-text">Track user progress in courses.</p>
+            <a class="btn btn-outline-primary mt-3" routerLink="/progress">Go to Progress</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
