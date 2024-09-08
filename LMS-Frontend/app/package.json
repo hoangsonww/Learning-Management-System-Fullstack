@@ -1,6 +1,17 @@
 {
-  "name": "app",
-  "version": "0.0.0",
+  "name": "elearning-frontend",
+  "displayName": "E-Learning Management System Frontend",
+  "description": "This is the frontend of the E-Learning Management System",
+  "author": "Son Nguyen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoangsonww/Learning-Management-System.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hoangsonww/Learning-Management-System/issues"
+  },
+  "version": "1.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
