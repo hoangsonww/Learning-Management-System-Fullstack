@@ -21,6 +21,8 @@
 .card {
   border: none;
   transition: transform 0.3s, box-shadow 0.3s;
+  margin: 10px;
+  padding: 10px;
 }
 
 .card:hover {
@@ -42,10 +44,16 @@
 .btn-outline-primary {
   font-weight: 500;
   transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+  padding: 5px;
+  border-radius: 8px;
 }
 
 .btn-outline-primary:hover {
   background-color: #007bff;
   color: white;
   border-color: #007bff;
+}
+
+.rounded-custom {
+  border-radius: 15px;
 }
