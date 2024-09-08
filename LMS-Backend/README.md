@@ -17,6 +17,7 @@ This is the backend of a Learning Management System (LMS) built using Django and
   - [Using Redoc](#using-redoc)
   - [Using Django REST Framework Browsable API](#using-django-rest-framework-browsable-api)
 - [Seeding Sample Data](#seeding-sample-data)
+- [Recommended GUI Tools](#recommended-gui-tools)
 
 ## Prerequisites
 
@@ -297,6 +298,32 @@ python manage.py seed_sample_data
 This command will populate the database with randomly generated users, courses, categories, lessons, quizzes, questions, choices, enrollments, progress records, and notifications.
 
 **Note:** By default, the `seed_sample_data` command will be executed when you run the `python manage.py migrate` command. If you don't want to seed the database at that time, you can disable it by setting `SEED_SAMPLE_DATA_ON_MIGRATE = False` in the `settings.py` file.
+
+## Recommended GUI Tools
+
+- **MongoDB Compass**: A GUI tool for MongoDB that allows you to explore and interact with your MongoDB databases. You can download it from [here](https://www.mongodb.com/try/download/compass).
+- **RedisInsight**: A GUI tool for Redis that allows you to explore and interact with your Redis databases. You can download it from [here](https://redislabs.com/redis-enterprise/redis-insight/).
+- **Postman**: A powerful GUI tool for testing APIs. You can download it from [here](https://www.postman.com/downloads/).
+- **Swagger UI**: An interactive API documentation tool. You can access the Swagger UI at [http://
+- **Redoc**: Another interactive API documentation tool. You can access the Redoc UI at [http://
+
+For example, you can use MongoDB Compass to view the data in your MongoDB database, RedisInsight to view the data in your Redis database, and Postman to test the API endpoints, like below:
+
+<p align="center" style="cursor: pointer">
+  <a href="https://movie-verse.com">
+    <img src="../docs/gui-tools.png" alt="GUI Tools" style="border-radius: 10px" width="100%"/>
+  </a>
+</p>
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+
+In short, feel free to use, modify, and distribute this code for personal or commercial projects. I would appreciate it if you could provide attribution by linking back to this repository!
+
+## Contact
+
+If you have any questions or need further assistance, feel free to contact me at [hoangson091104@gmail.com](mailto:hoangson091104@gmail.com).
 
 ## Conclusion
 
