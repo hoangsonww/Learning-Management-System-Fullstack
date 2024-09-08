@@ -1,31 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ProgressService } from '../../services/progress.service';
-import { UserService } from '../../services/user.service'; // Import UserService
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import Chart from 'chart.js/auto';
 
-// Define interfaces for Progress, User, and Lesson
 interface Progress {
   _id: string;
   student: string;
   lesson: string;
   completed: boolean;
   completed_at: string;
-}
-
-interface User {
-  _id: string;
-  username: string;
-  email: string;
-  is_instructor: boolean;
-  is_student: boolean;
-  bio: string;
-  profile_picture: string;
-}
-
-interface Lesson {
-  _id: string;
-  title: string;
 }
 
 @Component({
@@ -37,51 +21,24 @@ interface Lesson {
 })
 export class ProgressListComponent implements OnInit {
   progressRecords: Progress[] = [];
-  users: User[] = [];
-  lessons: Lesson[] = [];
   errorMessage: string = '';
+  private userApiUrl = 'http://127.0.0.1:8000/api/users/';
+  private lessonApiUrl = 'http://127.0.0.1:8000/api/lessons/';
 
   constructor(
     private progressService: ProgressService,
-    private userService: UserService
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
-    // Fetch users and lessons data first
-    this.userService.getUsers().subscribe(
-      (usersData: User[]) => {
-        this.users = usersData; // Store users data
-        this.fetchLessons(); // Fetch lessons after users data is fetched
-      },
-      (error) => {
-        this.errorMessage = 'Error fetching users.';
-      }
-    );
-  }
-
-  fetchLessons(): void {
-    this.lessons = [
-      { _id: '66dde39af395abfee65d1fa8', title: 'Introduction to Calculus' },
-    ];
     this.fetchProgress();
   }
 
   fetchProgress(): void {
     this.progressService.getProgress().subscribe(
       (data: Progress[]) => {
-        const userMap = new Map<string, string>();
-        this.users.forEach(user => userMap.set(user._id, user.username));
-
-        const lessonMap = new Map<string, string>();
-        this.lessons.forEach(lesson => lessonMap.set(lesson._id, lesson.title));
-
-        this.progressRecords = data.map((progress: Progress) => ({
-          ...progress,
-          student: userMap.get(progress.student) || progress.student,
-          lesson: lessonMap.get(progress.lesson) || progress.lesson,
-          completed_at: new Date(progress.completed_at).toLocaleDateString()
-        }));
-        this.renderChart();
+        this.progressRecords = data;
+        this.fetchUserAndLessonDetails(); // Fetch user and lesson details for each progress record
       },
       (error) => {
         if (error.status === 401) {
@@ -91,6 +48,42 @@ export class ProgressListComponent implements OnInit {
         }
       }
     );
+  }
+
+  fetchUserAndLessonDetails(): void {
+    const token = localStorage.getItem('authToken');
+    const headers = new HttpHeaders().set('Authorization', `Token ${token}`);
+
+    this.progressRecords.forEach((record, index) => {
+      // Fetch user details
+      this.http.get(`${this.userApiUrl}${record.student}/`, { headers }).subscribe(
+        (userData: any) => {
+          this.progressRecords[index].student = userData.username;
+
+          // Fetch lesson details after user data
+          this.http.get(`${this.lessonApiUrl}${record.lesson}/`, { headers }).subscribe(
+            (lessonData: any) => {
+              this.progressRecords[index].lesson = lessonData.title;
+
+              // Set 'Completed At' to 'N/A' if not completed
+              if (!record.completed) {
+                this.progressRecords[index].completed_at = 'N/A';
+              } else {
+                this.progressRecords[index].completed_at = new Date(record.completed_at).toLocaleDateString();
+              }
+
+              this.renderChart();
+            },
+            (lessonError) => {
+              console.error(`Error fetching lesson details for lesson ID: ${record.lesson}`, lessonError);
+            }
+          );
+        },
+        (userError) => {
+          console.error(`Error fetching user details for user ID: ${record.student}`, userError);
+        }
+      );
+    });
   }
 
   // Function to render the Chart.js pie chart
