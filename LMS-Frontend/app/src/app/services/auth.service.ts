@@ -16,10 +16,10 @@ export class AuthService {
   login(username: string, password: string): Observable<any> {
     return this.http.post(this.apiUrl, { username, password }).pipe(
       tap((response: any) => {
-        if (response && response.key) { // Corrected to check 'key' instead of 'token'
+        if (response && response.key) {
           console.log('Login successful, storing token:', response.key);
-          localStorage.setItem(this.tokenKey, response.key); // Store the token with the correct key
-          this.isLoggedInSubject.next(true); // Update login status
+          localStorage.setItem(this.tokenKey, response.key);
+          this.isLoggedInSubject.next(true);
         }
       })
     );
@@ -28,7 +28,7 @@ export class AuthService {
   logout(): void {
     console.log('Logging out, removing token.');
     localStorage.removeItem(this.tokenKey);
-    this.isLoggedInSubject.next(false); // Update login status
+    this.isLoggedInSubject.next(false);
   }
 
   getToken(): string | null {
