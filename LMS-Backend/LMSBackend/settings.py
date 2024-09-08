@@ -14,6 +14,7 @@ from pathlib import Path
 
 from mongoengine import connect
 
+
 # Connect to MongoDB
 connect(
     db="lms_database",
@@ -147,6 +148,7 @@ SIMPLE_JWT = {
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_REQUIRED = False
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
