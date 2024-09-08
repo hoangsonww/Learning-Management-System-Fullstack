@@ -328,3 +328,7 @@ If you have any questions or need further assistance, feel free to contact me at
 ## Conclusion
 
 With the setup complete, you can now fully explore and test the API endpoints of the Learning Management System backend using either `curl`, Postman, or the Swagger UI. Don't forget to authenticate first by logging in to obtain a token!
+
+---
+
+**[⬆ Back to Top](#learning-management-system-backend)**
