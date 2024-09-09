@@ -160,6 +160,7 @@ Learning-Management-System/
 │   │   │   │       └── .gitkeep
 │   │   │   ├── main.ts
 │   │   │   ├── styles.css
+│   │   │   ├── manifest.json
 │   │   │   └── index.html
 │   │   ├── .editorconfig
 │   │   ├── .gitignore
@@ -398,6 +399,13 @@ Ensure the following prerequisites are installed:
    ```
    http://localhost:4200
    ```
+   
+5. **Test out the PWA functionality:**
+
+   - Open the application in your browser.
+   - Click on the "Install" button in the address bar to install the PWA.
+   - Check the installed PWA in your system applications.
+   - Open the installed PWA and test its functionality.
 
 ## API Documentation
 
@@ -525,6 +533,7 @@ python manage.py seed_sample_data
 This command will populate the database with randomly generated users, courses, categories, lessons, quizzes, questions, choices, enrollments, progress records, and notifications.
 
 **Note:** By default, the `seed_sample_data` command will be executed when you run the `python manage.py migrate` command. If you don't want to seed the database at that time, you can disable it by setting `SEED_SAMPLE_DATA_ON_MIGRATE = False` in the `settings.py` file. Also, your data might be different from mine because the data is randomly generated.
+
 #### Recommended GUI Tools
 
 To interact with the APIs and databases more easily, you can use the following GUI tools:
