@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { CommonModule } from '@angular/common'; // Import CommonModule
-import Chart from 'chart.js/auto'; // Import Chart.js
+import { CommonModule } from '@angular/common';
+import { Chart, ChartConfiguration, registerables } from 'chart.js';
+
+Chart.register(...registerables);
 
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [CommonModule], // Add CommonModule to imports
+  imports: [CommonModule],
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
   users: any[] = [];
   errorMessage: string = '';
+  chart: Chart<'pie'> | undefined;
 
   constructor(private userService: UserService) {}
 
@@ -20,7 +23,7 @@ export class UserListComponent implements OnInit {
     this.userService.getUsers().subscribe(
       (data) => {
         this.users = data;
-        this.renderChart(); // Render the chart after fetching users
+        this.renderChart();
       },
       (error) => {
         if (error.status === 401) {
@@ -32,10 +35,14 @@ export class UserListComponent implements OnInit {
     );
   }
 
-  // Function to render the Chart.js pie chart
   renderChart(): void {
     const ctx = document.getElementById('userChart') as HTMLCanvasElement;
-    new Chart(ctx, {
+
+    if (this.chart) {
+      this.chart.destroy();
+    }
+
+    const chartConfig: ChartConfiguration<'pie'> = {
       type: 'pie',
       data: {
         labels: ['Students', 'Instructors'],
@@ -55,6 +62,8 @@ export class UserListComponent implements OnInit {
           }
         }
       }
-    });
+    };
+
+    this.chart = new Chart(ctx, chartConfig);
   }
 }

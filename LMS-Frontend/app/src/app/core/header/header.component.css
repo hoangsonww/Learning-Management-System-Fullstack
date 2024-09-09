@@ -58,3 +58,8 @@
   color: #dfe6e9 !important;
   transform: scale(1.05);
 }
+
+.active {
+  font-weight: bold;
+  color: #ffd700 !important;
+}

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProgressService } from '../../services/progress.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import Chart from 'chart.js/auto';
+import { Chart, ChartConfiguration, registerables } from 'chart.js';
 
 interface Progress {
   _id: string;
@@ -11,6 +11,8 @@ interface Progress {
   completed: boolean;
   completed_at: string;
 }
+
+Chart.register(...registerables);
 
 @Component({
   selector: 'app-progress-list',
@@ -22,6 +24,7 @@ interface Progress {
 export class ProgressListComponent implements OnInit {
   progressRecords: Progress[] = [];
   errorMessage: string = '';
+  chart: Chart<'pie'> | undefined;
   private userApiUrl = 'http://127.0.0.1:8000/api/users/';
   private lessonApiUrl = 'http://127.0.0.1:8000/api/lessons/';
 
@@ -38,7 +41,7 @@ export class ProgressListComponent implements OnInit {
     this.progressService.getProgress().subscribe(
       (data: Progress[]) => {
         this.progressRecords = data;
-        this.fetchUserAndLessonDetails(); // Fetch user and lesson details for each progress record
+        this.fetchUserAndLessonDetails();
       },
       (error) => {
         if (error.status === 401) {
@@ -55,17 +58,13 @@ export class ProgressListComponent implements OnInit {
     const headers = new HttpHeaders().set('Authorization', `Token ${token}`);
 
     this.progressRecords.forEach((record, index) => {
-      // Fetch user details
       this.http.get(`${this.userApiUrl}${record.student}/`, { headers }).subscribe(
         (userData: any) => {
           this.progressRecords[index].student = userData.username;
-
-          // Fetch lesson details after user data
           this.http.get(`${this.lessonApiUrl}${record.lesson}/`, { headers }).subscribe(
             (lessonData: any) => {
               this.progressRecords[index].lesson = lessonData.title;
 
-              // Set 'Completed At' to 'N/A' if not completed
               if (!record.completed) {
                 this.progressRecords[index].completed_at = 'N/A';
               } else {
@@ -86,10 +85,14 @@ export class ProgressListComponent implements OnInit {
     });
   }
 
-  // Function to render the Chart.js pie chart
   renderChart(): void {
     const ctx = document.getElementById('progressChart') as HTMLCanvasElement;
-    new Chart(ctx, {
+
+    if (this.chart) {
+      this.chart.destroy();
+    }
+
+    const chartConfig: ChartConfiguration<'pie'> = {
       type: 'pie',
       data: {
         labels: ['Completed', 'Not Completed'],
@@ -109,6 +112,8 @@ export class ProgressListComponent implements OnInit {
           }
         }
       }
-    });
+    };
+
+    this.chart = new Chart(ctx, chartConfig);
   }
 }

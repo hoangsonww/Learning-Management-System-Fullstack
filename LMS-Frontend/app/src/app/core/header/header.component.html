@@ -8,22 +8,22 @@
   <!-- Navigation Links -->
   <ul class="navbar-links d-flex justify-content-center mb-3">
     <li class="nav-item">
-      <a class="nav-link" routerLink="/">Home</a>
+      <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/courses">Courses</a>
+      <a class="nav-link" routerLink="/courses" routerLinkActive="active">Courses</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/lessons">Lessons</a>
+      <a class="nav-link" routerLink="/lessons" routerLinkActive="active">Lessons</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/enrollments">Enrollments</a>
+      <a class="nav-link" routerLink="/enrollments" routerLinkActive="active">Enrollments</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/users">Users</a>
+      <a class="nav-link" routerLink="/users" routerLinkActive="active">Users</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/progress">Progress</a>
+      <a class="nav-link" routerLink="/progress" routerLinkActive="active">Progress</a>
     </li>
     <li class="nav-item" style="margin-right: 0">
       <!-- Conditional Login/Logout Button -->
@@ -31,7 +31,7 @@
         Logout
       </a>
       <ng-template #loggedOut>
-        <a class="nav-link" routerLink="/login">Login</a>
+        <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
       </ng-template>
     </li>
   </ul>

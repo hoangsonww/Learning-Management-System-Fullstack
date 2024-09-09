@@ -54,3 +54,8 @@
   transform: scale(1.1);
   cursor: pointer;
 }
+
+.active {
+  font-weight: bold;
+  color: #ffd700 !important;
+}
