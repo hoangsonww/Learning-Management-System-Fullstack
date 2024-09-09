@@ -10,6 +10,10 @@
   height: 300px;
 }
 
+.container {
+  padding-top: 0;
+}
+
 .card {
   border: none;
   transition: transform 0.3s, box-shadow 0.3s;

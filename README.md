@@ -278,6 +278,12 @@ Learning-Management-System/
   <img src="docs/login-ui.png" alt="Login Page" style="border-radius: 10px" width="100%"/>
 </p>
 
+**Unauthorized Access (when not logged in)**:
+
+<p align="center" style="cursor: pointer">
+  <img src="docs/unauthorized-ui.png" alt="Unauthorized Access Page" style="border-radius: 10px" width="100%"/>
+</p>
+
 **Footer**:
 
 <p align="center" style="cursor: pointer">

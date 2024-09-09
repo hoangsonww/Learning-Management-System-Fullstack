@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container">
   <h2 class="mb-4 text-primary text-center">Platform Overview</h2>
 
   <!-- Chart Section -->
@@ -9,7 +9,7 @@
   </div>
 
   <h2 class="mb-4 text-primary text-center">Lessons</h2>
-  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  <div *ngIf="errorMessage" style="text-align: center" class="alert alert-danger">{{ errorMessage }}</div>
   <div *ngIf="lessons.length === 0 && !errorMessage" class="alert alert-info">No lessons available.</div>
 
   <!-- Lesson Cards Section -->
