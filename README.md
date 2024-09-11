@@ -33,9 +33,9 @@ Welcome to the **E-Learning Management System (LMS)**! This project consists of 
 
 The **E-Learning Management System** is a web-based platform designed to facilitate online education and training. It provides a comprehensive set of features for managing courses, lessons, users, quizzes, and more. The system is composed of:
 
-- **Frontend**: Built with Angular, it offers a user-friendly interface for interacting with the platform.
-- **Backend**: Developed using Django and Django REST Framework, it provides robust REST APIs for all the operations.
-- **Database**: The system uses MongoDB to store data and Redis for efficient server-side caching.
+- **Frontend**: Built with **Angular**, it offers a user-friendly interface for interacting with the platform.
+- **Backend**: Developed using **Django** and **Django REST Framework**, it provides robust **REST APIs** for all the operations.
+- **Database**: The system uses **MongoDB** to store data and **Redis** for efficient server-side caching.
 
 Because we use **MongoDB**, **Angular**, and **Django**, we call this a **MAD-Stack** application!
 
@@ -554,6 +554,12 @@ To interact with the APIs and databases more easily, you can use the following G
 - **Swagger UI**: An interactive API documentation tool. You can access the Swagger UI at [http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/). Ensure the server is running before accessing the UI.
 - **Redoc**: Another interactive API documentation tool. You can access the Redoc UI at [http://127.0.0.1:8000/redoc/](http://127.0.0.1:8000/redoc/). Ensure the server is running before accessing the UI.
 
+For example, you can use MongoDB Compass to view the data in your MongoDB database, RedisInsight to view the data in your Redis database, and Postman to test the API endpoints, like below:
+
+<p align="center" style="cursor: pointer">
+  <img src="/docs/gui-tools.png" alt="GUI Tools" style="border-radius: 10px" width="100%"/>
+</p>
+
 ## Containerization
 
 The project can be containerized using Docker. The `Dockerfile` and `docker-compose.yml` files are provided in the repository. To containerize the project, follow these steps:
@@ -569,6 +575,8 @@ The project can be containerized using Docker. The `Dockerfile` and `docker-comp
    ```bash
    docker compose up --build
    ```
+   
+The above command will build the Docker image and start the containers for the backend, frontend, MongoDB, and Redis. You can access the application at `http://localhost:4200` and the Django REST Framework API at `http://localhost:8000`.
 
 ## Troubleshooting
 
