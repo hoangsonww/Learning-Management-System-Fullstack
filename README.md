@@ -35,7 +35,7 @@ The **E-Learning Management System** is a web-based platform designed to facilit
 
 - **Frontend**: Built with Angular, it offers a user-friendly interface for interacting with the platform.
 - **Backend**: Developed using Django and Django REST Framework, it provides robust REST APIs for all the operations.
-- **Database**: The system uses MongoDB to store data and Redis for efficient server-side caching.
+- **Database**: The system uses **MongoDB** to store data and Redis for efficient server-side caching.
 
 Because we use **MongoDB**, **Angular**, and **Django**, we call this a **MAD-Stack** application!
 
