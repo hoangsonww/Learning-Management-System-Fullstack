@@ -34,7 +34,7 @@ Welcome to the **E-Learning Management System (LMS)**! This project consists of 
 The **E-Learning Management System** is a web-based platform designed to facilitate online education and training. It provides a comprehensive set of features for managing courses, lessons, users, quizzes, and more. The system is composed of:
 
 - **Frontend**: Built with **Angular**, it offers a user-friendly interface for interacting with the platform.
-- **Backend**: Developed using **Django** and **Django REST Framework**, it provides robust REST APIs for all the operations.
+- **Backend**: Developed using **Django** and **Django REST Framework**, it provides robust **REST APIs** for all the operations.
 - **Database**: The system uses **MongoDB** to store data and **Redis** for efficient server-side caching.
 
 Because we use **MongoDB**, **Angular**, and **Django**, we call this a **MAD-Stack** application!
