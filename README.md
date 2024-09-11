@@ -35,6 +35,7 @@ The **E-Learning Management System** is a web-based platform designed to facilit
 
 - **Frontend**: Built with Angular, it offers a user-friendly interface for interacting with the platform.
 - **Backend**: Developed using Django and Django REST Framework, it provides robust REST APIs for all the operations.
+- **Database**: The system uses MongoDB to store data and Redis for efficient server-side caching.
 
 Because we use **MongoDB**, **Angular**, and **Django**, we call this a **MAD-Stack** application!
 
@@ -51,6 +52,7 @@ The **MAD-Stack** is a powerful combination that allows developers to build scal
 ## Features
 
 - **User Authentication**: Token-based authentication for secure login.
+- **Server-Side Caching**: Redis caching for improved performance and reduced server load.
 - **Course Management**: Create, update, delete, and display courses.
 - **Lesson Management**: Manage lessons associated with courses.
 - **Quiz Management**: Handle quizzes, questions, and choices.
@@ -303,6 +305,8 @@ Ensure the following prerequisites are installed:
 - **MongoDB** and **Redis** running locally or remotely
 
 ### Backend Setup
+
+**Note:** Before running the backend server, ensure MongoDB and Redis are running and accessible on your system. You can install MongoDB and Redis locally or use cloud services like MongoDB Atlas and Redis Cloud.
 
 1. **Clone the repository:**
 
