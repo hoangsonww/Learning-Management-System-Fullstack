@@ -576,7 +576,7 @@ The project can be containerized using Docker. The `Dockerfile` and `docker-comp
    docker compose up --build
    ```
    
-
+The above command will build the Docker image and start the containers for the backend, frontend, MongoDB, and Redis. You can access the application at `http://localhost:4200` and the Django REST Framework API at `http://localhost:8000`.
 
 ## Troubleshooting
 
