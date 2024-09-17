@@ -7,10 +7,10 @@ Welcome to the **E-Learning Management System (LMS)**! This project consists of 
 - [Project Overview](#project-overview)
   - [The MAD-Stack](#the-mad-stack)
 - [Features](#features)
-- [File Structure](#file-structure)
-- [Detailed Information](#detailed-information)
-  - [Available API Endpoints](#available-api-endpoints)
+- [Detailed Project Information](#detailed-project-information)
   - [Frontend User Interfaces](#frontend-user-interfaces)
+  - [Available API Endpoints](#available-api-endpoints)
+- [File Structure](#file-structure)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Backend Setup (Django)](#backend-setup)
@@ -64,6 +64,121 @@ The **MAD-Stack** is a powerful combination that allows developers to build scal
 - **Data Visualization**: Dynamic charts using Chart.js.
 - **Comprehensive APIs**: Powerful RESTful APIs for all operations.
 - **API Documentation**: Comprehensive REST API documentation with Swagger and Redoc.
+
+## Detailed Project Information:
+
+### Frontend User Interfaces
+
+**Home Page**:
+
+<p align="center" style="cursor: pointer">
+  <img src="docs/home-ui.png" alt="Home Page" style="border-radius: 10px" width="100%"/>
+</p>
+
+**Course List**:
+
+<p align="center" style="cursor: pointer">
+  <img src="docs/course-ui.png" alt="Course List" style="border-radius: 10px" width="100%"/>
+</p>
+
+**Lesson List**:
+
+<p align="center" style="cursor: pointer">
+  <img src="docs/lesson-ui.png" alt="Lesson List" style="border-radius: 10px" width="100%"/>
+</p>
+
+**User List**:
+
+<p align="center" style="cursor: pointer">
+  <img src="docs/user-ui.png" alt="User List" style="border-radius: 10px" width="100%"/>
+</p>
+
+**Enrollment List**:
+
+<p align="center" style="cursor: pointer">
+  <img src="docs/enrollments-ui.png" alt="Enrollment List" style="border-radius: 10px" width="100%"/>
+</p>
+
+**Progress List**:
+
+<p align="center" style="cursor: pointer">
+  <img src="docs/progress-ui.png" alt="Progress List" style="border-radius: 10px" width="100%"/>
+</p>
+
+**Login Page**:
+
+<p align="center" style="cursor: pointer">
+  <img src="docs/login-ui.png" alt="Login Page" style="border-radius: 10px" width="100%"/>
+</p>
+
+**Unauthorized Access (when not logged in)**:
+
+<p align="center" style="cursor: pointer">
+  <img src="docs/unauthorized-ui.png" alt="Unauthorized Access Page" style="border-radius: 10px" width="100%"/>
+</p>
+
+**Footer**:
+
+<p align="center" style="cursor: pointer">
+  <img src="docs/footer-ui.png" alt="Footer" style="border-radius: 10px" width="100%"/>
+</p>
+
+**And many more pages...**
+
+### Available API Endpoints
+
+| Endpoint                   | Method | Description                                   |
+|----------------------------|--------|-----------------------------------------------|
+| `/api/users/`              | GET    | Retrieve a list of all users.                 |
+| `/api/users/{id}/`         | GET    | Retrieve a specific user instance.            |
+| `/api/users/`              | POST   | Create a new user instance.                   |
+| `/api/users/{id}/`         | PUT    | Update a specific user instance.              |
+| `/api/users/{id}/`         | DELETE | Delete a specific user instance.              |
+| `/api/courses/`            | GET    | Retrieve a list of all courses.               |
+| `/api/courses/{id}/`       | GET    | Retrieve a specific course instance.          |
+| `/api/courses/`            | POST   | Create a new course instance.                 |
+| `/api/courses/{id}/`       | PUT    | Update a specific course instance.            |
+| `/api/courses/{id}/`       | DELETE | Delete a specific course instance.            |
+| `/api/categories/`         | GET    | Retrieve a list of all categories.            |
+| `/api/categories/{id}/`    | GET    | Retrieve a specific category instance.        |
+| `/api/categories/`         | POST   | Create a new category instance.               |
+| `/api/categories/{id}/`    | PUT    | Update a specific category instance.          |
+| `/api/categories/{id}/`    | DELETE | Delete a specific category instance.          |
+| `/api/lessons/`            | GET    | Retrieve a list of all lessons.               |
+| `/api/lessons/{id}/`       | GET    | Retrieve a specific lesson instance.          |
+| `/api/lessons/`            | POST   | Create a new lesson instance.                 |
+| `/api/lessons/{id}/`       | PUT    | Update a specific lesson instance.            |
+| `/api/lessons/{id}/`       | DELETE | Delete a specific lesson instance.            |
+| `/api/quizzes/`            | GET    | Retrieve a list of all quizzes.               |
+| `/api/quizzes/{id}/`       | GET    | Retrieve a specific quiz instance.            |
+| `/api/quizzes/`            | POST   | Create a new quiz instance.                   |
+| `/api/quizzes/{id}/`       | PUT    | Update a specific quiz instance.              |
+| `/api/quizzes/{id}/`       | DELETE | Delete a specific quiz instance.              |
+| `/api/questions/`          | GET    | Retrieve a list of all questions.             |
+| `/api/questions/{id}/`     | GET    | Retrieve a specific question instance.        |
+| `/api/questions/`          | POST   | Create a new question instance.               |
+| `/api/questions/{id}/`     | PUT    | Update a specific question instance.          |
+| `/api/questions/{id}/`     | DELETE | Delete a specific question instance.          |
+| `/api/choices/`            | GET    | Retrieve a list of all choices.               |
+| `/api/choices/{id}/`       | GET    | Retrieve a specific choice instance.          |
+| `/api/choices/`            | POST   | Create a new choice instance.                 |
+| `/api/choices/{id}/`       | PUT    | Update a specific choice instance.            |
+| `/api/choices/{id}/`       | DELETE | Delete a specific choice instance.            |
+| `/api/enrollments/`        | GET    | Retrieve a list of all enrollments.           |
+| `/api/enrollments/{id}/`   | GET    | Retrieve a specific enrollment instance.      |
+| `/api/enrollments/`        | POST   | Create a new enrollment instance.             |
+| `/api/enrollments/{id}/`   | PUT    | Update a specific enrollment instance.        |
+| `/api/enrollments/{id}/`   | DELETE | Delete a specific enrollment instance.        |
+| `/api/progress/`           | GET    | Retrieve a list of all progress records.      |
+| `/api/progress/{id}/`      | GET    | Retrieve a specific progress record instance. |
+| `/api/progress/`           | POST   | Create a new progress record instance.        |
+| `/api/progress/{id}/`      | PUT    | Update a specific progress record instance.   |
+| `/api/progress/{id}/`      | DELETE | Delete a specific progress record instance.   |
+| `/api/notifications/`      | GET    | Retrieve a list of all notifications.         |
+| `/api/notifications/{id}/` | GET    | Retrieve a specific notification instance.    |
+| `/api/notifications/`      | POST   | Create a new notification instance.           |
+| `/api/notifications/{id}/` | PUT    | Update a specific notification instance.      |
+| `/api/notifications/{id}/` | DELETE | Delete a specific notification instance.      |
 
 ## File Structure
 
@@ -178,119 +293,6 @@ Learning-Management-System/
 ├── LICENSE
 └── README.md
 ```
-
-## Detailed Information:
-
-### Available API Endpoints
-
-| Endpoint                   | Method | Description                                   |
-|----------------------------|--------|-----------------------------------------------|
-| `/api/users/`              | GET    | Retrieve a list of all users.                 |
-| `/api/users/{id}/`         | GET    | Retrieve a specific user instance.            |
-| `/api/users/`              | POST   | Create a new user instance.                   |
-| `/api/users/{id}/`         | PUT    | Update a specific user instance.              |
-| `/api/users/{id}/`         | DELETE | Delete a specific user instance.              |
-| `/api/courses/`            | GET    | Retrieve a list of all courses.               |
-| `/api/courses/{id}/`       | GET    | Retrieve a specific course instance.          |
-| `/api/courses/`            | POST   | Create a new course instance.                 |
-| `/api/courses/{id}/`       | PUT    | Update a specific course instance.            |
-| `/api/courses/{id}/`       | DELETE | Delete a specific course instance.            |
-| `/api/categories/`         | GET    | Retrieve a list of all categories.            |
-| `/api/categories/{id}/`    | GET    | Retrieve a specific category instance.        |
-| `/api/categories/`         | POST   | Create a new category instance.               |
-| `/api/categories/{id}/`    | PUT    | Update a specific category instance.          |
-| `/api/categories/{id}/`    | DELETE | Delete a specific category instance.          |
-| `/api/lessons/`            | GET    | Retrieve a list of all lessons.               |
-| `/api/lessons/{id}/`       | GET    | Retrieve a specific lesson instance.          |
-| `/api/lessons/`            | POST   | Create a new lesson instance.                 |
-| `/api/lessons/{id}/`       | PUT    | Update a specific lesson instance.            |
-| `/api/lessons/{id}/`       | DELETE | Delete a specific lesson instance.            |
-| `/api/quizzes/`            | GET    | Retrieve a list of all quizzes.               |
-| `/api/quizzes/{id}/`       | GET    | Retrieve a specific quiz instance.            |
-| `/api/quizzes/`            | POST   | Create a new quiz instance.                   |
-| `/api/quizzes/{id}/`       | PUT    | Update a specific quiz instance.              |
-| `/api/quizzes/{id}/`       | DELETE | Delete a specific quiz instance.              |
-| `/api/questions/`          | GET    | Retrieve a list of all questions.             |
-| `/api/questions/{id}/`     | GET    | Retrieve a specific question instance.        |
-| `/api/questions/`          | POST   | Create a new question instance.               |
-| `/api/questions/{id}/`     | PUT    | Update a specific question instance.          |
-| `/api/questions/{id}/`     | DELETE | Delete a specific question instance.          |
-| `/api/choices/`            | GET    | Retrieve a list of all choices.               |
-| `/api/choices/{id}/`       | GET    | Retrieve a specific choice instance.          |
-| `/api/choices/`            | POST   | Create a new choice instance.                 |
-| `/api/choices/{id}/`       | PUT    | Update a specific choice instance.            |
-| `/api/choices/{id}/`       | DELETE | Delete a specific choice instance.            |
-| `/api/enrollments/`        | GET    | Retrieve a list of all enrollments.           |
-| `/api/enrollments/{id}/`   | GET    | Retrieve a specific enrollment instance.      |
-| `/api/enrollments/`        | POST   | Create a new enrollment instance.             |
-| `/api/enrollments/{id}/`   | PUT    | Update a specific enrollment instance.        |
-| `/api/enrollments/{id}/`   | DELETE | Delete a specific enrollment instance.        |
-| `/api/progress/`           | GET    | Retrieve a list of all progress records.      |
-| `/api/progress/{id}/`      | GET    | Retrieve a specific progress record instance. |
-| `/api/progress/`           | POST   | Create a new progress record instance.        |
-| `/api/progress/{id}/`      | PUT    | Update a specific progress record instance.   |
-| `/api/progress/{id}/`      | DELETE | Delete a specific progress record instance.   |
-| `/api/notifications/`      | GET    | Retrieve a list of all notifications.         |
-| `/api/notifications/{id}/` | GET    | Retrieve a specific notification instance.    |
-| `/api/notifications/`      | POST   | Create a new notification instance.           |
-| `/api/notifications/{id}/` | PUT    | Update a specific notification instance.      |
-| `/api/notifications/{id}/` | DELETE | Delete a specific notification instance.      |
-
-### Frontend User Interfaces
-
-**Home Page**:
-
-<p align="center" style="cursor: pointer">
-  <img src="docs/home-ui.png" alt="Home Page" style="border-radius: 10px" width="100%"/>
-</p>
-
-**Course List**:
-
-<p align="center" style="cursor: pointer">
-  <img src="docs/course-ui.png" alt="Course List" style="border-radius: 10px" width="100%"/>
-</p>
-
-**Lesson List**:
-
-<p align="center" style="cursor: pointer">
-  <img src="docs/lesson-ui.png" alt="Lesson List" style="border-radius: 10px" width="100%"/>
-</p>
-
-**User List**:
-
-<p align="center" style="cursor: pointer">
-  <img src="docs/user-ui.png" alt="User List" style="border-radius: 10px" width="100%"/>
-</p>
-
-**Enrollment List**:
-
-<p align="center" style="cursor: pointer">
-  <img src="docs/enrollments-ui.png" alt="Enrollment List" style="border-radius: 10px" width="100%"/>
-</p>
-
-**Progress List**:
-
-<p align="center" style="cursor: pointer">
-  <img src="docs/progress-ui.png" alt="Progress List" style="border-radius: 10px" width="100%"/>
-</p>
-
-**Login Page**:
-
-<p align="center" style="cursor: pointer">
-  <img src="docs/login-ui.png" alt="Login Page" style="border-radius: 10px" width="100%"/>
-</p>
-
-**Unauthorized Access (when not logged in)**:
-
-<p align="center" style="cursor: pointer">
-  <img src="docs/unauthorized-ui.png" alt="Unauthorized Access Page" style="border-radius: 10px" width="100%"/>
-</p>
-
-**Footer**:
-
-<p align="center" style="cursor: pointer">
-  <img src="docs/footer-ui.png" alt="Footer" style="border-radius: 10px" width="100%"/>
-</p>
 
 ## Getting Started
 
