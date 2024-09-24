@@ -10,6 +10,7 @@ Welcome to the **E-Learning Management System (LMS)**! This project consists of 
 - [Detailed Project Information](#detailed-project-information)
   - [Frontend User Interfaces](#frontend-user-interfaces)
   - [Available API Endpoints](#available-api-endpoints)
+  - [Unit Tests for APIs](#unit-tests-for-apis)
 - [File Structure](#file-structure)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
@@ -179,6 +180,16 @@ The **MAD-Stack** is a powerful combination that allows developers to build scal
 | `/api/notifications/`      | POST   | Create a new notification instance.           |
 | `/api/notifications/{id}/` | PUT    | Update a specific notification instance.      |
 | `/api/notifications/{id}/` | DELETE | Delete a specific notification instance.      |
+
+### Unit Tests for APIs
+
+The backend includes unit tests for the APIs. You can run the tests using the following command:
+
+```bash
+python manage.py test
+```
+
+Feel free to view and modify the tests in the `core/tests.py` file. Also, be sure to adjust the URLs in the test cases to match your actual URL configuration if different from the default.
 
 ## File Structure
 
