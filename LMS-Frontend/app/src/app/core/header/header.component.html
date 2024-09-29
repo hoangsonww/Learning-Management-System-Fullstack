@@ -1,38 +1,57 @@
 <!-- Navbar Container -->
-<div class="navbar navbar-custom d-flex flex-column align-items-center">
-  <!-- Logo Section -->
-  <a class="navbar-brand my-3 text-center" href="#" style="text-decoration: none; color: white;">
-    Learning Management System
-  </a>
+<div class="navbar navbar-expand-lg navbar-custom">
+  <!-- Container for the Navbar elements -->
+  <div class="container-fluid">
+    <!-- Logo Section -->
+    <a class="navbar-brand" href="#" style="text-decoration: none; color: white;">
+      Learning Management System
+    </a>
 
-  <!-- Navigation Links -->
-  <ul class="navbar-links d-flex justify-content-center mb-3">
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/courses" routerLinkActive="active">Courses</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/lessons" routerLinkActive="active">Lessons</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/enrollments" routerLinkActive="active">Enrollments</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/users" routerLinkActive="active">Users</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/progress" routerLinkActive="active">Progress</a>
-    </li>
-    <li class="nav-item" style="margin-right: 0">
-      <!-- Conditional Login/Logout Button -->
-      <a class="nav-link" *ngIf="isLoggedIn(); else loggedOut" (click)="logout()" style="cursor: pointer">
-        Logout
-      </a>
-      <ng-template #loggedOut>
-        <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
-      </ng-template>
-    </li>
-  </ul>
+    <!-- Toggler button for mobile view -->
+    <button
+      class="navbar-toggler p-1"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarContent"
+      aria-controls="navbarContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      style="border-color: white;"
+    >
+      <span class="navbar-toggler-icon" style="background-image: url('data:image/svg+xml,%3Csvg xmlns%3D%27http://www.w3.org/2000/svg%27 viewBox%3D%270 0 30 30%27%3E%3Cpath stroke%3D%27rgba%28255, 255, 255, 0.9%29%27 stroke-width%3D%272%27 d%3D%27M4 7h22M4 15h22M4 23h22%27/%3E%3C/svg%3E'); width: 1.25rem; height: 1.25rem;"></span>
+    </button>
+
+    <!-- Collapsible Navbar Content -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-links navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/courses" routerLinkActive="active">Courses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/lessons" routerLinkActive="active">Lessons</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/enrollments" routerLinkActive="active">Enrollments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/progress" routerLinkActive="active">Progress</a>
+        </li>
+        <li class="nav-item">
+          <!-- Conditional Login/Logout Button -->
+          <a class="nav-link" *ngIf="isLoggedIn(); else loggedOut" (click)="logout()" style="cursor: pointer">
+            Logout
+          </a>
+          <ng-template #loggedOut>
+            <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+          </ng-template>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

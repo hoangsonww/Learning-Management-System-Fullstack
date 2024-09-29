@@ -16,6 +16,7 @@ Welcome to the **E-Learning Management System (LMS)**! This project consists of 
   - [Prerequisites](#prerequisites)
   - [Backend Setup (Django)](#backend-setup)
   - [Frontend Setup (Angular)](#frontend-setup)
+- [Live Frontend Demo](#live-frontend-demo)
 - [API Documentation](#api-documentation)
   - [Authentication](#authentication)
   - [Testing the APIs](#testing-the-apis)
@@ -34,7 +35,7 @@ Welcome to the **E-Learning Management System (LMS)**! This project consists of 
 
 The **E-Learning Management System** is a web-based platform designed to facilitate online education and training. It provides a comprehensive set of features for managing courses, lessons, users, quizzes, and more. The system is composed of:
 
-- **Frontend**: Built with **Angular**, it offers a user-friendly interface for interacting with the platform.
+- **Frontend**: Built with **Angular** and **Bootstrap**, it offers a user-friendly interface for interacting with the platform.
 - **Backend**: Developed using **Django** and **Django REST Framework**, it provides robust **REST APIs** for all the operations.
 - **Database**: The system uses **MongoDB** to store data and **Redis** for efficient server-side caching.
 
@@ -124,7 +125,13 @@ The **MAD-Stack** is a powerful combination that allows developers to build scal
   <img src="docs/footer-ui.png" alt="Footer" style="border-radius: 10px" width="100%"/>
 </p>
 
-**And many more pages...**
+**Responsive Design**: The frontend is fully responsive and optimized for all devices. Here is an example of the mobile view:
+
+<p align="center" style="cursor: pointer">
+  <img src="docs/mobile-ui.png" alt="Mobile View" style="border-radius: 10px" width="60%"/>
+</p>
+
+**And many more pages & features. Feel free to explore the frontend and backend to see all the functionalities!**
 
 ### Available API Endpoints
 
@@ -429,6 +436,12 @@ Ensure the following prerequisites are installed:
    - Click on the "Install" button in the address bar to install the PWA.
    - Check the installed PWA in your system applications.
    - Open the installed PWA and test its functionality.
+
+## Live Frontend Demo
+
+You can access the live frontend demo of the Learning Management System at [https://learning-management-system-fullstack.vercel.app/](https://learning-management-system-fullstack.vercel.app/).
+
+Note that the backend server is not hosted, so the data will not be fetched from the server. However, you can still interact with the frontend and view the basic user interfaces (just that features like charts, notifications, and user data will not be available).
 
 ## API Documentation
 
