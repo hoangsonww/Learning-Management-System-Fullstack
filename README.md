@@ -38,6 +38,7 @@ The **E-Learning Management System** is a web-based platform designed to facilit
 - **Frontend**: Built with **Angular** and **Bootstrap**, it offers a user-friendly interface for interacting with the platform.
 - **Backend**: Developed using **Django** and **Django REST Framework**, it provides robust **REST APIs** for all the operations.
 - **Database**: The system uses **MongoDB** to store data and **Redis** for efficient server-side caching.
+- **CI/CD**: The project includes a `Dockerfile` and `docker-compose.yml` for containerization and deployment, as well as a `Jenkinsfile` for CI/CD pipelines and `Kubernetes` configuration files for orchestration.
 
 Because we use **MongoDB**, **Angular**, and **Django**, we call this a **MAD-Stack** application!
 
@@ -205,6 +206,8 @@ The project structure is as follows:
 ```plaintext
 Learning-Management-System/
 ├── LMS-Backend
+│   ├── .gitignore
+│   ├── Dockerfile
 │   ├── manage.py
 │   ├── requirements.txt
 │   ├── LICENSE
@@ -231,6 +234,7 @@ Learning-Management-System/
 ├── LMS-Frontend
 │   ├── angular.json
 │   ├── package.json
+│   ├── Dockerfile
 │   ├── README.md
 │   ├── LICENSE
 │   ├── app/
@@ -307,7 +311,15 @@ Learning-Management-System/
 │   │   └── tsconfig.spec.json
 │   ├── LICENSE
 │   ├── README.md
+├── Kubernetes
+│   ├── configmap.yaml
+│   ├── backend-deployment.yaml
+│   ├── backend-service.yaml
+│   ├── frontend-deployment.yaml
+│   ├── frontend-service.yaml
 ├── .gitignore
+├── docker-compose.yml
+├── Jenkinsfile
 ├── LICENSE
 └── README.md
 ```
@@ -603,6 +615,72 @@ The project can be containerized using Docker. The `Dockerfile` and `docker-comp
    ```
    
 The above command will build the Docker image and start the containers for the backend, frontend, MongoDB, and Redis. You can access the application at `http://localhost:4200` and the Django REST Framework API at `http://localhost:8000`.
+
+## Kubernetes
+
+The project includes Kubernetes configuration files for deploying the backend and frontend applications. The `Kubernetes` directory contains the following files:
+
+- **configmap.yaml**: Contains the configuration settings for the backend application.
+- **backend-deployment.yaml**: Defines the deployment for the backend application.
+- **backend-service.yaml**: Defines the service for the backend application.
+- **frontend-deployment.yaml**: Defines the deployment for the frontend application.
+- **frontend-service.yaml**: Defines the service for the frontend application.
+
+To deploy the applications to a Kubernetes cluster, follow these steps:
+
+1. **Change directory into the `Kubernetes` directory:**
+
+   ```bash
+   cd Kubernetes
+   ```
+   
+2. **Create the configmap:**
+
+   ```bash
+    kubectl apply -f configmap.yaml
+    ```
+   
+3. **Create the backend deployment:**
+
+   ```bash
+   kubectl apply -f backend-deployment.yaml
+   ```
+   
+4. **Create the backend service:**
+
+   ```bash
+    kubectl apply -f backend-service.yaml
+    ```
+   
+5. **Create the frontend deployment:**
+
+   ```bash
+    kubectl apply -f frontend-deployment.yaml
+    ```
+   
+6. **Create the frontend service:**
+
+   ```bash
+    kubectl apply -f frontend-service.yaml
+    ```
+   
+The above commands will create the deployments and services for the backend and frontend applications. You can access the applications using the NodePort or LoadBalancer service IP addresses.
+
+## Jenkins CI/CD
+
+The project includes a `Jenkinsfile` for setting up CI/CD pipelines using Jenkins. The Jenkinsfile defines the stages for building, testing, and deploying the backend and frontend applications.
+
+To set up the CI/CD pipelines using Jenkins, follow these steps:
+
+1. **Install Jenkins on your system or use a cloud-based Jenkins service.**
+
+2. **Create a new Jenkins pipeline project.**
+
+3. **Configure the pipeline to use the Jenkinsfile in the project repository.**
+
+4. **Run the pipeline to build, test, and deploy the applications.**
+
+The Jenkins pipeline will automatically build the Docker images, run the unit tests, and deploy the applications to a Kubernetes cluster.
 
 ## Troubleshooting
 
