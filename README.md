@@ -1,6 +1,6 @@
 # E-Learning Management Fullstack System
 
-Welcome to the **E-Learning Management System (LMS)**! This project consists of two main components: the **Frontend** (built with **Angular**) and the **Backend** (developed using **Django and Django REST Framework**). The LMS is a full-featured web application designed to manage users, courses, lessons, quizzes, and much more. This README provides a complete guide on how to set up, run, and contribute to both parts of the system.
+Welcome to the **E-Learning Management System (LMS)**! This project consists of two main components: the **Frontend** (built with **Angular**) and the **Backend** (developed using **Django and Django REST Framework**), combined with CI/CD technologies such as **Docker** and **Jenkins**. The LMS is a full-featured web application designed to manage users, courses, lessons, quizzes, and much more. This README provides a complete guide on how to set up, run, and contribute to both parts of the system.
 
 ## Table of Contents
 
