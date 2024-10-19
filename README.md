@@ -118,6 +118,12 @@ However, please note that our backend server may spin down due to inactivity, so
   <img src="docs/progress-ui.png" alt="Progress List" style="border-radius: 10px" width="100%"/>
 </p>
 
+**Registration Page**:
+
+<p align="center" style="cursor: pointer">
+  <img src="docs/register-ui.png" alt="Registration Page" style="border-radius: 10px" width="100%"/>
+</p>
+
 **Login Page**:
 
 <p align="center" style="cursor: pointer">
