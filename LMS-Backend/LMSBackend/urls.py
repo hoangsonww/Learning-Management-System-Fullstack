@@ -9,13 +9,12 @@ schema_view = get_schema_view(
     openapi.Info(
         title="Learning Management System API",
         default_version='v1',
-        description="API documentation for the Learning Management System",
-        terms_of_service="http://127.0.0.1:8000/swagger/",
-        contact=openapi.Contact(email="hoangson091104@gmail.com"),
+        description="Comprehensive API documentation for the Learning Management System",
+        terms_of_service="https://moodify-emotion-music-app.vercel.app/terms-of-service",
+        contact=openapi.Contact(email="hoangson091104@gmail.com", name="Learning Management System", url="https://moodify-emotion-music-app.vercel.app/"),
         license=openapi.License(name="MIT License"),
     ),
     public=True,
-    permission_classes=(permissions.AllowAny,),
 )
 
 urlpatterns = [

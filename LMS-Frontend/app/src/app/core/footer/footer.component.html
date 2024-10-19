@@ -1,5 +1,5 @@
-<footer class="footer-custom mt-auto py-3">
-  <div class="container text-center">
+<footer class="footer-custom mt-auto">
+  <div class="container text-center"  style="margin-top: 0">
     <!-- Footer Links -->
     <ul class="footer-links d-flex flex-wrap justify-content-center mb-3">
       <li class="nav-item">
@@ -18,7 +18,16 @@
         <a class="nav-link" routerLink="/users" routerLinkActive="active">Users</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/progress" routerLinkActive="active" style="margin-right: 0">Progress</a>
+        <a class="nav-link" routerLink="/progress" routerLinkActive="active">Progress</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="isLoggedIn(); else loggedOut" (click)="logout()" style="cursor: pointer">Logout</a>
+        <ng-template #loggedOut>
+          <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+        </ng-template>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/register" routerLinkActive="active" style="margin-right: 0">Register</a>
       </li>
     </ul>
 

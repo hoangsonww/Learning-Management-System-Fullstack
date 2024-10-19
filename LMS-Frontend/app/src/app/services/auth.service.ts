@@ -7,14 +7,16 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://127.0.0.1:8000/api/auth/login/';
+  private loginUrl = 'https://learning-management-system-fullstack.onrender.com/api/auth/login/';
+  private registerUrl = 'https://learning-management-system-fullstack.onrender.com/api/auth/registration/';  // Registration endpoint
   private tokenKey = 'authToken';
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
 
   constructor(private http: HttpClient) {}
 
+  // Login method
   login(username: string, password: string): Observable<any> {
-    return this.http.post(this.apiUrl, { username, password }).pipe(
+    return this.http.post(this.loginUrl, { username, password }).pipe(
       tap((response: any) => {
         if (response && response.key) {
           console.log('Login successful, storing token:', response.key);
@@ -25,20 +27,39 @@ export class AuthService {
     );
   }
 
+  // Registration method
+  register(username: string, email: string, password1: string, password2: string): Observable<any> {
+    return this.http.post(this.registerUrl, {
+      username,
+      email,
+      password1,
+      password2
+    }).pipe(
+      tap((response: any) => {
+        console.log('Registration successful:', response);
+        // Handle post-registration logic here, like logging in the user, or redirecting them
+      })
+    );
+  }
+
+  // Logout method
   logout(): void {
     console.log('Logging out, removing token.');
     localStorage.removeItem(this.tokenKey);
     this.isLoggedInSubject.next(false);
   }
 
+  // Get the stored token
   getToken(): string | null {
     return localStorage.getItem(this.tokenKey);
   }
 
+  // Check if the user is logged in
   isLoggedIn(): Observable<boolean> {
     return this.isLoggedInSubject.asObservable();
   }
 
+  // Private method to check if a token is stored
   private hasToken(): boolean {
     return !!this.getToken();
   }

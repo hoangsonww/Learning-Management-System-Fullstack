@@ -1,27 +1,37 @@
 <div class="container">
   <h2 class="mb-4 text-primary text-center">Platform Overview</h2>
 
-  <!-- Chart Section -->
+  <!-- Chart Section (Always visible) -->
   <div class="chart-section mb-5 mt-5">
     <div class="chart-container">
       <canvas id="lessonChart" width="200" height="200"></canvas>
     </div>
   </div>
 
-  <h2 class="mb-4 text-primary text-center">Lessons</h2>
-  <div *ngIf="errorMessage" style="text-align: center" class="alert alert-danger">{{ errorMessage }}</div>
-  <div *ngIf="lessons.length === 0 && !errorMessage" class="alert alert-info">No lessons available.</div>
+  <!-- Loading Indicator for rest of the page -->
+  <div *ngIf="loading" class="loading-overlay">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
 
-  <!-- Lesson Cards Section -->
-  <div class="row justify-content-center">
-    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let lesson of lessons">
-      <div class="card shadow-lg h-100 rounded-custom p-3">
-        <div class="card-body d-flex flex-column justify-content-between">
-          <div>
-            <h4 class="card-title text-primary">{{ lesson.title }}</h4>
-            <p class="card-text text-muted">{{ lesson.content }}</p>
-            <hr>
-            <p class="card-text"><strong>Duration:</strong> 75 minutes</p>
+  <!-- Lessons and Errors (only shown when loading is false) -->
+  <div *ngIf="!loading">
+    <h2 class="mb-4 text-primary text-center">Lessons</h2>
+    <div *ngIf="errorMessage" style="text-align: center" class="alert alert-danger">{{ errorMessage }}</div>
+    <div *ngIf="lessons.length === 0 && !errorMessage" class="alert alert-info">No lessons available.</div>
+
+    <!-- Lesson Cards Section -->
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4 mb-4" *ngFor="let lesson of lessons">
+        <div class="card shadow-lg h-100 rounded-custom p-3">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h4 class="card-title text-primary">{{ lesson.title }}</h4>
+              <p class="card-text text-muted">{{ lesson.content }}</p>
+              <hr>
+              <p class="card-text"><strong>Duration:</strong> 75 minutes</p>
+            </div>
           </div>
         </div>
       </div>

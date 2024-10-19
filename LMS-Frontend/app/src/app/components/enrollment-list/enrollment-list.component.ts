@@ -24,8 +24,9 @@ Chart.register(...registerables);
 export class EnrollmentListComponent implements OnInit {
   enrollments: Enrollment[] = [];
   errorMessage: string = '';
+  loading: boolean = true; // Track loading state
   chart: Chart<'pie'> | undefined;
-  private apiUrl = 'http://127.0.0.1:8000/api/';
+  private apiUrl = 'https://learning-management-system-fullstack.onrender.com/api/';
   coursesLength: number = 0;
   lessonsLength: number = 0;
 
@@ -54,6 +55,7 @@ export class EnrollmentListComponent implements OnInit {
         this.fetchUserDetails();
       },
       (error) => {
+        this.loading = false; // Stop loading in case of error
         if (error.status === 401) {
           this.errorMessage = 'Unauthorized access. Please log in.';
         } else {
@@ -79,10 +81,36 @@ export class EnrollmentListComponent implements OnInit {
         userDetails.forEach((userData, index) => {
           this.enrollments[index].student = userData.username;
         });
+        this.fetchCourseTitles(); // Fetch course titles after fetching user details
+      },
+      (error) => {
+        this.loading = false; // Stop loading even in case of error
+        console.error('Error fetching user details', error);
+        this.renderChart();
+      }
+    );
+  }
+
+  fetchCourseTitles(): void {
+    const token = localStorage.getItem('authToken');
+    const headers = new HttpHeaders().set('Authorization', `Token ${token}`);
+
+    // Fetch each course title based on the course ID
+    const courseRequests = this.enrollments.map((enrollment) =>
+      this.http.get(`${this.apiUrl}courses/${enrollment.course}`, { headers })
+    );
+
+    forkJoin(courseRequests).subscribe(
+      (courseDetails: any[]) => {
+        courseDetails.forEach((courseData, index) => {
+          this.enrollments[index].course = courseData.title;
+        });
+        this.loading = false;
         this.renderChart();
       },
       (error) => {
-        console.error('Error fetching user details', error);
+        this.loading = false; // Stop loading even in case of error
+        console.error('Error fetching course details', error);
         this.renderChart();
       }
     );

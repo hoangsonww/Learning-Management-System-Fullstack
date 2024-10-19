@@ -1,0 +1,61 @@
+<div class="register-container d-flex justify-content-center align-items-center">
+  <div class="card p-5 shadow-lg register-card">
+    <h2 class="text-center text-primary mb-4">Register</h2>
+    <form (ngSubmit)="register()">
+      <div class="form-group mb-3">
+        <label for="username" class="form-label">Username:</label>
+        <input
+          type="text"
+          id="username"
+          [(ngModel)]="username"
+          name="username"
+          class="form-control form-control-lg"
+          placeholder="Enter your username"
+          required
+        />
+      </div>
+      <div class="form-group mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input
+          type="email"
+          id="email"
+          [(ngModel)]="email"
+          name="email"
+          class="form-control form-control-lg"
+          placeholder="Enter your email"
+          required
+        />
+      </div>
+      <div class="form-group mb-3">
+        <label for="password1" class="form-label">Password:</label>
+        <input
+          type="password"
+          id="password1"
+          [(ngModel)]="password1"
+          name="password1"
+          class="form-control form-control-lg"
+          placeholder="Enter your password"
+          required
+        />
+      </div>
+      <div class="form-group mb-3">
+        <label for="password2" class="form-label">Confirm Password:</label>
+        <input
+          type="password"
+          id="password2"
+          [(ngModel)]="password2"
+          name="password2"
+          class="form-control form-control-lg"
+          placeholder="Confirm your password"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg w-100 mt-3">Register</button>
+
+      <!-- Display error message if any -->
+      <div *ngIf="errorMessage" class="alert alert-danger mt-4 text-center">
+        {{ errorMessage }}
+      </div>
+    </form>
+  </div>
+</div>

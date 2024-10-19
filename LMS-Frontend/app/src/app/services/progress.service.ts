@@ -7,7 +7,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class ProgressService {
-  private apiUrl = 'http://127.0.0.1:8000/api/progress/';
+  private apiUrl = 'https://learning-management-system-fullstack.onrender.com/api/progress/';
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 

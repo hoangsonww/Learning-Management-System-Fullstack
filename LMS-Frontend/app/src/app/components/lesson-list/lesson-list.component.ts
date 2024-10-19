@@ -17,8 +17,9 @@ Chart.register(...registerables);
 export class LessonListComponent implements OnInit {
   lessons: any[] = [];
   errorMessage: string = '';
+  loading: boolean = true; // Track loading state
   chart: Chart<'pie'> | undefined;
-  private apiUrl = 'http://127.0.0.1:8000/api/';
+  private apiUrl = 'https://learning-management-system-fullstack.onrender.com/api/';
   enrollmentsLength: number = 0;
   coursesLength: number = 0;
 
@@ -31,6 +32,7 @@ export class LessonListComponent implements OnInit {
         this.fetchAllData();
       },
       (error) => {
+        this.loading = false; // Stop loading in case of error
         if (error.status === 401) {
           this.errorMessage = 'Unauthorized access. Please log in.';
         } else {
@@ -51,9 +53,11 @@ export class LessonListComponent implements OnInit {
       ([enrollmentsData, coursesData]: [any, any]) => {
         this.enrollmentsLength = enrollmentsData.length;
         this.coursesLength = coursesData.length;
-        this.renderChart();
+        this.loading = false; // Stop loading once data is fetched
+        this.renderChart(); // Render the chart after data fetching is complete
       },
       (error) => {
+        this.loading = false; // Stop loading even in case of error
         if (error.status === 401) {
           this.errorMessage = 'Unauthorized access. Please log in.';
           this.enrollmentsLength = 30;
