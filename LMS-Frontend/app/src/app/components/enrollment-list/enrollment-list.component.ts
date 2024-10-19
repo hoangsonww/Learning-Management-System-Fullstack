@@ -29,6 +29,7 @@ export class EnrollmentListComponent implements OnInit {
   private apiUrl = 'https://learning-management-system-fullstack.onrender.com/api/';
   coursesLength: number = 0;
   lessonsLength: number = 0;
+  isAuthenticated: boolean = true; // Flag to check authentication status
 
   constructor(
     private enrollmentService: EnrollmentService,
@@ -57,13 +58,13 @@ export class EnrollmentListComponent implements OnInit {
       (error) => {
         this.loading = false; // Stop loading in case of error
         if (error.status === 401) {
+          this.isAuthenticated = false; // Set flag to false on unauthorized access
           this.errorMessage = 'Unauthorized access. Please log in.';
         } else {
           this.errorMessage = 'Error fetching data.';
         }
         this.coursesLength = 10; // Fallback values in case of error
         this.lessonsLength = 10;
-        this.renderChart();
       }
     );
   }
@@ -89,7 +90,6 @@ export class EnrollmentListComponent implements OnInit {
       (error) => {
         this.loading = false; // Stop loading even in case of error
         console.error('Error fetching user details', error);
-        this.renderChart();
       });
   }
 
@@ -108,13 +108,14 @@ export class EnrollmentListComponent implements OnInit {
             }
           });
           this.loading = false;
-          this.renderChart();
+          if (this.isAuthenticated) { // Ensure the chart is only rendered if authenticated
+            this.renderChart();
+          }
         }
       },
       (error) => {
         this.loading = false; // Stop loading even in case of error
         console.error('Error fetching course details', error);
-        this.renderChart();
       });
   }
 

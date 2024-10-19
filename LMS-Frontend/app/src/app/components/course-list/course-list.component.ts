@@ -22,6 +22,7 @@ export class CourseListComponent implements OnInit {
   private apiUrl = 'https://learning-management-system-fullstack.onrender.com/api/';
   lessonsLength: number = 0;
   enrollmentsLength: number = 0;
+  isAuthenticated: boolean = true; // Flag to check authentication status
 
   constructor(
     private courseService: CourseService,
@@ -46,18 +47,23 @@ export class CourseListComponent implements OnInit {
         this.lessonsLength = lessonsData.length;
         this.enrollmentsLength = enrollmentsData.length;
         this.loading = false; // Stop loading after data fetching is complete
-        this.renderChart(); // Render the chart after data is fetched
+        if (this.isAuthenticated) {
+          this.renderChart(); // Render the chart after data is fetched
+        }
       },
       (error) => {
         this.loading = false; // Stop loading in case of error
         if (error.status === 401) {
+          this.isAuthenticated = false; // Set flag to false on unauthorized access
           this.errorMessage = 'Unauthorized access. Please log in.';
         } else {
           this.errorMessage = 'Error fetching data.';
         }
         this.lessonsLength = 20;
         this.enrollmentsLength = 50;
-        this.renderChart();
+        if (this.isAuthenticated) {
+          this.renderChart(); // Ensure the chart is only rendered if authenticated
+        }
       }
     );
   }
@@ -70,7 +76,7 @@ export class CourseListComponent implements OnInit {
     const ctx = document.getElementById('courseChart') as HTMLCanvasElement;
 
     if (this.chart) {
-      this.chart.destroy();
+      this.chart.destroy(); // Destroy any existing chart instance before creating a new one
     }
 
     const chartConfig: ChartConfiguration<'pie'> = {
