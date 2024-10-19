@@ -52,7 +52,7 @@ export class EnrollmentListComponent implements OnInit {
         this.enrollments = enrollmentsData;
         this.coursesLength = coursesData.length;
         this.lessonsLength = lessonsData.length;
-        this.fetchUserDetails();
+        this.fetchUserDetails();  // Fetch user details based on student ID
       },
       (error) => {
         this.loading = false; // Stop loading in case of error
@@ -61,7 +61,7 @@ export class EnrollmentListComponent implements OnInit {
         } else {
           this.errorMessage = 'Error fetching data.';
         }
-        this.coursesLength = 10;
+        this.coursesLength = 10; // Fallback values in case of error
         this.lessonsLength = 10;
         this.renderChart();
       }
@@ -72,55 +72,57 @@ export class EnrollmentListComponent implements OnInit {
     const token = localStorage.getItem('authToken');
     const headers = new HttpHeaders().set('Authorization', `Token ${token}`);
 
-    const userDetailsRequests = this.enrollments.map((enrollment) =>
-      this.http.get(`${this.apiUrl}users/${enrollment.student}/`, { headers })
-    );
+    // Fetch the entire list of users and match by ID
+    const userDetailsRequest = this.http.get(`${this.apiUrl}users/`, { headers });
 
-    forkJoin(userDetailsRequests).subscribe(
-      (userDetails: any[]) => {
-        userDetails.forEach((userData, index) => {
-          this.enrollments[index].student = userData.username;
-        });
-        this.fetchCourseTitles(); // Fetch course titles after fetching user details
+    userDetailsRequest.subscribe((userList: any) => {
+        if (Array.isArray(userList)) {
+          this.enrollments.forEach((enrollment) => {
+            const matchedUser = userList.find((user: any) => user.id === enrollment.student);
+            if (matchedUser) {
+              enrollment.student = matchedUser.username;
+            }
+          });
+          this.fetchCourseTitles(); // Fetch course titles after fetching user details
+        }
       },
       (error) => {
         this.loading = false; // Stop loading even in case of error
         console.error('Error fetching user details', error);
         this.renderChart();
-      }
-    );
+      });
   }
 
   fetchCourseTitles(): void {
     const token = localStorage.getItem('authToken');
     const headers = new HttpHeaders().set('Authorization', `Token ${token}`);
 
-    // Fetch each course title based on the course ID
-    const courseRequests = this.enrollments.map((enrollment) =>
-      this.http.get(`${this.apiUrl}courses/${enrollment.course}`, { headers })
-    );
+    const coursesRequest = this.http.get(`${this.apiUrl}courses/`, { headers });
 
-    forkJoin(courseRequests).subscribe(
-      (courseDetails: any[]) => {
-        courseDetails.forEach((courseData, index) => {
-          this.enrollments[index].course = courseData.title;
-        });
-        this.loading = false;
-        this.renderChart();
+    coursesRequest.subscribe((courseList: any) => {
+        if (Array.isArray(courseList)) {
+          this.enrollments.forEach((enrollment) => {
+            const matchedCourse = courseList.find((course: any) => course.id === enrollment.course);
+            if (matchedCourse) {
+              enrollment.course = matchedCourse.title;
+            }
+          });
+          this.loading = false;
+          this.renderChart();
+        }
       },
       (error) => {
         this.loading = false; // Stop loading even in case of error
         console.error('Error fetching course details', error);
         this.renderChart();
-      }
-    );
+      });
   }
 
   renderChart(): void {
     const ctx = document.getElementById('enrollmentChart') as HTMLCanvasElement;
 
     if (this.chart) {
-      this.chart.destroy();
+      this.chart.destroy(); // Destroy any existing chart instance before creating a new one
     }
 
     const chartConfig: ChartConfiguration<'pie'> = {

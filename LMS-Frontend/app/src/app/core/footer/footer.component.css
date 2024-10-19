@@ -59,3 +59,36 @@
   font-weight: bold;
   color: #ffd700 !important;
 }
+
+/* Styling for social media icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Adds space between the icons */
+}
+
+.icon-link {
+  color: #ffffff;
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition on hover */
+}
+
+.icon-link:hover {
+  color: #fff; /* Change icon color on hover */
+  transform: translateY(-5px); /* Slight bounce effect on hover */
+}
+
+.icon-link:hover .fa-github {
+  color: #fff;
+}
+
+.icon-link:hover .fa-linkedin {
+  color: #fff;
+}
+
+.icon-link:hover .fa-globe {
+  color: #fff;
+}
+
+.icon-link:hover .fa-envelope {
+  color: #fff;
+}

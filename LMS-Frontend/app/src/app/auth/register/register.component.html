@@ -1,7 +1,8 @@
 <div class="register-container d-flex justify-content-center align-items-center">
   <div class="card p-5 shadow-lg register-card">
     <h2 class="text-center text-primary mb-4">Register</h2>
-    <form (ngSubmit)="register()">
+    <form (ngSubmit)="register()" #registerForm="ngForm">
+      <!-- Username -->
       <div class="form-group mb-3">
         <label for="username" class="form-label">Username:</label>
         <input
@@ -12,8 +13,14 @@
           class="form-control form-control-lg"
           placeholder="Enter your username"
           required
+          #usernameCtrl="ngModel"
         />
+        <div *ngIf="usernameCtrl.invalid && usernameCtrl.touched" class="text-danger">
+          Username is required.
+        </div>
       </div>
+
+      <!-- Email -->
       <div class="form-group mb-3">
         <label for="email" class="form-label">Email:</label>
         <input
@@ -24,8 +31,16 @@
           class="form-control form-control-lg"
           placeholder="Enter your email"
           required
+          email
+          #emailCtrl="ngModel"
         />
+        <div *ngIf="emailCtrl.invalid && emailCtrl.touched" class="text-danger">
+          <span *ngIf="emailCtrl.errors?.['required']">Email is required.</span>
+          <span *ngIf="emailCtrl.errors?.['email']">Enter a valid email address.</span>
+        </div>
       </div>
+
+      <!-- Password 1 -->
       <div class="form-group mb-3">
         <label for="password1" class="form-label">Password:</label>
         <input
@@ -36,8 +51,18 @@
           class="form-control form-control-lg"
           placeholder="Enter your password"
           required
+          #password1Ctrl="ngModel"
+          (ngModelChange)="validatePassword()"
         />
+        <div *ngIf="password1Ctrl.invalid && password1Ctrl.touched" class="text-danger">
+          Password is required.
+        </div>
+        <div *ngIf="passwordError" class="text-danger">
+          {{ passwordError }}
+        </div>
       </div>
+
+      <!-- Password 2 -->
       <div class="form-group mb-3">
         <label for="password2" class="form-label">Confirm Password:</label>
         <input
@@ -48,9 +73,25 @@
           class="form-control form-control-lg"
           placeholder="Confirm your password"
           required
+          #password2Ctrl="ngModel"
         />
+        <div *ngIf="password1 !== password2 && password2Ctrl.touched" class="text-danger">
+          Passwords do not match.
+        </div>
       </div>
-      <button type="submit" class="btn btn-primary btn-lg w-100 mt-3">Register</button>
+
+      <!-- Register Button or Loading Indicator -->
+      <div class="form-group mb-3">
+        <button type="submit" class="btn btn-primary btn-lg w-100 mt-3" [disabled]="registerForm.invalid || passwordError || isLoading">
+          <span *ngIf="!isLoading">Register</span>
+          <span *ngIf="isLoading">
+            <div class="spinner-border spinner-border-sm text-light" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            Registering...
+          </span>
+        </button>
+      </div>
 
       <!-- Display error message if any -->
       <div *ngIf="errorMessage" class="alert alert-danger mt-4 text-center">
