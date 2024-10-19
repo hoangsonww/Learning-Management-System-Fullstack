@@ -10,8 +10,8 @@ schema_view = get_schema_view(
         title="Learning Management System API",
         default_version='v1',
         description="Comprehensive API documentation for the Learning Management System",
-        terms_of_service="https://moodify-emotion-music-app.vercel.app/terms-of-service",
-        contact=openapi.Contact(email="hoangson091104@gmail.com", name="Learning Management System", url="https://moodify-emotion-music-app.vercel.app/"),
+        terms_of_service="https://learning-management-system-fullstack.vercel.app/",
+        contact=openapi.Contact(email="hoangson091104@gmail.com", name="Learning Management System", url="https://learning-management-system-fullstack.vercel.app/"),
         license=openapi.License(name="MIT License"),
     ),
     public=True,
@@ -25,5 +25,5 @@ urlpatterns = [
     path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
-    path('', RedirectView.as_view(url='https://learning-management-system-fullstack.vercel.app/', permanent=False)),  # Redirect base URL to Swagger UI URL
+    path('', RedirectView.as_view(url='/swagger', permanent=False)),  # Redirect base URL to Swagger UI URL
 ]
