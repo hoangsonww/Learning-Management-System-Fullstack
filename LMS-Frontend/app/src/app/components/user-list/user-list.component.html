@@ -1,6 +1,13 @@
 <div class="container">
   <h2 class="mb-4 text-primary text-center">Platform Overview</h2>
 
+  <!-- Loading Spinner (Visible when loading is true) -->
+  <div *ngIf="loading" class="loading-overlay text-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
   <!-- Chart Section -->
   <div class="chart-section mb-5 mt-5">
     <div class="chart-container">

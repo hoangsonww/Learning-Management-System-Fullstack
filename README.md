@@ -7,6 +7,7 @@ Welcome to the **E-Learning Management System (LMS)**! This project consists of 
 - [Project Overview](#project-overview)
   - [The MAD-Stack](#the-mad-stack)
 - [Features](#features)
+- [Live Deployment](#live-deployment)
 - [Detailed Project Information](#detailed-project-information)
   - [Frontend User Interfaces](#frontend-user-interfaces)
   - [Available API Endpoints](#available-api-endpoints)
@@ -16,7 +17,6 @@ Welcome to the **E-Learning Management System (LMS)**! This project consists of 
   - [Prerequisites](#prerequisites)
   - [Backend Setup (Django)](#backend-setup)
   - [Frontend Setup (Angular)](#frontend-setup)
-- [Live Frontend Demo](#live-frontend-demo)
 - [API Documentation](#api-documentation)
   - [Authentication](#authentication)
   - [Testing the APIs](#testing-the-apis)
@@ -67,6 +67,16 @@ The **MAD-Stack** is a powerful combination that allows developers to build scal
 - **Data Visualization**: Dynamic charts using Chart.js.
 - **Comprehensive APIs**: Powerful RESTful APIs for all operations.
 - **API Documentation**: Comprehensive REST API documentation with Swagger and Redoc.
+
+## Live Deployment
+
+The project is currently deployed live on Vercel and Render. You can access the live deployment using the following link: [E-Learning Management System](https://learning-management-system-fullstack.vercel.app/).
+
+The backend is deployed on Render: [Backend API](https://learning-management-system-fullstack.onrender.com/).
+
+Feel free to explore the platform, create an account, and test out the features.
+
+However, please note that our backend server may spin down due to inactivity, so you may experience delays in loading data initially. If you encounter any issues, please let me know.
 
 ## Detailed Project Information:
 
@@ -318,6 +328,7 @@ Learning-Management-System/
 │   ├── frontend-deployment.yaml
 │   ├── frontend-service.yaml
 ├── .gitignore
+├── .env.example
 ├── docker-compose.yml
 ├── Jenkinsfile
 ├── LICENSE
@@ -363,6 +374,8 @@ Ensure the following prerequisites are installed:
 4. **Configure MongoDB and Redis:**
 
    Ensure MongoDB and Redis are running and configured in `settings.py`. If not installed, follow the instructions to install them. It is very important to run MongoDB and Redis before running the backend server.
+
+   Additionally, edit the `.env` file according to the `.env.example` file with the correct MongoDB and Redis connection strings.
 
 5. **Apply migrations:**
 
@@ -456,12 +469,6 @@ Ensure the following prerequisites are installed:
    - Click on the "Install" button in the address bar to install the PWA.
    - Check the installed PWA in your system applications.
    - Open the installed PWA and test its functionality.
-
-## Live Frontend Demo
-
-You can access the live frontend demo of the Learning Management System at [https://learning-management-system-fullstack.vercel.app/](https://learning-management-system-fullstack.vercel.app/).
-
-Note that the backend server is not hosted, so the data will not be fetched from the server. However, you can still interact with the frontend and view the basic user interfaces (just that features like charts, notifications, and user data will not be available).
 
 ## API Documentation
 

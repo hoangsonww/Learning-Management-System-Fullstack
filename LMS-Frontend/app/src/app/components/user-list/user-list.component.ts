@@ -15,6 +15,7 @@ Chart.register(...registerables);
 export class UserListComponent implements OnInit {
   users: any[] = [];
   errorMessage: string = '';
+  loading: boolean = true;  // Added to track the loading state
   chart: Chart<'pie'> | undefined;
 
   constructor(private userService: UserService) {}
@@ -23,9 +24,11 @@ export class UserListComponent implements OnInit {
     this.userService.getUsers().subscribe(
       (data) => {
         this.users = data;
+        this.loading = false; // Set loading to false once data is fetched
         this.renderChart();
       },
       (error) => {
+        this.loading = false;  // Stop loading even if there is an error
         if (error.status === 401) {
           this.errorMessage = 'Unauthorized access. Please log in.';
         } else {
