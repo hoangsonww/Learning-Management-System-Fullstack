@@ -24,9 +24,13 @@ Chart.register(...registerables);
 export class ProgressListComponent implements OnInit {
   progressRecords: Progress[] = [];
   errorMessage: string = '';
+  loading: boolean = true; // Initialize loading to true
+  chartRendered: boolean = false; // Track whether chart has been rendered
   chart: Chart<'pie'> | undefined;
-  private userApiUrl = 'http://127.0.0.1:8000/api/users/';
-  private lessonApiUrl = 'http://127.0.0.1:8000/api/lessons/';
+  private userApiUrl = 'https://learning-management-system-fullstack.onrender.com/api/users/';
+  private lessonApiUrl = 'https://learning-management-system-fullstack.onrender.com/api/lessons/';
+  private totalFetches: number = 0; // Track total records
+  private completedFetches: number = 0; // Track completed fetches
 
   constructor(
     private progressService: ProgressService,
@@ -41,9 +45,11 @@ export class ProgressListComponent implements OnInit {
     this.progressService.getProgress().subscribe(
       (data: Progress[]) => {
         this.progressRecords = data;
+        this.totalFetches = data.length * 2; // Since we're making 2 requests per record (user and lesson)
         this.fetchUserAndLessonDetails();
       },
       (error) => {
+        this.loading = false; // Stop loading in case of error
         if (error.status === 401) {
           this.errorMessage = 'Unauthorized access. Please log in.';
         } else {
@@ -58,31 +64,42 @@ export class ProgressListComponent implements OnInit {
     const headers = new HttpHeaders().set('Authorization', `Token ${token}`);
 
     this.progressRecords.forEach((record, index) => {
+      // Fetch User Details
       this.http.get(`${this.userApiUrl}${record.student}/`, { headers }).subscribe(
         (userData: any) => {
           this.progressRecords[index].student = userData.username;
-          this.http.get(`${this.lessonApiUrl}${record.lesson}/`, { headers }).subscribe(
-            (lessonData: any) => {
-              this.progressRecords[index].lesson = lessonData.title;
-
-              if (!record.completed) {
-                this.progressRecords[index].completed_at = 'N/A';
-              } else {
-                this.progressRecords[index].completed_at = new Date(record.completed_at).toLocaleDateString();
-              }
-
-              this.renderChart();
-            },
-            (lessonError) => {
-              console.error(`Error fetching lesson details for lesson ID: ${record.lesson}`, lessonError);
-            }
-          );
+          this.checkIfAllFetchesCompleted(); // Increment fetch completion after user details
         },
         (userError) => {
           console.error(`Error fetching user details for user ID: ${record.student}`, userError);
         }
       );
+
+      // Fetch Lesson Details
+      this.http.get(`${this.lessonApiUrl}${record.lesson}/`, { headers }).subscribe(
+        (lessonData: any) => {
+          this.progressRecords[index].lesson = lessonData.title;
+
+          if (!record.completed) {
+            this.progressRecords[index].completed_at = 'N/A';
+          } else {
+            this.progressRecords[index].completed_at = new Date(record.completed_at).toLocaleDateString();
+          }
+          this.checkIfAllFetchesCompleted(); // Increment fetch completion after lesson details
+        },
+        (lessonError) => {
+          console.error(`Error fetching lesson details for lesson ID: ${record.lesson}`, lessonError);
+        }
+      );
     });
+  }
+
+  checkIfAllFetchesCompleted(): void {
+    this.completedFetches++;
+    if (this.completedFetches === this.totalFetches) {
+      this.loading = false; // Stop loading for the rest of the page
+      this.renderChart(); // Render the chart only when all data is fetched
+    }
   }
 
   renderChart(): void {
@@ -115,5 +132,6 @@ export class ProgressListComponent implements OnInit {
     };
 
     this.chart = new Chart(ctx, chartConfig);
+    this.chartRendered = true; // Mark that the chart has been rendered
   }
 }

@@ -7,7 +7,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class EnrollmentService {
-  private apiUrl = 'http://127.0.0.1:8000/api/enrollments/';
+  private apiUrl = 'https://learning-management-system-fullstack.onrender.com/api/enrollments/';
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 

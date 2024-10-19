@@ -6,10 +6,12 @@ import { CourseListComponent } from './components/course-list/course-list.compon
 import { LessonListComponent } from './components/lesson-list/lesson-list.component';
 import { EnrollmentListComponent } from './components/enrollment-list/enrollment-list.component';
 import { ProgressListComponent } from './components/progress-list/progress-list.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'users', component: UserListComponent },
   { path: 'courses', component: CourseListComponent },
   { path: 'lessons', component: LessonListComponent },

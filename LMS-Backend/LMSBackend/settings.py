@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'drf_yasg',
     'dj_rest_auth',
+    'dj_rest_auth.registration',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -91,11 +92,17 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'LMSBackend.urls'
 
+# CORS settings
+CORS_ALLOW_ALL_ORIGINS = False  # Disable allow all origins
+
+# Explicitly allow specific origins
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:4200",
+    'https://learning-management-system-fullstack.vercel.app',  # Frontend hosted on Vercel
+    'https://fullstack-learning-management-system.netlify.app',  # Backup Frontend hosted on Netlify
+    'http://localhost:4200', # Local development
 ]
 
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_CREDENTIALS = True  # Allow sending credentials like cookies and auth headers
 
 TEMPLATES = [
     {
@@ -118,7 +125,7 @@ WSGI_APPLICATION = 'LMSBackend.wsgi.application'
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/1',
+        'LOCATION': config('REDIS_LOCATION'),
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }
@@ -145,7 +152,7 @@ SWAGGER_SETTINGS = {
             'type': 'apiKey',
             'in': 'header',
             'name': 'Authorization',
-            'description': 'Enter your token in the format: Token {your_token}'
+            'description': 'Enter your token in the format: Bearer {your_token}'
         }
     },
     'DEFAULT_API_KEY': 'Token ',

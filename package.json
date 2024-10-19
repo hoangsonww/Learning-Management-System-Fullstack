@@ -1,0 +1,39 @@
+{
+  "name": "learning-management-system",
+  "version": "1.0.0",
+  "description": "Learning Management System - a web application for managing courses and students",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "install": "cd LMS-Frontend && npm install && cd ../LMS-Backend && pip install -r requirements.txt",
+    "start": "cd LMS-Backend && python manage.py runserver && cd ../LMS-Frontend && npm start",
+    "build": "cd LMS-Frontend/app && ng build",
+    "test": "cd LMS-Frontend/app && ng serve",
+    "eject": "cd LMS-Frontend/app && npm run eject",
+    "frontend": "cd LMS-Frontend/app && ng serve",
+    "backend": "cd LMS-Backend && python manage.py runserver",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoangsonww/Learning-Management-System-Fullstack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hoangsonww/Learning-Management-System-Fullstack/issues",
+    "email": "hoangson091104@gmail.com",
+    "name": "Son Nguyen"
+  },
+  "keywords": [
+    "LMS",
+    "Learning Management System",
+    "React",
+    "Django"
+  ],
+  "author": "Son Nguyen",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^9.0.1",
+    "prettier": "^3.3.3"
+  }
+}

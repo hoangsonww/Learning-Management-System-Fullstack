@@ -40,3 +40,21 @@
   border-radius: 15px;
   margin: 15px;
 }
+
+.loading-overlay {
+  position: fixed; /* Cover the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8); /* Optional: light overlay effect */
+  z-index: 9999; /* Ensure it stays on top */
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}

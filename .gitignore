@@ -1,1 +1,4 @@
 /LMS-Backend/.env
+/venv/
+/node_modules/
+/.env
