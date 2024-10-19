@@ -22,6 +22,7 @@ packaging==24.1
 PyJWT==2.9.0
 pymongo==4.8.0
 python-dateutil==2.9.0.post0
+python-decouple==3.8
 pytz==2024.1
 PyYAML==6.0.2
 redis==5.0.8

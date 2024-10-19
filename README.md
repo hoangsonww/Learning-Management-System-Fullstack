@@ -388,6 +388,14 @@ Ensure the following prerequisites are installed:
    
     Replace `your_secret_key_here` with a random string of characters. This key is used for cryptographic signing and should be kept secret. Or you can also contact me to get the secret key.
 
+    Alternatively, create an `.env` file in the project root directory following the format in the `.env.example` file:
+
+    ```plaintext
+    DJANGO_SECRET_KEY=your_secret_key_here
+    DJANGO_DEBUG=True
+    (...)
+    ```
+
 8. **Seed the database with sample data:**
 
    ```bash

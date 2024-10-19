@@ -11,15 +11,26 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 from datetime import timedelta
 from pathlib import Path
-
+from decouple import config
 from mongoengine import connect
 
 
 # Connect to MongoDB
 connect(
     db="lms_database",
-    host="mongodb://localhost:27017/",
+    host=config('MONGO_DB_URI'),
+    username=config('MONGO_DB_USERNAME'),
+    password=config('MONGO_DB_PASSWORD'),
+    authentication_source='admin',
+    ssl=True
 )
+
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = config('DJANGO_SECRET_KEY')
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = config('DJANGO_DEBUG', default=False, cast=bool)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -29,7 +40,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
