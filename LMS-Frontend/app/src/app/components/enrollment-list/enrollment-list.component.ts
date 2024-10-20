@@ -19,21 +19,22 @@ Chart.register(...registerables);
   standalone: true,
   imports: [CommonModule],
   templateUrl: './enrollment-list.component.html',
-  styleUrls: ['./enrollment-list.component.css']
+  styleUrls: ['./enrollment-list.component.css'],
 })
 export class EnrollmentListComponent implements OnInit {
   enrollments: Enrollment[] = [];
   errorMessage: string = '';
   loading: boolean = true; // Track loading state
   chart: Chart<'pie'> | undefined;
-  private apiUrl = 'https://learning-management-system-fullstack.onrender.com/api/';
+  private apiUrl =
+    'https://learning-management-system-fullstack.onrender.com/api/';
   coursesLength: number = 0;
   lessonsLength: number = 0;
   isAuthenticated: boolean = true; // Flag to check authentication status
 
   constructor(
     private enrollmentService: EnrollmentService,
-    private http: HttpClient
+    private http: HttpClient,
   ) {}
 
   ngOnInit(): void {
@@ -49,11 +50,15 @@ export class EnrollmentListComponent implements OnInit {
     const lessons$ = this.http.get(`${this.apiUrl}lessons/`, { headers });
 
     forkJoin([enrollments$, courses$, lessons$]).subscribe(
-      ([enrollmentsData, coursesData, lessonsData]: [Enrollment[], any, any]) => {
+      ([enrollmentsData, coursesData, lessonsData]: [
+        Enrollment[],
+        any,
+        any,
+      ]) => {
         this.enrollments = enrollmentsData;
         this.coursesLength = coursesData.length;
         this.lessonsLength = lessonsData.length;
-        this.fetchUserDetails();  // Fetch user details based on student ID
+        this.fetchUserDetails(); // Fetch user details based on student ID
       },
       (error) => {
         this.loading = false; // Stop loading in case of error
@@ -65,7 +70,7 @@ export class EnrollmentListComponent implements OnInit {
         }
         this.coursesLength = 10; // Fallback values in case of error
         this.lessonsLength = 10;
-      }
+      },
     );
   }
 
@@ -74,12 +79,17 @@ export class EnrollmentListComponent implements OnInit {
     const headers = new HttpHeaders().set('Authorization', `Token ${token}`);
 
     // Fetch the entire list of users and match by ID
-    const userDetailsRequest = this.http.get(`${this.apiUrl}users/`, { headers });
+    const userDetailsRequest = this.http.get(`${this.apiUrl}users/`, {
+      headers,
+    });
 
-    userDetailsRequest.subscribe((userList: any) => {
+    userDetailsRequest.subscribe(
+      (userList: any) => {
         if (Array.isArray(userList)) {
           this.enrollments.forEach((enrollment) => {
-            const matchedUser = userList.find((user: any) => user.id === enrollment.student);
+            const matchedUser = userList.find(
+              (user: any) => user.id === enrollment.student,
+            );
             if (matchedUser) {
               enrollment.student = matchedUser.username;
             }
@@ -90,7 +100,8 @@ export class EnrollmentListComponent implements OnInit {
       (error) => {
         this.loading = false; // Stop loading even in case of error
         console.error('Error fetching user details', error);
-      });
+      },
+    );
   }
 
   fetchCourseTitles(): void {
@@ -99,16 +110,20 @@ export class EnrollmentListComponent implements OnInit {
 
     const coursesRequest = this.http.get(`${this.apiUrl}courses/`, { headers });
 
-    coursesRequest.subscribe((courseList: any) => {
+    coursesRequest.subscribe(
+      (courseList: any) => {
         if (Array.isArray(courseList)) {
           this.enrollments.forEach((enrollment) => {
-            const matchedCourse = courseList.find((course: any) => course.id === enrollment.course);
+            const matchedCourse = courseList.find(
+              (course: any) => course.id === enrollment.course,
+            );
             if (matchedCourse) {
               enrollment.course = matchedCourse.title;
             }
           });
           this.loading = false;
-          if (this.isAuthenticated) { // Ensure the chart is only rendered if authenticated
+          if (this.isAuthenticated) {
+            // Ensure the chart is only rendered if authenticated
             this.renderChart();
           }
         }
@@ -116,7 +131,8 @@ export class EnrollmentListComponent implements OnInit {
       (error) => {
         this.loading = false; // Stop loading even in case of error
         console.error('Error fetching course details', error);
-      });
+      },
+    );
   }
 
   renderChart(): void {
@@ -130,23 +146,25 @@ export class EnrollmentListComponent implements OnInit {
       type: 'pie',
       data: {
         labels: ['Lessons', 'Courses', 'Enrollments'],
-        datasets: [{
-          data: [
-            this.lessonsLength,
-            this.coursesLength,
-            this.enrollments.length
-          ],
-          backgroundColor: ['#007bff', '#ffc107', '#28a745']
-        }]
+        datasets: [
+          {
+            data: [
+              this.lessonsLength,
+              this.coursesLength,
+              this.enrollments.length,
+            ],
+            backgroundColor: ['#007bff', '#ffc107', '#28a745'],
+          },
+        ],
       },
       options: {
         responsive: true,
         plugins: {
           legend: {
-            position: 'bottom'
-          }
-        }
-      }
+            position: 'bottom',
+          },
+        },
+      },
     };
 
     this.chart = new Chart(ctx, chartConfig);

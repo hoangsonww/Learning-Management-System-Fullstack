@@ -13,7 +13,8 @@
     "eject": "cd LMS-Frontend/app && npm run eject",
     "frontend": "cd LMS-Frontend/app && ng serve",
     "backend": "cd LMS-Backend && python manage.py runserver",
-    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "format": "prettier --write \"**/*.{ts,css}\""
   },
   "repository": {
     "type": "git",

@@ -9,18 +9,23 @@ import { Subscription } from 'rxjs';
   standalone: true,
   imports: [RouterModule, CommonModule],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   private authSubscription: Subscription = new Subscription();
   private loggedInStatus: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
-    this.authSubscription = this.authService.isLoggedIn().subscribe((status) => {
-      this.loggedInStatus = status;
-    });
+    this.authSubscription = this.authService
+      .isLoggedIn()
+      .subscribe((status) => {
+        this.loggedInStatus = status;
+      });
   }
 
   isLoggedIn(): boolean {

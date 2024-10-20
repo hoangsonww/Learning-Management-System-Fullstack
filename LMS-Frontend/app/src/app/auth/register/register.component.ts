@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
   username: string = '';
@@ -18,9 +18,12 @@ export class RegisterComponent {
   password2: string = '';
   errorMessage: string = '';
   passwordError: string | null = null;
-  isLoading: boolean = false;  // New flag to manage loading state
+  isLoading: boolean = false; // New flag to manage loading state
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) {}
 
   /**
    * This function ensures the password is not purely numeric and also
@@ -49,17 +52,20 @@ export class RegisterComponent {
     // Set loading state to true before making the request
     this.isLoading = true;
 
-    this.authService.register(this.username, this.email, this.password1, this.password2).subscribe(
-      () => {
-        // Reset loading state on success
-        this.isLoading = false;
-        this.router.navigate(['/login']); // Redirect to login page after successful registration
-      },
-      (error) => {
-        // Reset loading state and show error on failure
-        this.isLoading = false;
-        this.errorMessage = error.error?.detail || 'Registration failed. Please try again.';
-      }
-    );
+    this.authService
+      .register(this.username, this.email, this.password1, this.password2)
+      .subscribe(
+        () => {
+          // Reset loading state on success
+          this.isLoading = false;
+          this.router.navigate(['/login']); // Redirect to login page after successful registration
+        },
+        (error) => {
+          // Reset loading state and show error on failure
+          this.isLoading = false;
+          this.errorMessage =
+            error.error?.detail || 'Registration failed. Please try again.';
+        },
+      );
   }
 }

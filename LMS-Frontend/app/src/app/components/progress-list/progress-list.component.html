@@ -18,20 +18,39 @@
   <!-- Progress Records and Errors (only shown when loading is false) -->
   <div *ngIf="!loading">
     <h2 class="mb-4 text-primary text-center">Progress Records</h2>
-    <div *ngIf="errorMessage" class="alert alert-danger text-center">{{ errorMessage }}</div>
-    <div *ngIf="progressRecords.length === 0 && !errorMessage" class="alert alert-info text-center">No progress records available.</div>
+    <div *ngIf="errorMessage" class="alert alert-danger text-center">
+      {{ errorMessage }}
+    </div>
+    <div
+      *ngIf="progressRecords.length === 0 && !errorMessage"
+      class="alert alert-info text-center"
+    >
+      No progress records available.
+    </div>
 
     <!-- Progress Records Cards Section -->
     <div class="row justify-content-center">
-      <div class="col-md-6 col-lg-4 mb-4" *ngFor="let progress of progressRecords">
+      <div
+        class="col-md-6 col-lg-4 mb-4"
+        *ngFor="let progress of progressRecords"
+      >
         <div class="card shadow-lg h-100 rounded-custom p-3">
           <div class="card-body d-flex flex-column justify-content-between">
             <div>
-              <h4 class="card-title text-primary">User: {{ progress.student }}</h4>
-              <p class="card-text text-muted"><strong>Lesson:</strong> {{ progress.lesson }}</p>
-              <p class="card-text"><strong>Status:</strong> {{ progress.completed ? 'Completed' : 'Not Completed' }}</p>
-              <hr>
-              <p class="card-text"><strong>Completed At:</strong> {{ progress.completed_at }}</p>
+              <h4 class="card-title text-primary">
+                User: {{ progress.student }}
+              </h4>
+              <p class="card-text text-muted">
+                <strong>Lesson:</strong> {{ progress.lesson }}
+              </p>
+              <p class="card-text">
+                <strong>Status:</strong>
+                {{ progress.completed ? "Completed" : "Not Completed" }}
+              </p>
+              <hr />
+              <p class="card-text">
+                <strong>Completed At:</strong> {{ progress.completed_at }}
+              </p>
             </div>
           </div>
         </div>

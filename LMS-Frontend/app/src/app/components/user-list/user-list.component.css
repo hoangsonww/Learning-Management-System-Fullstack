@@ -17,7 +17,9 @@
 
 .card {
   border: none;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
   padding: 15px;
 }
 
@@ -51,7 +53,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.8); /* Optional: light overlay effect */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Optional: light overlay effect */
   z-index: 9999; /* Ensure it stays on top */
 }
 

@@ -6,6 +6,6 @@ export const config: ApplicationConfig = {
   providers: [
     provideHttpClient(),
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    importProvidersFrom([])
-  ]
+    importProvidersFrom([]),
+  ],
 };

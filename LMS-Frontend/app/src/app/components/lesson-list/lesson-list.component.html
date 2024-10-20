@@ -18,8 +18,16 @@
   <!-- Lessons and Errors (only shown when loading is false) -->
   <div *ngIf="!loading">
     <h2 class="mb-4 text-primary text-center">Lessons</h2>
-    <div *ngIf="errorMessage" style="text-align: center" class="alert alert-danger">{{ errorMessage }}</div>
-    <div *ngIf="lessons.length === 0 && !errorMessage" class="alert alert-info">No lessons available.</div>
+    <div
+      *ngIf="errorMessage"
+      style="text-align: center"
+      class="alert alert-danger"
+    >
+      {{ errorMessage }}
+    </div>
+    <div *ngIf="lessons.length === 0 && !errorMessage" class="alert alert-info">
+      No lessons available.
+    </div>
 
     <!-- Lesson Cards Section -->
     <div class="row justify-content-center">
@@ -29,7 +37,7 @@
             <div>
               <h4 class="card-title text-primary">{{ lesson.title }}</h4>
               <p class="card-text text-muted">{{ lesson.content }}</p>
-              <hr>
+              <hr />
               <p class="card-text"><strong>Duration:</strong> 75 minutes</p>
             </div>
           </div>

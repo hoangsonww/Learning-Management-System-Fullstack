@@ -17,5 +17,5 @@ export const routes: Routes = [
   { path: 'lessons', component: LessonListComponent },
   { path: 'enrollments', component: EnrollmentListComponent },
   { path: 'progress', component: ProgressListComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
