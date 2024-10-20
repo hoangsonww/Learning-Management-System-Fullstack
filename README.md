@@ -326,13 +326,13 @@ Learning-Management-System/
 │   │   ├── tsconfig.app.json
 │   │   └── tsconfig.spec.json
 │   ├── LICENSE
-│   ├── README.md
+│   └── README.md
 ├── Kubernetes
 │   ├── configmap.yaml
 │   ├── backend-deployment.yaml
 │   ├── backend-service.yaml
 │   ├── frontend-deployment.yaml
-│   ├── frontend-service.yaml
+│   └── frontend-service.yaml
 ├── .gitignore
 ├── .env.example
 ├── docker-compose.yml
