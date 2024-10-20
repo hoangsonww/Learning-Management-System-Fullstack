@@ -22,6 +22,7 @@ Welcome to the **E-Learning Management System (LMS)**! This project consists of 
   - [Testing the APIs](#testing-the-apis)
   - [Seeding Sample Data](#seeding-sample-data)
   - [Recommended GUI Tools](#recommended-gui-tools)
+  - [MongoDB Atlas](#mongodb-atlas)
 - [Containerization](#containerization)
 - [Troubleshooting](#troubleshooting)
   - [Common Issues](#common-issues)
@@ -619,6 +620,40 @@ For example, you can use MongoDB Compass to view the data in your MongoDB databa
 <p align="center" style="cursor: pointer">
   <img src="/docs/gui-tools.png" alt="GUI Tools" style="border-radius: 10px" width="100%"/>
 </p>
+
+#### MongoDB Atlas
+
+This project is set up to use MongoDB Atlas as the cloud database. You can create a free account on MongoDB Atlas and set up a free cluster to use with the project. Follow these steps to set up MongoDB Atlas:
+
+1. **Create a MongoDB Atlas account:**
+
+   - Go to the [MongoDB Atlas website](https://www.mongodb.com/cloud/atlas).
+   - Click on "Get started free".
+   - Create an account and log in.
+
+2. **Create a free cluster:**
+
+    - Click on "Build a Cluster".
+    - Choose the free tier option.
+    - Select the cloud provider and region.
+    - Click "Create Cluster".
+
+3. **Connect to your cluster:**
+
+    - Click on "Connect" to connect to your cluster.
+    - Whitelist your IP address.
+    - Create a MongoDB user and password.
+
+4. **Get your connection string:**
+
+    - Click on "Connect" and choose "Connect your application".
+    - Copy the connection string.
+
+5. **Set up the connection string in the Django settings:**
+  
+      - Replace the `.env` configuration file with the connection string from MongoDB Atlas.
+
+Alternatively, you can use the local MongoDB server for development and testing purposes.
 
 ## Containerization
 
