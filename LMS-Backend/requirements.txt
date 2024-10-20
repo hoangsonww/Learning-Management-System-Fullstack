@@ -32,3 +32,4 @@ six==1.16.0
 sqlparse==0.5.1
 uritemplate==4.1.1
 urllib3==2.2.2
+whitenoise==6.7.0
