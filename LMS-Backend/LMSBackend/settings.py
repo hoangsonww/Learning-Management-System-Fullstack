@@ -160,6 +160,7 @@ SWAGGER_SETTINGS = {
     'APIS_SORTER': 'alpha',
     'OPERATIONS_SORTER': 'alpha',
     'SHOW_REQUEST_HEADERS': True,
+    'DEFAULT_API_URL': 'https://learning-management-system-fullstack.onrender.com',
 }
 
 SIMPLE_JWT = {
