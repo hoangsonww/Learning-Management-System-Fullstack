@@ -59,3 +59,13 @@
   padding: 12px;
   border-radius: 8px;
 }
+
+a {
+  color: #007bff !important;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline !important;
+}

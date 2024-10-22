@@ -137,6 +137,12 @@ However, please note that our backend server may spin down due to inactivity, so
   <img src="docs/unauthorized-ui.png" alt="Unauthorized Access Page" style="border-radius: 10px" width="100%"/>
 </p>
 
+**Not Found Page**:
+
+<p align="center" style="cursor: pointer">
+  <img src="docs/notfound.png" alt="Not Found Page" style="border-radius: 10px" width="100%"/>
+</p>
+
 **Footer**:
 
 <p align="center" style="cursor: pointer">

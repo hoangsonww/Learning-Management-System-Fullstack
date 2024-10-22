@@ -38,6 +38,10 @@ export class RegisterComponent {
     }
   }
 
+  goToLogin(): void {
+    this.router.navigate(['/login']);
+  }
+
   register(): void {
     this.errorMessage = '';
     if (this.password1 !== this.password2) {

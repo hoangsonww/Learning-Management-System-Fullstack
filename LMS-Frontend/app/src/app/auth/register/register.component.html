@@ -117,6 +117,10 @@
       <div *ngIf="errorMessage" class="alert alert-danger mt-4 text-center">
         {{ errorMessage }}
       </div>
+
+      <div class="text-center mt-4">
+        Already have an account? <a (click)="goToLogin()">Login</a>
+      </div>
     </form>
   </div>
 </div>
