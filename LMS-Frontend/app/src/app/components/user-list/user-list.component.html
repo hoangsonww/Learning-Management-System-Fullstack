@@ -16,8 +16,15 @@
   </div>
 
   <h2 class="mb-4 text-primary text-center">User List</h2>
-  <div *ngIf="errorMessage" class="alert alert-danger text-center">{{ errorMessage }}</div>
-  <div *ngIf="users.length === 0 && !errorMessage" class="alert alert-info text-center">No users available.</div>
+  <div *ngIf="errorMessage" class="alert alert-danger text-center">
+    {{ errorMessage }}
+  </div>
+  <div
+    *ngIf="users.length === 0 && !errorMessage"
+    class="alert alert-info text-center"
+  >
+    No users available.
+  </div>
 
   <!-- User Cards Section -->
   <div class="row justify-content-center">
@@ -27,9 +34,14 @@
           <div>
             <h4 class="card-title text-primary">{{ user.username }}</h4>
             <p class="card-text text-muted">{{ user.email }}</p>
-            <p class="card-text text-muted"><strong>Bio:</strong> {{ user.bio }}</p>
-            <hr>
-            <p class="card-text"><strong>Status:</strong> {{ user.is_instructor ? 'Instructor' : 'Student' }}</p>
+            <p class="card-text text-muted">
+              <strong>Bio:</strong> {{ user.bio }}
+            </p>
+            <hr />
+            <p class="card-text">
+              <strong>Status:</strong>
+              {{ user.is_instructor ? "Instructor" : "Student" }}
+            </p>
           </div>
         </div>
       </div>

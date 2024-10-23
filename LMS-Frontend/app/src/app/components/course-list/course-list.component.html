@@ -18,8 +18,16 @@
   <!-- Courses and Errors (only shown when loading is false) -->
   <div *ngIf="!loading">
     <h2 class="mb-4 text-primary text-center">Courses</h2>
-    <div *ngIf="errorMessage" class="alert alert-danger" style="text-align: center;">{{ errorMessage }}</div>
-    <div *ngIf="courses.length === 0 && !errorMessage" class="alert alert-info">No courses available.</div>
+    <div
+      *ngIf="errorMessage"
+      class="alert alert-danger"
+      style="text-align: center"
+    >
+      {{ errorMessage }}
+    </div>
+    <div *ngIf="courses.length === 0 && !errorMessage" class="alert alert-info">
+      No courses available.
+    </div>
 
     <!-- Course Cards Section -->
     <div class="row justify-content-center">
@@ -29,8 +37,11 @@
             <div>
               <h4 class="card-title text-primary">{{ course.title }}</h4>
               <p class="card-text text-muted">{{ course.description }}</p>
-              <hr>
-              <p class="card-text"><strong>Instructor:</strong> {{ formatInstructorName(course.instructor) }}</p>
+              <hr />
+              <p class="card-text">
+                <strong>Instructor:</strong>
+                {{ formatInstructorName(course.instructor) }}
+              </p>
             </div>
           </div>
         </div>

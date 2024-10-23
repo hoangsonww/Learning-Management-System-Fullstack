@@ -29,7 +29,9 @@
   margin: 5px 15px;
   font-size: 16px;
   font-weight: 500;
-  transition: color 0.3s, transform 0.3s;
+  transition:
+    color 0.3s,
+    transform 0.3s;
   position: relative;
 }
 
@@ -69,7 +71,9 @@
 
 .icon-link {
   color: #ffffff;
-  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition on hover */
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease; /* Smooth transition on hover */
 }
 
 .icon-link:hover {

@@ -14,14 +14,16 @@ import { FooterComponent } from './core/footer/footer.component';
     </div>
     <app-footer></app-footer>
   `,
-  styles: [`
-    .container {
-      margin-top: 20px;
-      padding: 15px;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  `]
+  styles: [
+    `
+      .container {
+        margin-top: 20px;
+        padding: 15px;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    `,
+  ],
 })
 export class AppComponent {}

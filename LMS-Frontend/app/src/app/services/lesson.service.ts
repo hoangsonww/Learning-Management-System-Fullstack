@@ -4,19 +4,23 @@ import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LessonService {
-  private apiUrl = 'https://learning-management-system-fullstack.onrender.com/api/lessons/';
+  private apiUrl =
+    'https://learning-management-system-fullstack.onrender.com/api/lessons/';
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+  ) {}
 
   // Helper method to get the authorization headers
   private getAuthHeaders(): HttpHeaders {
     const token = this.authService.getToken();
     return new HttpHeaders({
-      'Authorization': `Token ${token}`,
-      'Content-Type': 'application/json'
+      Authorization: `Token ${token}`,
+      'Content-Type': 'application/json',
     });
   }
 

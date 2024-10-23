@@ -28,20 +28,21 @@ Chart.register(...registerables);
   standalone: true,
   imports: [CommonModule],
   templateUrl: './progress-list.component.html',
-  styleUrls: ['./progress-list.component.css']
+  styleUrls: ['./progress-list.component.css'],
 })
 export class ProgressListComponent implements OnInit {
   progressRecords: MappedProgress[] = []; // This will now hold the new list of mapped progress data
   errorMessage: string = '';
   loading: boolean = true; // Track loading state
   chart: Chart<'pie'> | undefined;
-  private apiUrl = 'https://learning-management-system-fullstack.onrender.com/api/';
+  private apiUrl =
+    'https://learning-management-system-fullstack.onrender.com/api/';
   lessonsLength: number = 0;
   usersLength: number = 0;
 
   constructor(
     private progressService: ProgressService,
-    private http: HttpClient
+    private http: HttpClient,
   ) {}
 
   ngOnInit(): void {
@@ -53,22 +54,28 @@ export class ProgressListComponent implements OnInit {
     const headers = new HttpHeaders().set('Authorization', `Token ${token}`);
 
     const progress$ = this.progressService.getProgress();
-    const lessons$ = this.http.get<any[]>(`${this.apiUrl}lessons/`, { headers });  // Fetch lessons
-    const users$ = this.http.get<any[]>(`${this.apiUrl}users/`, { headers });     // Fetch users
+    const lessons$ = this.http.get<any[]>(`${this.apiUrl}lessons/`, {
+      headers,
+    }); // Fetch lessons
+    const users$ = this.http.get<any[]>(`${this.apiUrl}users/`, { headers }); // Fetch users
 
     forkJoin([progress$, lessons$, users$]).subscribe(
       ([progressData, lessonsData, usersData]: [Progress[], any[], any[]]) => {
         this.lessonsLength = lessonsData.length;
         this.usersLength = usersData.length;
 
-        this.progressRecords = this.mapUserAndLessonDetails(progressData, usersData, lessonsData); // Create a new list
+        this.progressRecords = this.mapUserAndLessonDetails(
+          progressData,
+          usersData,
+          lessonsData,
+        ); // Create a new list
         this.loading = false;
         this.renderChart();
       },
       (error) => {
         this.loading = false;
         this.errorMessage = 'Error fetching data.';
-      }
+      },
     );
   }
 
@@ -79,7 +86,11 @@ export class ProgressListComponent implements OnInit {
   }
 
   // Create a new list of progresses with random student names and lesson titles
-  mapUserAndLessonDetails(progressData: Progress[], usersData: any[], lessonsData: any[]): MappedProgress[] {
+  mapUserAndLessonDetails(
+    progressData: Progress[],
+    usersData: any[],
+    lessonsData: any[],
+  ): MappedProgress[] {
     return progressData.map((progress) => {
       const randomUser = this.getRandomItem(usersData);
       const randomLesson = this.getRandomItem(lessonsData);
@@ -89,7 +100,9 @@ export class ProgressListComponent implements OnInit {
         student: randomUser ? randomUser.username : 'Unknown User', // Assign random user
         lesson: randomLesson ? randomLesson.title : 'Unknown Lesson', // Assign random lesson
         completed: progress.completed,
-        completed_at: progress.completed_at ? new Date(progress.completed_at).toLocaleDateString() : 'N/A' // Format date or show 'N/A'
+        completed_at: progress.completed_at
+          ? new Date(progress.completed_at).toLocaleDateString()
+          : 'N/A', // Format date or show 'N/A'
       };
     });
   }
@@ -105,22 +118,24 @@ export class ProgressListComponent implements OnInit {
       type: 'pie',
       data: {
         labels: ['Completed', 'Not Completed'],
-        datasets: [{
-          data: [
-            this.progressRecords.filter(record => record.completed).length,
-            this.progressRecords.filter(record => !record.completed).length
-          ],
-          backgroundColor: ['#28a745', '#dc3545']
-        }]
+        datasets: [
+          {
+            data: [
+              this.progressRecords.filter((record) => record.completed).length,
+              this.progressRecords.filter((record) => !record.completed).length,
+            ],
+            backgroundColor: ['#28a745', '#dc3545'],
+          },
+        ],
       },
       options: {
         responsive: true,
         plugins: {
           legend: {
-            position: 'bottom'
-          }
-        }
-      }
+            position: 'bottom',
+          },
+        },
+      },
     };
 
     this.chart = new Chart(ctx, chartConfig);

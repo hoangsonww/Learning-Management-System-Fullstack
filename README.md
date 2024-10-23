@@ -22,6 +22,7 @@ Welcome to the **E-Learning Management System (LMS)**! This project consists of 
   - [Testing the APIs](#testing-the-apis)
   - [Seeding Sample Data](#seeding-sample-data)
   - [Recommended GUI Tools](#recommended-gui-tools)
+  - [MongoDB Atlas](#mongodb-atlas)
 - [Containerization](#containerization)
 - [Troubleshooting](#troubleshooting)
   - [Common Issues](#common-issues)
@@ -136,6 +137,12 @@ However, please note that our backend server may spin down due to inactivity, so
   <img src="docs/unauthorized-ui.png" alt="Unauthorized Access Page" style="border-radius: 10px" width="100%"/>
 </p>
 
+**Not Found Page**:
+
+<p align="center" style="cursor: pointer">
+  <img src="docs/notfound.png" alt="Not Found Page" style="border-radius: 10px" width="100%"/>
+</p>
+
 **Footer**:
 
 <p align="center" style="cursor: pointer">
@@ -234,19 +241,20 @@ Learning-Management-System/
 │   │   ├── urls.py
 │   │   ├── asgi.py
 │   │   └── wsgi.py
-│   ├── core/
-│   │   ├── management/
-│   │   │   └── commands/
-│   │   │       └── seed_sample_data.py
-│   │   ├── migrations/
-│   │   │   └── __init__.py
-│   │   ├── models.py
-│   │   ├── views.py
-│   │   ├── tests.py
-│   │   ├── admin.py
-│   │   ├── apps.py
-│   │   ├── serializers.py
-│   │   └── urls.py
+│   └── core/
+│       ├── management/
+│       │   └── commands/
+│       │       └── seed_sample_data.py
+│       ├── migrations/
+│       │   └── __init__.py
+│       ├── models.py
+│       ├── views.py
+│       ├── tests.py
+│       ├── admin.py
+│       ├── apps.py
+│       ├── serializers.py
+│       └── urls.py
+│   
 ├── LMS-Frontend
 │   ├── angular.json
 │   ├── package.json
@@ -261,6 +269,10 @@ Learning-Management-System/
 │   │   │   │   │   │   ├── login.component.ts
 │   │   │   │   │   │   ├── login.component.html
 │   │   │   │   │   │   └── login.component.css
+│   │   │   │   │   ├── register/
+│   │   │   │   │   │   ├── register.component.ts
+│   │   │   │   │   │   ├── register.component.html
+│   │   │   │   │   │   └── register.component.css
 │   │   │   │   ├── core/
 │   │   │   │   │   ├── footer/
 │   │   │   │   │   │   ├── footer.component.ts
@@ -272,9 +284,13 @@ Learning-Management-System/
 │   │   │   │   │   │   └── header.component.css
 │   │   │   │   ├── pages/
 │   │   │   │   │   ├── home/
-│   │   │   │   │   │   ├── home.component.ts
-│   │   │   │   │   │   ├── home.component.html
+│   │   │   │   │   │   ├── notfound.component.ts
+│   │   │   │   │   │   ├── notfound.component.html
 │   │   │   │   │   │   └── home.component.css
+│   │   │   │   │   ├── notfound/
+│   │   │   │   │   │   ├── notfound.component.ts
+│   │   │   │   │   │   ├── notfound.component.html
+│   │   │   │   │   │   └── notfound.component.css
 │   │   │   │   ├── components/
 │   │   │   │   │   ├── course-list/
 │   │   │   │   │   │   ├── course-list.component.ts
@@ -311,8 +327,8 @@ Learning-Management-System/
 │   │   │   │   ├── app.component.html
 │   │   │   │   └── app.component.css
 │   │   │   ├── assets/
-│   │   │   │   └── images/
-│   │   │   │       └── .gitkeep
+│   │   │   │   ├── <images...>
+│   │   │   │   └── .gitkeep
 │   │   │   ├── main.ts
 │   │   │   ├── styles.css
 │   │   │   ├── manifest.json
@@ -326,13 +342,19 @@ Learning-Management-System/
 │   │   ├── tsconfig.app.json
 │   │   └── tsconfig.spec.json
 │   ├── LICENSE
-│   ├── README.md
-├── Kubernetes
+│   └── README.md
+│
+├── nginx
+│   ├── nginx.conf
+│   └── Dockerfile
+│
+├── kubernetes
 │   ├── configmap.yaml
 │   ├── backend-deployment.yaml
 │   ├── backend-service.yaml
 │   ├── frontend-deployment.yaml
-│   ├── frontend-service.yaml
+│   └── frontend-service.yaml
+│
 ├── .gitignore
 ├── .env.example
 ├── docker-compose.yml
@@ -610,6 +632,7 @@ To interact with the APIs and databases more easily, you can use the following G
 - **MongoDB Compass**: A GUI tool for MongoDB that allows you to explore and interact with your MongoDB databases. You can download it from [here](https://www.mongodb.com/try/download/compass).
 - **RedisInsight**: A GUI tool for Redis that allows you to explore and interact with your Redis databases. You can download it from [here](https://redislabs.com/redis-enterprise/redis-insight/).
 - **Postman**: A powerful GUI tool for testing APIs. You can download it from [here](https://www.postman.com/downloads/).
+- **Insomnia**: Another great GUI tool for testing APIs. You can download it from [here](https://insomnia.rest/download).
 - **Swagger UI**: An interactive API documentation tool. You can access the Swagger UI at [http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/). Ensure the server is running before accessing the UI.
 - **Redoc**: Another interactive API documentation tool. You can access the Redoc UI at [http://127.0.0.1:8000/redoc/](http://127.0.0.1:8000/redoc/). Ensure the server is running before accessing the UI.
 
@@ -618,6 +641,40 @@ For example, you can use MongoDB Compass to view the data in your MongoDB databa
 <p align="center" style="cursor: pointer">
   <img src="/docs/gui-tools.png" alt="GUI Tools" style="border-radius: 10px" width="100%"/>
 </p>
+
+#### MongoDB Atlas
+
+This project is set up to use MongoDB Atlas as the cloud database. You can create a free account on MongoDB Atlas and set up a free cluster to use with the project. Follow these steps to set up MongoDB Atlas:
+
+1. **Create a MongoDB Atlas account:**
+
+   - Go to the [MongoDB Atlas website](https://www.mongodb.com/cloud/atlas).
+   - Click on "Get started free".
+   - Create an account and log in.
+
+2. **Create a free cluster:**
+
+    - Click on "Build a Cluster".
+    - Choose the free tier option.
+    - Select the cloud provider and region.
+    - Click "Create Cluster".
+
+3. **Connect to your cluster:**
+
+    - Click on "Connect" to connect to your cluster.
+    - Whitelist your IP address.
+    - Create a MongoDB user and password.
+
+4. **Get your connection string:**
+
+    - Click on "Connect" and choose "Connect your application".
+    - Copy the connection string.
+
+5. **Set up the connection string in the Django settings:**
+  
+      - Replace the `.env` configuration file with the connection string from MongoDB Atlas.
+
+Alternatively, you can use the local MongoDB server for development and testing purposes.
 
 ## Containerization
 

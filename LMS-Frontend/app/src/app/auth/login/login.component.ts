@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
   username: string = '';
@@ -17,7 +17,10 @@ export class LoginComponent {
   errorMessage: string = '';
   isLoading: boolean = false; // New flag to manage loading state
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) {}
 
   login(): void {
     // Reset error message before login attempt
@@ -35,8 +38,9 @@ export class LoginComponent {
       (error) => {
         // Reset loading state and show error on failure
         this.isLoading = false;
-        this.errorMessage = error.error?.detail || 'Invalid username or password';
-      }
+        this.errorMessage =
+          error.error?.detail || 'Invalid username or password';
+      },
     );
   }
 

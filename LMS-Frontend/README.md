@@ -110,8 +110,8 @@ Learning-Management-System/
 │   │   │   │   │   │   └── header.component.css
 │   │   │   │   ├── pages/
 │   │   │   │   │   ├── home/
-│   │   │   │   │   │   ├── home.component.ts
-│   │   │   │   │   │   ├── home.component.html
+│   │   │   │   │   │   ├── notfound.component.ts
+│   │   │   │   │   │   ├── notfound.component.html
 │   │   │   │   │   │   └── home.component.css
 │   │   │   │   ├── components/
 │   │   │   │   │   ├── course-list/

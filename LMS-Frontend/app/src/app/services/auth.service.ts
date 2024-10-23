@@ -4,11 +4,13 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private loginUrl = 'https://learning-management-system-fullstack.onrender.com/api/auth/login/';
-  private registerUrl = 'https://learning-management-system-fullstack.onrender.com/api/auth/registration/';  // Registration endpoint
+  private loginUrl =
+    'https://learning-management-system-fullstack.onrender.com/api/auth/login/';
+  private registerUrl =
+    'https://learning-management-system-fullstack.onrender.com/api/auth/registration/'; // Registration endpoint
   private tokenKey = 'authToken';
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
 
@@ -23,23 +25,30 @@ export class AuthService {
           localStorage.setItem(this.tokenKey, response.key);
           this.isLoggedInSubject.next(true);
         }
-      })
+      }),
     );
   }
 
   // Registration method
-  register(username: string, email: string, password1: string, password2: string): Observable<any> {
-    return this.http.post(this.registerUrl, {
-      username,
-      email,
-      password1,
-      password2
-    }).pipe(
-      tap((response: any) => {
-        console.log('Registration successful:', response);
-        // Handle post-registration logic here, like logging in the user, or redirecting them
+  register(
+    username: string,
+    email: string,
+    password1: string,
+    password2: string,
+  ): Observable<any> {
+    return this.http
+      .post(this.registerUrl, {
+        username,
+        email,
+        password1,
+        password2,
       })
-    );
+      .pipe(
+        tap((response: any) => {
+          console.log('Registration successful:', response);
+          // Handle post-registration logic here, like logging in the user, or redirecting them
+        }),
+      );
   }
 
   // Logout method

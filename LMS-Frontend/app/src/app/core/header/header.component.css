@@ -29,7 +29,9 @@
 .nav-link {
   color: white !important;
   text-decoration: none;
-  transition: color 0.3s, transform 0.3s;
+  transition:
+    color 0.3s,
+    transform 0.3s;
   font-size: 16px;
   font-weight: 500;
   position: relative;

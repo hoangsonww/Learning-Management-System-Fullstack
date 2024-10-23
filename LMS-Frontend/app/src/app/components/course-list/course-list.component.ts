@@ -12,21 +12,22 @@ Chart.register(...registerables);
   standalone: true,
   imports: [CommonModule],
   templateUrl: './course-list.component.html',
-  styleUrls: ['./course-list.component.css']
+  styleUrls: ['./course-list.component.css'],
 })
 export class CourseListComponent implements OnInit {
   courses: any[] = [];
   errorMessage: string = '';
   loading: boolean = true; // Track loading state
   chart: Chart<'pie'> | undefined;
-  private apiUrl = 'https://learning-management-system-fullstack.onrender.com/api/';
+  private apiUrl =
+    'https://learning-management-system-fullstack.onrender.com/api/';
   lessonsLength: number = 0;
   enrollmentsLength: number = 0;
   isAuthenticated: boolean = true; // Flag to check authentication status
 
   constructor(
     private courseService: CourseService,
-    private http: HttpClient
+    private http: HttpClient,
   ) {}
 
   ngOnInit(): void {
@@ -39,7 +40,9 @@ export class CourseListComponent implements OnInit {
 
     const courses$ = this.courseService.getCourses();
     const lessons$ = this.http.get(`${this.apiUrl}lessons/`, { headers });
-    const enrollments$ = this.http.get(`${this.apiUrl}enrollments/`, { headers });
+    const enrollments$ = this.http.get(`${this.apiUrl}enrollments/`, {
+      headers,
+    });
 
     forkJoin([courses$, lessons$, enrollments$]).subscribe(
       ([coursesData, lessonsData, enrollmentsData]: [any[], any, any]) => {
@@ -64,7 +67,7 @@ export class CourseListComponent implements OnInit {
         if (this.isAuthenticated) {
           this.renderChart(); // Ensure the chart is only rendered if authenticated
         }
-      }
+      },
     );
   }
 
@@ -83,19 +86,25 @@ export class CourseListComponent implements OnInit {
       type: 'pie',
       data: {
         labels: ['Courses', 'Lessons', 'Enrollments'],
-        datasets: [{
-          data: [this.courses.length, this.lessonsLength, this.enrollmentsLength],
-          backgroundColor: ['#007bff', '#ffc107', '#28a745']
-        }]
+        datasets: [
+          {
+            data: [
+              this.courses.length,
+              this.lessonsLength,
+              this.enrollmentsLength,
+            ],
+            backgroundColor: ['#007bff', '#ffc107', '#28a745'],
+          },
+        ],
       },
       options: {
         responsive: true,
         plugins: {
           legend: {
-            position: 'bottom'
-          }
-        }
-      }
+            position: 'bottom',
+          },
+        },
+      },
     };
 
     this.chart = new Chart(ctx, chartConfig);
