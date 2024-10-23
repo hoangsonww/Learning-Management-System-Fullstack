@@ -327,8 +327,8 @@ Learning-Management-System/
 │   │   │   │   ├── app.component.html
 │   │   │   │   └── app.component.css
 │   │   │   ├── assets/
-│   │   │   │   └── images/
-│   │   │   │       └── .gitkeep
+│   │   │   │   ├── <images...>
+│   │   │   │   └── .gitkeep
 │   │   │   ├── main.ts
 │   │   │   ├── styles.css
 │   │   │   ├── manifest.json
