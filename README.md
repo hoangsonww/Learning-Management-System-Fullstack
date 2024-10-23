@@ -269,6 +269,10 @@ Learning-Management-System/
 │   │   │   │   │   │   ├── login.component.ts
 │   │   │   │   │   │   ├── login.component.html
 │   │   │   │   │   │   └── login.component.css
+│   │   │   │   │   ├── register/
+│   │   │   │   │   │   ├── register.component.ts
+│   │   │   │   │   │   ├── register.component.html
+│   │   │   │   │   │   └── register.component.css
 │   │   │   │   ├── core/
 │   │   │   │   │   ├── footer/
 │   │   │   │   │   │   ├── footer.component.ts
