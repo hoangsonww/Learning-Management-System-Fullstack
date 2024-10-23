@@ -287,6 +287,10 @@ Learning-Management-System/
 │   │   │   │   │   │   ├── notfound.component.ts
 │   │   │   │   │   │   ├── notfound.component.html
 │   │   │   │   │   │   └── home.component.css
+│   │   │   │   │   ├── notfound/
+│   │   │   │   │   │   ├── notfound.component.ts
+│   │   │   │   │   │   ├── notfound.component.html
+│   │   │   │   │   │   └── notfound.component.css
 │   │   │   │   ├── components/
 │   │   │   │   │   ├── course-list/
 │   │   │   │   │   │   ├── course-list.component.ts
