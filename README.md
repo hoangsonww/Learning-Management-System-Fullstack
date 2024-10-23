@@ -343,12 +343,18 @@ Learning-Management-System/
 │   │   └── tsconfig.spec.json
 │   ├── LICENSE
 │   └── README.md
-├── Kubernetes
+│
+├── nginx
+│   ├── nginx.conf
+│   └── Dockerfile
+│
+├── kubernetes
 │   ├── configmap.yaml
 │   ├── backend-deployment.yaml
 │   ├── backend-service.yaml
 │   ├── frontend-deployment.yaml
 │   └── frontend-service.yaml
+│
 ├── .gitignore
 ├── .env.example
 ├── docker-compose.yml
