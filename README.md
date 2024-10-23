@@ -241,19 +241,20 @@ Learning-Management-System/
 │   │   ├── urls.py
 │   │   ├── asgi.py
 │   │   └── wsgi.py
-│   ├── core/
-│   │   ├── management/
-│   │   │   └── commands/
-│   │   │       └── seed_sample_data.py
-│   │   ├── migrations/
-│   │   │   └── __init__.py
-│   │   ├── models.py
-│   │   ├── views.py
-│   │   ├── tests.py
-│   │   ├── admin.py
-│   │   ├── apps.py
-│   │   ├── serializers.py
-│   │   └── urls.py
+│   └── core/
+│       ├── management/
+│       │   └── commands/
+│       │       └── seed_sample_data.py
+│       ├── migrations/
+│       │   └── __init__.py
+│       ├── models.py
+│       ├── views.py
+│       ├── tests.py
+│       ├── admin.py
+│       ├── apps.py
+│       ├── serializers.py
+│       └── urls.py
+│   
 ├── LMS-Frontend
 │   ├── angular.json
 │   ├── package.json
