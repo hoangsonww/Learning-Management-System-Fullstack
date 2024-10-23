@@ -90,14 +90,14 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'LMSBackend.urls'
 
 # CORS settings
-CORS_ALLOW_ALL_ORIGINS = False  # Disable allow all origins
+CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins
 
 # Explicitly allow specific origins
-CORS_ALLOWED_ORIGINS = [
-    'https://learning-management-system-fullstack.vercel.app',  # Frontend hosted on Vercel
-    'https://fullstack-learning-management-system.netlify.app',  # Backup Frontend hosted on Netlify
-    'http://localhost:4200', # Local development
-]
+# CORS_ALLOWED_ORIGINS = [
+#     'https://learning-management-system-fullstack.vercel.app',  # Frontend hosted on Vercel
+#     'https://fullstack-learning-management-system.netlify.app',  # Backup Frontend hosted on Netlify
+#     'http://localhost:4200', # Local development
+# ]
 
 CORS_ALLOW_CREDENTIALS = True  # Allow sending credentials like cookies and auth headers
 
