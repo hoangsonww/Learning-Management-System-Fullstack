@@ -38,6 +38,7 @@ export class LoginComponent {
       (error) => {
         // Reset loading state and show error on failure
         this.isLoading = false;
+        console.log(error);
         this.errorMessage =
           error.error?.detail || 'Invalid username or password';
       },

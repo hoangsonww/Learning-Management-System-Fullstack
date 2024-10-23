@@ -21,7 +21,6 @@ export class AuthService {
     return this.http.post(this.loginUrl, { username, password }).pipe(
       tap((response: any) => {
         if (response && response.key) {
-          console.log('Login successful, storing token:', response.key);
           localStorage.setItem(this.tokenKey, response.key);
           this.isLoggedInSubject.next(true);
         }
@@ -53,7 +52,6 @@ export class AuthService {
 
   // Logout method
   logout(): void {
-    console.log('Logging out, removing token.');
     localStorage.removeItem(this.tokenKey);
     this.isLoggedInSubject.next(false);
   }
