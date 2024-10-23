@@ -44,6 +44,8 @@ export class RegisterComponent {
 
   register(): void {
     this.errorMessage = '';
+
+    // Validate password match
     if (this.password1 !== this.password2) {
       this.errorMessage = 'Passwords do not match.';
       return;
@@ -65,11 +67,26 @@ export class RegisterComponent {
           this.router.navigate(['/login']); // Redirect to login page after successful registration
         },
         (error) => {
-          // Reset loading state and show error on failure
+          // Reset loading state on failure
           this.isLoading = false;
-          this.errorMessage =
-            error.error?.detail || 'Registration failed. Please try again.';
-        },
+
+          // Handle and display specific error messages from the backend
+          if (error.error) {
+            if (error.error.username) {
+              this.errorMessage = error.error.username[0]; // Display the first error message related to username
+            } else if (error.error.email) {
+              this.errorMessage = error.error.email[0]; // Display the first error message related to email
+            } else if (error.error.password1) {
+              this.errorMessage = error.error.password1[0]; // Display the first error message related to password1
+            } else if (error.error.non_field_errors) {
+              this.errorMessage = error.error.non_field_errors[0]; // Display general error messages
+            } else {
+              this.errorMessage = 'Registration failed. Please try again.';
+            }
+          } else {
+            this.errorMessage = 'An unknown error occurred. Please try again.';
+          }
+        }
       );
   }
 }
