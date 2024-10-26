@@ -38,16 +38,16 @@ The **E-Learning Management System** is a web-based platform designed to facilit
 
 - **Frontend**: Built with **Angular** and **Bootstrap**, it offers a user-friendly interface for interacting with the platform.
 - **Backend**: Developed using **Django** and **Django REST Framework**, it provides robust **REST APIs** for all the operations.
-- **Database**: The system uses **MongoDB** to store data and **Redis** for efficient server-side caching.
+- **Database**: The system uses **MongoDB** to store data and **Redis** for efficient server-side caching, as well as **SQLite** for user authentication with Django Auth.
 - **CI/CD**: The project includes a `Dockerfile` and `docker-compose.yml` for containerization and deployment, as well as a `Jenkinsfile` for CI/CD pipelines and `Kubernetes` configuration files for orchestration.
 
-Because we use **MongoDB**, **Angular**, and **Django**, we call this a **MAD-Stack** application!
+Because we use **MongoDB**, **Angular**, and **Django**, we call this a **MAD-Stack** application! _(Just a fun name to remember the technologies used)_
 
 ### The MAD-Stack
 
 The **MAD-Stack** is a modern web development stack that combines the following technologies:
 
-- **MongoDB**: A NoSQL database used to store data.
+- **MongoDB**: A NoSQL database used to store course, lessons, enrollments, users, and other data.
 - **Angular**: A frontend framework for building web applications.
 - **Django**: A high-level Python web framework for backend development.
 
@@ -781,6 +781,12 @@ The Jenkins pipeline will automatically build the Docker images, run the unit te
 
 6. **UI Issues**:
   - Check the Angular console for errors and warnings. Alternatively, you can try clearing the cache using `npm cache clean --force` and `npm install`.
+
+7. **Unable to Log In**:
+  - Because we are using default Django Auth and SQLite to optimize infrastructure costs, perhaps the user you are trying to log in with does not exist. Sometimes SQLite does not save the data after the server is restarted. 
+  - Therefore, please try registering a new user and logging in with that user to bypass this issue.
+  - You can also try to create a new user using the Django admin panel or the `createsuperuser` command.
+  - Sorry for any inconvenience this may cause! I am planning to switch to Firebase Auth in the future to avoid this issue, but I will need to get some funding first since I have run out of free tier resources...
 
 ### Debugging Tips
 
