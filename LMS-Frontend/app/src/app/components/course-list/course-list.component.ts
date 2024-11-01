@@ -60,7 +60,7 @@ export class CourseListComponent implements OnInit {
           this.isAuthenticated = false; // Set flag to false on unauthorized access
           this.errorMessage = 'Unauthorized access. Please log in.';
         } else {
-          this.errorMessage = 'Error fetching data. Please try registering and then logging in again.';
+          this.errorMessage = 'Error fetching data due to expired token. Please try registering and logging in again.';
         }
         this.lessonsLength = 20;
         this.enrollmentsLength = 50;
