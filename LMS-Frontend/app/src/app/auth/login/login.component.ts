@@ -40,7 +40,8 @@ export class LoginComponent {
         this.isLoading = false;
         console.log(error);
         this.errorMessage =
-          error.error?.detail || 'Invalid username or password. Please try registering first.';
+          error.error?.detail ||
+          'Invalid username or password. Please try registering first.';
       },
     );
   }

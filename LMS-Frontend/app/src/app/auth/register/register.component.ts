@@ -86,7 +86,7 @@ export class RegisterComponent {
           } else {
             this.errorMessage = 'An unknown error occurred. Please try again.';
           }
-        }
+        },
       );
   }
 }

@@ -69,7 +69,8 @@ export class LessonListComponent implements OnInit {
           this.enrollmentsLength = 30;
           this.coursesLength = 10;
         } else {
-          this.errorMessage = 'Error fetching data due to expired token. Please try registering and logging in again.';
+          this.errorMessage =
+            'Error fetching data due to expired token. Please try registering and logging in again.';
           this.enrollmentsLength = 30;
           this.coursesLength = 10;
         }
