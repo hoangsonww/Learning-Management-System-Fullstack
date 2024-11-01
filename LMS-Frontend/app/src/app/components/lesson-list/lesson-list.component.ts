@@ -69,7 +69,7 @@ export class LessonListComponent implements OnInit {
           this.enrollmentsLength = 30;
           this.coursesLength = 10;
         } else {
-          this.errorMessage = 'Error fetching data.';
+          this.errorMessage = 'Error fetching data. Please try registering and then logging in again.';
           this.enrollmentsLength = 30;
           this.coursesLength = 10;
         }
