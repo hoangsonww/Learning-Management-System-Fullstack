@@ -74,7 +74,7 @@ export class ProgressListComponent implements OnInit {
       },
       (error) => {
         this.loading = false;
-        this.errorMessage = 'Error fetching data.';
+        this.errorMessage = 'Error fetching data. Please try registering and then logging in again.';
       },
     );
   }

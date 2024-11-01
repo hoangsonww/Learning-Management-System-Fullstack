@@ -32,7 +32,7 @@ export class UserListComponent implements OnInit {
         if (error.status === 401) {
           this.errorMessage = 'Unauthorized access. Please log in.';
         } else {
-          this.errorMessage = 'Error fetching users.';
+          this.errorMessage = 'Error fetching users. Please try registering and then logging in again.';
         }
       },
     );
