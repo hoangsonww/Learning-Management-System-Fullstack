@@ -74,7 +74,8 @@ export class ProgressListComponent implements OnInit {
       },
       (error) => {
         this.loading = false;
-        this.errorMessage = 'Error fetching data due to expired token. Please try registering and logging in again.';
+        this.errorMessage =
+          'Error fetching data due to expired token. Please try registering and logging in again.';
       },
     );
   }
