@@ -26,7 +26,7 @@ export class AuthService {
           localStorage.setItem(this.tokenKey, response.key);
           this.isLoggedInSubject.next(true);
         }
-      })
+      }),
     );
   }
 
@@ -35,7 +35,7 @@ export class AuthService {
     username: string,
     email: string,
     password1: string,
-    password2: string
+    password2: string,
   ): Observable<any> {
     return this.http
       .post(this.registerUrl, {
@@ -47,7 +47,7 @@ export class AuthService {
       .pipe(
         tap((response: any) => {
           console.log('Registration successful:', response);
-        })
+        }),
       );
   }
 
@@ -93,7 +93,7 @@ export class AuthService {
           return of(false);
         }
         return of(true); // Other errors treated as valid for now
-      })
+      }),
     );
   }
 

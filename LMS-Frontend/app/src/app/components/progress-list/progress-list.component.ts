@@ -74,8 +74,7 @@ export class ProgressListComponent implements OnInit {
       },
       (error) => {
         this.loading = false;
-        this.errorMessage =
-          'Unauthorized access. Please log in.';
+        this.errorMessage = 'Unauthorized access. Please log in.';
       },
     );
   }

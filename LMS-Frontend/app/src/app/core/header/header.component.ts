@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.authSubscription = interval(2000)
       .pipe(
         startWith(0), // Immediately triggers the first emission
-        switchMap(() => this.authService.isTokenValid()) // Check token validity
+        switchMap(() => this.authService.isTokenValid()), // Check token validity
       )
       .subscribe((isValid) => {
         this.loggedInStatus = isValid;
