@@ -14,6 +14,7 @@ import { AuthService } from '../../services/auth.service';
 export class FooterComponent implements OnInit, OnDestroy {
   private authSubscription: Subscription = new Subscription();
   private loggedInStatus: boolean = false;
+  currentYear: number = new Date().getFullYear();
 
   constructor(
     private authService: AuthService,
