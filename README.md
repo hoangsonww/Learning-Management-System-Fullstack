@@ -55,7 +55,7 @@ The **MAD-Stack** is a powerful combination that allows developers to build scal
 
 ## Features
 
-- **User Authentication**: Token-based authentication for secure login.
+- **User Authentication**: Token-based authentication for secure login, built with Django Auth.
 - **Server-Side Caching**: Redis caching for improved performance and reduced server load.
 - **Course Management**: Create, update, delete, and display courses.
 - **Lesson Management**: Manage lessons associated with courses.
@@ -77,7 +77,7 @@ The backend is deployed on Render: [Backend API](https://learning-management-sys
 
 Feel free to explore the platform, create an account, and test out the features.
 
-However, please note that our backend server may spin down due to inactivity, so you may experience delays in loading data initially. If you encounter any issues, please let me know.
+> **Note:** Our backend server may spin down due to inactivity, so you may experience delays in loading data initially as the backend is hosted on the free tier of Render. If you encounter any issues, please let me know.
 
 ## Detailed Project Information:
 
