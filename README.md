@@ -25,7 +25,7 @@ Welcome to the **E-Learning Management System (LMS)**! This project consists of 
   - [MongoDB Atlas](#mongodb-atlas)
 - [Containerization](#containerization)
 - [Kubernetes](#kubernetes)
-- [OpenAPI Documentation](#openapi-documentation)
+- [OpenAPI Specification](#openapi-specification)
 - [Jenkins CI/CD](#jenkins-cicd)
 - [Troubleshooting](#troubleshooting)
   - [Common Issues](#common-issues)
@@ -749,17 +749,53 @@ The above commands will create the deployments and services for the backend and 
 
 ## OpenAPI Specification
 
-The project includes an OpenAPI specification file (`openapi.yaml`) that defines the API endpoints and schemas. You can view the OpenAPI specification using Swagger UI or Redoc.
+### Using the `openapi.yaml` File
 
-To use the OpenAPI specification with Swagger UI, run this command:
+1. **View the API Documentation**
+- Open [Swagger Editor](https://editor.swagger.io/).
+- Upload the `openapi.yaml` file or paste its content.
+- Visualize and interact with the API documentation.
 
-```bash
-docker run -p 8080:8080 -e SWAGGER_JSON=/openapi.yaml -v $(pwd)/openapi.yaml:/openapi.yaml swaggerapi/swagger-ui
-```
+2. **Test the API**
+- Import `openapi.yaml` into [Postman](https://www.postman.com/):
+  - Open Postman → Import → Select `openapi.yaml`.
+  - Test the API endpoints directly from Postman.
+- Or use [Swagger UI](https://swagger.io/tools/swagger-ui/):
+  - Provide the file URL or upload it to view and test endpoints.
 
-Then open your browser and navigate to [http://localhost:8080](http://localhost:8080) to view the Swagger UI with the OpenAPI specification.
+3. **Generate Client Libraries**
+- Install OpenAPI Generator:
+  ```bash
+  npm install @openapitools/openapi-generator-cli -g
+  ```
+- Generate a client library:
+  ```bash
+  openapi-generator-cli generate -i openapi.yaml -g <language> -o ./client
+  ```
+- Replace `<language>` with the desired programming language.
 
-> Feel free to modify the command as needed. You can also use it without Docker.
+4. **Generate Server Stubs**
+- Generate a server stub:
+  ```bash
+  openapi-generator-cli generate -i openapi.yaml -g <framework> -o ./server
+  ```
+- Replace `<framework>` with the desired framework.
+
+5. **Run a Mock Server**
+- Install Prism:
+  ```bash
+  npm install -g @stoplight/prism-cli
+  ```
+- Start the mock server:
+  ```bash
+  prism mock openapi.yaml
+  ```
+
+6. **Validate the OpenAPI File**
+- Use [Swagger Validator](https://validator.swagger.io/):
+  - Upload `openapi.yaml` or paste its content to check for errors.
+
+This guide enables you to view, test, and utilize the API.
 
 ## Jenkins CI/CD
 
