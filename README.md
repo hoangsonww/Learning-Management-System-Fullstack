@@ -24,6 +24,9 @@ Welcome to the **E-Learning Management System (LMS)**! This project consists of 
   - [Recommended GUI Tools](#recommended-gui-tools)
   - [MongoDB Atlas](#mongodb-atlas)
 - [Containerization](#containerization)
+- [Kubernetes](#kubernetes)
+- [OpenAPI Documentation](#openapi-documentation)
+- [Jenkins CI/CD](#jenkins-cicd)
 - [Troubleshooting](#troubleshooting)
   - [Common Issues](#common-issues)
   - [Debugging Tips](#debugging-tips)
@@ -743,6 +746,20 @@ To deploy the applications to a Kubernetes cluster, follow these steps:
     ```
    
 The above commands will create the deployments and services for the backend and frontend applications. You can access the applications using the NodePort or LoadBalancer service IP addresses.
+
+## OpenAPI Specification
+
+The project includes an OpenAPI specification file (`openapi.yaml`) that defines the API endpoints and schemas. You can view the OpenAPI specification using Swagger UI or Redoc.
+
+To use the OpenAPI specification with Swagger UI, run this command:
+
+```bash
+docker run -p 8080:8080 -e SWAGGER_JSON=/openapi.yaml -v $(pwd)/openapi.yaml:/openapi.yaml swaggerapi/swagger-ui
+```
+
+Then open your browser and navigate to [http://localhost:8080](http://localhost:8080) to view the Swagger UI with the OpenAPI specification.
+
+> Feel free to modify the command as needed. You can also use it without Docker.
 
 ## Jenkins CI/CD
 
