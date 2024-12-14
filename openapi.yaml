@@ -1,0 +1,1151 @@
+openapi: 3.0.0
+info:
+  title: Learning Management System API
+  version: 1.0.0
+  description: Comprehensive API documentation for the Learning Management System
+  contact:
+    name: Learning Management System Team
+    email: support@example.com
+  license:
+    name: MIT License
+servers:
+  - url: https://learning-management-system-fullstack.onrender.com/api
+paths:
+  /auth/login/:
+    post:
+      summary: Login a user
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+      responses:
+        '200':
+          description: Login successful
+        '401':
+          description: Invalid credentials
+  /auth/logout/:
+    get:
+      summary: Logout the user and delete token
+      tags:
+        - Authentication
+      responses:
+        '204':
+          description: Logout successful
+    post:
+      summary: Logout the user and delete token
+      tags:
+        - Authentication
+      responses:
+        '204':
+          description: Logout successful
+  /auth/password/change/:
+    post:
+      summary: Change user password
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordChange'
+      responses:
+        '200':
+          description: Password changed successfully
+  /auth/password/reset/:
+    post:
+      summary: Request a password reset
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordReset'
+      responses:
+        '200':
+          description: Password reset email sent
+  /auth/password/reset/confirm/:
+    post:
+      summary: Confirm password reset using the token
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordResetConfirm'
+      responses:
+        '200':
+          description: Password reset confirmed
+  /auth/registration/:
+    post:
+      summary: Register a new user
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Register'
+      responses:
+        '201':
+          description: User registered successfully
+  /auth/registration/resend-email/:
+    post:
+      summary: Resend verification email
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendEmailVerification'
+      responses:
+        '200':
+          description: Verification email sent
+  /auth/registration/verify-email/:
+    post:
+      summary: Verify email
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyEmail'
+      responses:
+        '200':
+          description: Email verified successfully
+  /auth/user/:
+    get:
+      summary: Get user details
+      tags:
+        - Authentication
+      responses:
+        '200':
+          description: User details retrieved
+    put:
+      summary: Update user details
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDetails'
+      responses:
+        '200':
+          description: User details updated
+    patch:
+      summary: Partially update user details
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDetails'
+      responses:
+        '200':
+          description: User details partially updated
+  /categories/:
+    get:
+      summary: List all categories
+      tags:
+        - Categories
+      responses:
+        '200':
+          description: List of categories
+    post:
+      summary: Create a new category
+      tags:
+        - Categories
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '201':
+          description: Category created
+  /categories/{id}/:
+    get:
+      summary: Get details of a specific category
+      tags:
+        - Categories
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Category details retrieved
+    put:
+      summary: Update a specific category
+      tags:
+        - Categories
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '200':
+          description: Category updated
+    patch:
+      summary: Partially update a category
+      tags:
+        - Categories
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '200':
+          description: Category partially updated
+    delete:
+      summary: Delete a category
+      tags:
+        - Categories
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Category deleted
+  /choices/:
+    get:
+      summary: List all choices
+      tags:
+        - Choices
+      responses:
+        '200':
+          description: List of choices
+    post:
+      summary: Create a new choice
+      tags:
+        - Choices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Choice'
+      responses:
+        '201':
+          description: Choice created
+  /choices/{id}/:
+    get:
+      summary: Get details of a specific choice
+      tags:
+        - Choices
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Choice details retrieved
+    put:
+      summary: Update a specific choice
+      tags:
+        - Choices
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Choice'
+      responses:
+        '200':
+          description: Choice updated
+    patch:
+      summary: Partially update a choice
+      tags:
+        - Choices
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Choice'
+      responses:
+        '200':
+          description: Choice partially updated
+    delete:
+      summary: Delete a choice
+      tags:
+        - Choices
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Choice deleted
+  /courses/:
+    get:
+      summary: List all courses
+      tags:
+        - Courses
+      responses:
+        '200':
+          description: List of courses
+    post:
+      summary: Create a new course
+      tags:
+        - Courses
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Course'
+      responses:
+        '201':
+          description: Course created
+  /courses/{id}/:
+    get:
+      summary: Get details of a specific course
+      tags:
+        - Courses
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Course details retrieved
+    put:
+      summary: Update a specific course
+      tags:
+        - Courses
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Course'
+      responses:
+        '200':
+          description: Course updated
+    patch:
+      summary: Partially update a course
+      tags:
+        - Courses
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Course'
+      responses:
+        '200':
+          description: Course partially updated
+    delete:
+      summary: Delete a course
+      tags:
+        - Courses
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Course deleted
+  /enrollments/:
+    get:
+      summary: List all enrollments
+      tags:
+        - Enrollments
+      responses:
+        '200':
+          description: List of enrollments
+    post:
+      summary: Create a new enrollment
+      tags:
+        - Enrollments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Enrollment'
+      responses:
+        '201':
+          description: Enrollment created
+  /enrollments/{id}/:
+    get:
+      summary: Get details of a specific enrollment
+      tags:
+        - Enrollments
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Enrollment details retrieved
+    put:
+      summary: Update a specific enrollment
+      tags:
+        - Enrollments
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Enrollment'
+      responses:
+        '200':
+          description: Enrollment updated
+    patch:
+      summary: Partially update an enrollment
+      tags:
+        - Enrollments
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Enrollment'
+      responses:
+        '200':
+          description: Enrollment partially updated
+    delete:
+      summary: Delete an enrollment
+      tags:
+        - Enrollments
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Enrollment deleted
+  /lessons/:
+    get:
+      summary: List all lessons
+      tags:
+        - Lessons
+      responses:
+        '200':
+          description: List of lessons
+    post:
+      summary: Create a new lesson
+      tags:
+        - Lessons
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lesson'
+      responses:
+        '201':
+          description: Lesson created
+  /lessons/{id}/:
+    get:
+      summary: Get details of a specific lesson
+      tags:
+        - Lessons
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Lesson details retrieved
+    put:
+      summary: Update a specific lesson
+      tags:
+        - Lessons
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lesson'
+      responses:
+        '200':
+          description: Lesson updated
+    patch:
+      summary: Partially update a lesson
+      tags:
+        - Lessons
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lesson'
+      responses:
+        '200':
+          description: Lesson partially updated
+    delete:
+      summary: Delete a lesson
+      tags:
+        - Lessons
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Lesson deleted
+  /notifications/:
+    get:
+      summary: List all notifications
+      tags:
+        - Notifications
+      responses:
+        '200':
+          description: List of notifications
+    post:
+      summary: Create a new notification
+      tags:
+        - Notifications
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+      responses:
+        '201':
+          description: Notification created
+  /notifications/{id}/:
+    get:
+      summary: Get details of a specific notification
+      tags:
+        - Notifications
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Notification details retrieved
+    put:
+      summary: Update a specific notification
+      tags:
+        - Notifications
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+      responses:
+        '200':
+          description: Notification updated
+    patch:
+      summary: Partially update a notification
+      tags:
+        - Notifications
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+      responses:
+        '200':
+          description: Notification partially updated
+    delete:
+      summary: Delete a notification
+      tags:
+        - Notifications
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Notification deleted
+  /progress/:
+    get:
+      summary: List all progress records
+      tags:
+        - Progress
+      responses:
+        '200':
+          description: List of progress records
+    post:
+      summary: Create a new progress record
+      tags:
+        - Progress
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Progress'
+      responses:
+        '201':
+          description: Progress record created
+  /progress/{id}/:
+    get:
+      summary: Get details of a specific progress record
+      tags:
+        - Progress
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Progress record details retrieved
+    put:
+      summary: Update a specific progress record
+      tags:
+        - Progress
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Progress'
+      responses:
+        '200':
+          description: Progress record updated
+    patch:
+      summary: Partially update a progress record
+      tags:
+        - Progress
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Progress'
+      responses:
+        '200':
+          description: Progress record partially updated
+    delete:
+      summary: Delete a progress record
+      tags:
+        - Progress
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Progress record deleted
+  /questions/:
+    get:
+      summary: List all questions
+      tags:
+        - Questions
+      responses:
+        '200':
+          description: List of questions
+    post:
+      summary: Create a new question
+      tags:
+        - Questions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Question'
+      responses:
+        '201':
+          description: Question created
+  /questions/{id}/:
+    get:
+      summary: Get details of a specific question
+      tags:
+        - Questions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Question details retrieved
+    put:
+      summary: Update a specific question
+      tags:
+        - Questions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Question'
+      responses:
+        '200':
+          description: Question updated
+    patch:
+      summary: Partially update a question
+      tags:
+        - Questions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Question'
+      responses:
+        '200':
+          description: Question partially updated
+    delete:
+      summary: Delete a question
+      tags:
+        - Questions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Question deleted
+  /quizzes/:
+    get:
+      summary: List all quizzes
+      tags:
+        - Quizzes
+      responses:
+        '200':
+          description: List of quizzes
+    post:
+      summary: Create a new quiz
+      tags:
+        - Quizzes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Quiz'
+      responses:
+        '201':
+          description: Quiz created
+  /quizzes/{id}/:
+    get:
+      summary: Get details of a specific quiz
+      tags:
+        - Quizzes
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Quiz details retrieved
+    put:
+      summary: Update a specific quiz
+      tags:
+        - Quizzes
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Quiz'
+      responses:
+        '200':
+          description: Quiz updated
+    patch:
+      summary: Partially update a quiz
+      tags:
+        - Quizzes
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Quiz'
+      responses:
+        '200':
+          description: Quiz partially updated
+    delete:
+      summary: Delete a quiz
+      tags:
+        - Quizzes
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Quiz deleted
+  /users/:
+    get:
+      summary: List all users
+      tags:
+        - Users
+      responses:
+        '200':
+          description: List of users
+    post:
+      summary: Create a new user
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: User created
+  /users/{id}/:
+    get:
+      summary: Get details of a specific user
+      tags:
+        - Users
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User details retrieved
+    put:
+      summary: Update a specific user
+      tags:
+        - Users
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: User updated
+    patch:
+      summary: Partially update a user
+      tags:
+        - Users
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: User partially updated
+    delete:
+      summary: Delete a user
+      tags:
+        - Users
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: User deleted
+
+components:
+  schemas:
+    Login:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    PasswordChange:
+      type: object
+      properties:
+        old_password:
+          type: string
+        new_password:
+          type: string
+    PasswordReset:
+      type: object
+      properties:
+        email:
+          type: string
+    PasswordResetConfirm:
+      type: object
+      properties:
+        token:
+          type: string
+        password:
+          type: string
+    Register:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        password1:
+          type: string
+        password2:
+          type: string
+    ResendEmailVerification:
+      type: object
+      properties:
+        email:
+          type: string
+    VerifyEmail:
+      type: object
+      properties:
+        key:
+          type: string
+    UserDetails:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+    Category:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    Choice:
+      type: object
+      properties:
+        question_id:
+          type: string
+        text:
+          type: string
+    Course:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+    Enrollment:
+      type: object
+      properties:
+        course_id:
+          type: string
+        user_id:
+          type: string
+    Lesson:
+      type: object
+      properties:
+        title:
+          type: string
+        course_id:
+          type: string
+    Notification:
+      type: object
+      properties:
+        message:
+          type: string
+        user_id:
+          type: string
+    Progress:
+      type: object
+      properties:
+        user_id:
+          type: string
+        course_id:
+          type: string
+        progress:
+          type: number
+    Question:
+      type: object
+      properties:
+        text:
+          type: string
+        quiz_id:
+          type: string
+    Quiz:
+      type: object
+      properties:
+        title:
+          type: string
+        course_id:
+          type: string
+    User:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
