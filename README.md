@@ -362,6 +362,7 @@ Learning-Management-System/
 ├── .env.example
 ├── docker-compose.yml
 ├── Jenkinsfile
+├── openapi.yaml
 ├── LICENSE
 └── README.md
 ```
@@ -795,7 +796,7 @@ The above commands will create the deployments and services for the backend and 
 - Use [Swagger Validator](https://validator.swagger.io/):
   - Upload `openapi.yaml` or paste its content to check for errors.
 
-This guide enables you to view, test, and utilize the API.
+This guide enables you to view, test, and utilize the API. You can also generate client libraries, server stubs, and run a mock server using the OpenAPI specification.
 
 ## Jenkins CI/CD
 
