@@ -74,12 +74,13 @@ The **MAD-Stack** is a powerful combination that allows developers to build scal
 
 ## Live Deployment
 
-The project is currently deployed live on Vercel and Render. You can access the live deployment using the following link: [E-Learning Management System](https://learning-manangement-system.vercel.app).
+The project is currently deployed live on Vercel and Render. You can access the live deployment using the following link: **[E-Learning Management System](https://learning-manangement-system.vercel.app).**
 
-The backend is deployed on Render: [Backend API](https://learning-management-system-fullstack.onrender.com/).
+The backend is deployed on Render: **[Backend API](https://learning-management-system-fullstack.onrender.com/).**
 
-Feel free to explore the platform, create an account, and test out the features.
+Feel free to explore the platform, create an account, and test out the features!
 
+> [!IMPORTANT]
 > **Note:** Our backend server may spin down due to inactivity, so you may experience delays in loading data initially as the backend is hosted on the free tier of Render. If you encounter any issues, please let me know.
 
 ## Detailed Project Information:
