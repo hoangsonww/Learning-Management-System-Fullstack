@@ -4,7 +4,7 @@ Welcome to the **E-Learning Management System (LMS)**! This project consists of 
 
 <p align="center">
   <a href="https://learning-manangement-system.vercel.app" target="_blank">
-    <img src="docs/logo.png" alt="E-Learning Management System Logo" style="border-radius: 10px" width="45%"/>
+    <img src="docs/logo.png" alt="E-Learning Management System Logo" style="border-radius: 10px" width="35%"/>
   </a>
 </p>
 
