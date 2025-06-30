@@ -62,6 +62,8 @@ The **MAD-Stack** is a modern web development stack that combines the following 
 
 The **MAD-Stack** is a powerful combination that allows developers to build scalable, responsive, and feature-rich web applications. It leverages the strengths of each technology to create a seamless user experience.
 
+> Sounds mad, but it's actually a great stack for building modern web applications!
+
 ## Features
 
 - **User Authentication**: Token-based authentication for secure login, built with Django Auth.
