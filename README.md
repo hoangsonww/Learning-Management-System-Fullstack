@@ -4,7 +4,7 @@ Welcome to the **E-Learning Management System (LMS)**! This project consists of 
 
 <p align="center">
   <a href="https://learning-manangement-system.vercel.app" target="_blank">
-    <img src="docs/logo.png" alt="E-Learning Management System Logo" style="border-radius: 10px" width="45%"/>
+    <img src="docs/logo.png" alt="E-Learning Management System Logo" style="border-radius: 10px" width="35%"/>
   </a>
 </p>
 
@@ -61,6 +61,8 @@ The **MAD-Stack** is a modern web development stack that combines the following 
 - **Django**: A high-level Python web framework for backend development.
 
 The **MAD-Stack** is a powerful combination that allows developers to build scalable, responsive, and feature-rich web applications. It leverages the strengths of each technology to create a seamless user experience.
+
+> Sounds mad, but it's actually a great stack for building modern web applications!
 
 ## Features
 
