@@ -2,6 +2,12 @@
 
 Welcome to the **E-Learning Management System (LMS)**! This project consists of two main components: the **Frontend** (built with **Angular**) and the **Backend** (developed using **Django and Django REST Framework**), combined with CI/CD technologies such as **Docker** and **Jenkins**. The LMS is a full-featured web application designed to manage users, courses, lessons, quizzes, and much more. This README provides a complete guide on how to set up, run, and contribute to both parts of the system.
 
+<p align="center">
+  <a href="https://learning-manangement-system.vercel.app" target="_blank">
+    <img src="docs/logo.png" alt="E-Learning Management System Logo" style="border-radius: 10px" width="45%"/>
+  </a>
+</p>
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)
