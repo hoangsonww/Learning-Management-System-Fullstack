@@ -6,7 +6,6 @@
     "doc": "docs"
   },
   "scripts": {
-    "install": "cd LMS-Frontend && npm install && cd ../LMS-Backend && pip install -r requirements.txt",
     "start": "cd LMS-Backend && python manage.py runserver && cd ../LMS-Frontend && npm start",
     "build": "cd LMS-Frontend/app && ng build",
     "test": "cd LMS-Frontend/app && ng serve",
