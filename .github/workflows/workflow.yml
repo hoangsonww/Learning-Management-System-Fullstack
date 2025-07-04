@@ -43,7 +43,7 @@ jobs:
 
       - name: Install backend deps
         run: |
-          cd backend
+          cd LMS-Backend
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install pytest
@@ -62,8 +62,8 @@ jobs:
         with:
           node-version: 18
 
-      - run: cd frontend && npm ci
-      - run: cd frontend && npm test --silent
+      - run: cd LMS-Frontend/app && npm ci
+      - run: cd LMS-Frontend/app && npm test
 
   ################################################################################
   # 3 · Coverage 📊
@@ -79,9 +79,9 @@ jobs:
         with:
           node-version: 18
 
-      - run: cd frontend && npm ci
+      - run: cd LMS-Frontend/app && npm ci
       - name: Generate Jest coverage
-        run: cd frontend && npm run coverage
+        run: cd LMS-Frontend/app && npm run coverage
 
       - name: Upload Jest coverage
         uses: actions/upload-artifact@v4
@@ -114,7 +114,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./backend/Dockerfile
+          file: ./LMS-Backend/Dockerfile
           push: true
           tags: |
             ghcr.io/${{ github.repository_owner }}/lms-backend:${{ github.sha }}
@@ -124,7 +124,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./frontend/Dockerfile
+          file: ./LMS-Frontend/app/Dockerfile
           push: true
           tags: |
             ghcr.io/${{ github.repository_owner }}/lms-frontend:${{ github.sha }}
