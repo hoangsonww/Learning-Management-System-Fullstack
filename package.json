@@ -7,6 +7,7 @@
   },
   "scripts": {
     "start": "cd LMS-Backend && python manage.py runserver && cd ../LMS-Frontend && npm start",
+    "lint": "npm run format",
     "build": "cd LMS-Frontend/app && ng build",
     "test": "cd LMS-Frontend/app && ng serve",
     "eject": "cd LMS-Frontend/app && npm run eject",
