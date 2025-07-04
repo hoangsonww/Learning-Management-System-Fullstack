@@ -132,6 +132,9 @@ The **MAD-Stack** is a powerful combination that allows developers to build scal
   </a>
 
   <!-- Version Control -->
+  <a href="https://docs.github.com/en/actions" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions"/>
+  </a>
   <a href="https://git-scm.com/" target="_blank">
     <img src="https://img.shields.io/badge/Version%20Control-Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git"/>
   </a>
