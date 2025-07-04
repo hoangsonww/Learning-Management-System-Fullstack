@@ -33,6 +33,15 @@ jobs:
     runs-on: ubuntu-latest
     needs: formatting
 
+    env:
+      DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+      DJANGO_DEBUG: ${{ secrets.DJANGO_DEBUG }}
+      DJANGO_ALLOWED_HOSTS: ${{ secrets.DJANGO_ALLOWED_HOSTS }}
+      MONGO_DB_URI: ${{ secrets.MONGO_DB_URI }}
+      MONGO_DB_USERNAME: ${{ secrets.MONGO_DB_USERNAME }}
+      MONGO_DB_PASSWORD: ${{ secrets.MONGO_DB_PASSWORD }}
+      REDIS_LOCATION: ${{ secrets.REDIS_LOCATION }}
+
     steps:
       - uses: actions/checkout@v3
 
