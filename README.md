@@ -91,6 +91,9 @@ The **MAD-Stack** is a powerful combination that allows developers to build scal
   <a href="https://www.sqlite.org/" target="_blank">
     <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite"/>
   </a>
+  <a href="https://www.swagger.io/" target="_blank">
+    <img src="https://img.shields.io/badge/API%20Docs-Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black" alt="Swagger"/>
+  </a>
 
   <!-- DevOps / CI/CD -->
   <a href="https://github.com/features/actions" target="_blank">
@@ -115,6 +118,17 @@ The **MAD-Stack** is a powerful combination that allows developers to build scal
   </a>
   <a href="https://render.com/" target="_blank">
     <img src="https://img.shields.io/badge/Hosting-Render-46E3B7?style=for-the-badge&logo=render&logoColor=black" alt="Render"/>
+  </a>
+
+  <!-- Testing -->
+  <a href="https://www.cypress.io/" target="_blank">
+    <img src="https://img.shields.io/badge/Testing-Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white" alt="Cypress"/>
+  </a>
+  <a href="https://jestjs.io/" target="_blank">
+    <img src="https://img.shields.io/badge/Jest-Testing-FF6F61?style=for-the-badge&logo=jest&logoColor=white" alt="Jest"/>
+  </a>
+  <a href="https://pytesting.io/" target="_blank">
+    <img src="https://img.shields.io/badge/Testing-Pytest-FFCA28?style=for-the-badge&logo=pytest&logoColor=black" alt="Pytest"/>
   </a>
 
   <!-- Version Control -->
