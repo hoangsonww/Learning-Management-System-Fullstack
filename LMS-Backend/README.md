@@ -55,7 +55,6 @@ This is the backend of a Learning Management System (LMS) built using Django and
 4. **Configure MongoDB and Redis**
 
    - Make sure MongoDB and Redis are running on your machine or have the correct connection strings in `settings.py`.
-   
    - If you don't have MongoDB and Redis installed, run the following commands to install them:
      - For MacOS/Linux:
        ```bash
@@ -64,8 +63,7 @@ This is the backend of a Learning Management System (LMS) built using Django and
        brew services start mongodb-community
        brew install redis
        redis-server
-       ```  
-       
+       ```
      - For Windows:
        - Download and install MongoDB from [here](https://www.mongodb.com/try/download/community).
        - Download and install Redis from [here](https://redis.io/download).
@@ -87,7 +85,7 @@ This is the backend of a Learning Management System (LMS) built using Django and
    python manage.py createsuperuser
    ```
 
-   Follow the prompts to set up the username, email, and password. 
+   Follow the prompts to set up the username, email, and password.
    Be sure to store or remember these credentials for later use. You will need them to log in to the admin interface and test the API endpoints
 
 7. **Seed Sample Data**
@@ -125,7 +123,7 @@ Here is how the admin interface looks like:
 ## API Endpoints
 
 | Endpoint                   | Method | Description                                   |
-|----------------------------|--------|-----------------------------------------------|
+| -------------------------- | ------ | --------------------------------------------- |
 | `/api/users/`              | GET    | Retrieve a list of all users.                 |
 | `/api/users/{id}/`         | GET    | Retrieve a specific user instance.            |
 | `/api/users/`              | POST   | Create a new user instance.                   |
@@ -227,7 +225,7 @@ Learning-Management-System/
      "password": "your_password"
    }'
    ```
-   
+
    Replace `your_username` and `your_password` with your superuser credentials.
 
    This will return a response with a token. You must include this token in the `Authorization` header as `Token <your_token_here>` for all subsequent API requests.
@@ -253,21 +251,22 @@ To test the API using `curl`, use the commands below. Replace `<your_token_here>
   ```bash
   curl -X GET http://127.0.0.1:8000/api/users/ -H "Content-Type: application/json" -H "Authorization: Token <your_token_here>"
   ```
-  
+
   - You should get something like this:
-  
-      ```json
-      [
-        {
-          "id":"66dde39af395abfee65d1f86",
-          "username":"gibsonstacey",
-          "email":"xcaldwell@example.org",
-          "is_instructor":false,"is_student":false,
-          "bio":"Consider red specific within chance fund successful out.",
-          "profile_picture":"https://placekitten.com/970/531"
-        }
-      ]
-      ```
+
+    ```json
+    [
+      {
+        "id": "66dde39af395abfee65d1f86",
+        "username": "gibsonstacey",
+        "email": "xcaldwell@example.org",
+        "is_instructor": false,
+        "is_student": false,
+        "bio": "Consider red specific within chance fund successful out.",
+        "profile_picture": "https://placekitten.com/970/531"
+      }
+    ]
+    ```
 
 - **Create a New Course**
 

@@ -64,6 +64,65 @@ The **MAD-Stack** is a powerful combination that allows developers to build scal
 
 > Sounds mad, but it's actually a great stack for building modern web applications!
 
+<p align="center">
+  <!-- Frontend -->
+  <a href="https://angular.io/" target="_blank">
+    <img src="https://img.shields.io/badge/Frontend-Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" alt="Angular"/>
+  </a>
+  <a href="https://nodejs.org" target="_blank">
+    <img src="https://img.shields.io/badge/Node.js-18.19-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js"/>
+  </a>
+
+  <!-- Backend -->
+  <a href="https://www.djangoproject.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Backend-Django-092E20?style=for-the-badge&logo=django&logoColor=white" alt="Django"/>
+  </a>
+  <a href="https://www.python.org/" target="_blank">
+    <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+  </a>
+
+  <!-- Database & Cache -->
+  <a href="https://www.mongodb.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Database-MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB"/>
+  </a>
+  <a href="https://redis.io/" target="_blank">
+    <img src="https://img.shields.io/badge/Cache-Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="Redis"/>
+  </a>
+  <a href="https://www.sqlite.org/" target="_blank">
+    <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite"/>
+  </a>
+
+  <!-- DevOps / CI/CD -->
+  <a href="https://github.com/features/actions" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub%20Actions-Automation-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions"/>
+  </a>
+  <a href="https://www.jenkins.io/" target="_blank">
+    <img src="https://img.shields.io/badge/Jenkins-CI/CD-D24939?style=for-the-badge&logo=jenkins&logoColor=white" alt="Jenkins"/>
+  </a>
+  <a href="https://www.docker.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Container-Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"/>
+  </a>
+  <a href="https://kubernetes.io/" target="_blank">
+    <img src="https://img.shields.io/badge/Orchestration-Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white" alt="Kubernetes"/>
+  </a>
+  <a href="https://nginx.org/" target="_blank">
+    <img src="https://img.shields.io/badge/Proxy-NGINX-009639?style=for-the-badge&logo=nginx&logoColor=white" alt="NGINX"/>
+  </a>
+
+  <!-- Hosting -->
+  <a href="https://vercel.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Hosting-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel"/>
+  </a>
+  <a href="https://render.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Hosting-Render-46E3B7?style=for-the-badge&logo=render&logoColor=black" alt="Render"/>
+  </a>
+
+  <!-- Version Control -->
+  <a href="https://git-scm.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Version%20Control-Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git"/>
+  </a>
+</p>
+
 ## Features
 
 - **User Authentication**: Token-based authentication for secure login, built with Django Auth.
@@ -88,8 +147,7 @@ The backend is deployed on Render: **[Backend API](https://learning-management-s
 
 Feel free to explore the platform, create an account, and test out the features!
 
-> [!IMPORTANT]
-> **Note:** Our backend server may spin down due to inactivity, so you may experience delays in loading data initially as the backend is hosted on the free tier of Render. If you encounter any issues, please let me know.
+> [!IMPORTANT] > **Note:** Our backend server may spin down due to inactivity, so you may experience delays in loading data initially as the backend is hosted on the free tier of Render. If you encounter any issues, please let me know.
 
 ## Detailed Project Information:
 
@@ -172,7 +230,7 @@ Feel free to explore the platform, create an account, and test out the features!
 ### Available API Endpoints
 
 | Endpoint                   | Method | Description                                   |
-|----------------------------|--------|-----------------------------------------------|
+| -------------------------- | ------ | --------------------------------------------- |
 | `/api/users/`              | GET    | Retrieve a list of all users.                 |
 | `/api/users/{id}/`         | GET    | Retrieve a specific user instance.            |
 | `/api/users/`              | POST   | Create a new user instance.                   |
@@ -266,7 +324,7 @@ Learning-Management-System/
 │       ├── apps.py
 │       ├── serializers.py
 │       └── urls.py
-│   
+│
 ├── LMS-Frontend
 │   ├── angular.json
 │   ├── package.json
@@ -348,7 +406,7 @@ Learning-Management-System/
 │   │   ├── .editorconfig
 │   │   ├── .gitignore
 │   │   ├── angular.json
-│   │   ├── package.json 
+│   │   ├── package.json
 │   │   ├── package-lock.json
 │   │   ├── tsconfig.json
 │   │   ├── tsconfig.app.json
@@ -430,25 +488,25 @@ Ensure the following prerequisites are installed:
    ```bash
    python manage.py createsuperuser
    ```
-   
-    Follow the prompts to create a superuser account. Remember to note down the username and password because you will need it to authenticate when using the APIs later, as well as to access the Django admin panel.
+
+   Follow the prompts to create a superuser account. Remember to note down the username and password because you will need it to authenticate when using the APIs later, as well as to access the Django admin panel.
 
 7. **Put the `SECRET_KEY` and set `Debug` to `True` in the `settings.py` file:**
 
-    ```plaintext
-    SECRET_KEY = 'your_secret_key_here'
-    DEBUG = True
-    ```
-   
-    Replace `your_secret_key_here` with a random string of characters. This key is used for cryptographic signing and should be kept secret. Or you can also contact me to get the secret key.
+   ```plaintext
+   SECRET_KEY = 'your_secret_key_here'
+   DEBUG = True
+   ```
 
-    Alternatively, create an `.env` file in the project root directory following the format in the `.env.example` file:
+   Replace `your_secret_key_here` with a random string of characters. This key is used for cryptographic signing and should be kept secret. Or you can also contact me to get the secret key.
 
-    ```plaintext
-    DJANGO_SECRET_KEY=your_secret_key_here
-    DJANGO_DEBUG=True
-    (...)
-    ```
+   Alternatively, create an `.env` file in the project root directory following the format in the `.env.example` file:
+
+   ```plaintext
+   DJANGO_SECRET_KEY=your_secret_key_here
+   DJANGO_DEBUG=True
+   (...)
+   ```
 
 8. **Seed the database with sample data:**
 
@@ -461,22 +519,22 @@ Ensure the following prerequisites are installed:
    ```bash
    python manage.py runserver
    ```
-   
-    The backend server should now be running at `http://127.0.0.1:8000/`. If the server is run successfully, you should see the Django REST Framework browsable API interface at `http://127.0.0.1:8000`, as well as the following console output:
 
-    ```plaintext
-    python manage.py runserver
-    Successfully seeded realistic sample data
-    Successfully seeded realistic sample data
-    Watching for file changes with StatReloader
-    Performing system checks...
-    
-    System check identified no issues (0 silenced).
-    September 08, 2024 - 20:35:21
-    Django version 4.2.16, using settings 'LMSBackend.settings'
-    Starting development server at http://127.0.0.1:8000/
-    Quit the server with CONTROL-C.
-    ```
+   The backend server should now be running at `http://127.0.0.1:8000/`. If the server is run successfully, you should see the Django REST Framework browsable API interface at `http://127.0.0.1:8000`, as well as the following console output:
+
+   ```plaintext
+   python manage.py runserver
+   Successfully seeded realistic sample data
+   Successfully seeded realistic sample data
+   Watching for file changes with StatReloader
+   Performing system checks...
+
+   System check identified no issues (0 silenced).
+   September 08, 2024 - 20:35:21
+   Django version 4.2.16, using settings 'LMSBackend.settings'
+   Starting development server at http://127.0.0.1:8000/
+   Quit the server with CONTROL-C.
+   ```
 
 ### Frontend Setup
 
@@ -503,7 +561,7 @@ Ensure the following prerequisites are installed:
    ```
    http://localhost:4200
    ```
-   
+
 5. **Test out the PWA functionality:**
 
    - Open the application in your browser.
@@ -548,18 +606,19 @@ To test the API using `curl`, use the commands below. Replace `<your_token_here>
 
   - You should get something like this:
 
-      ```json
-      [
-        {
-          "id":"66dde39af395abfee65d1f86",
-          "username":"gibsonstacey",
-          "email":"xcaldwell@example.org",
-          "is_instructor":false,"is_student":false,
-          "bio":"Consider red specific within chance fund successful out.",
-          "profile_picture":"https://placekitten.com/970/531"
-        }
-      ]
-      ```
+    ```json
+    [
+      {
+        "id": "66dde39af395abfee65d1f86",
+        "username": "gibsonstacey",
+        "email": "xcaldwell@example.org",
+        "is_instructor": false,
+        "is_student": false,
+        "bio": "Consider red specific within chance fund successful out.",
+        "profile_picture": "https://placekitten.com/970/531"
+      }
+    ]
+    ```
 
 - **Create a New Course**
 
@@ -667,25 +726,25 @@ This project is set up to use MongoDB Atlas as the cloud database. You can creat
 
 2. **Create a free cluster:**
 
-    - Click on "Build a Cluster".
-    - Choose the free tier option.
-    - Select the cloud provider and region.
-    - Click "Create Cluster".
+   - Click on "Build a Cluster".
+   - Choose the free tier option.
+   - Select the cloud provider and region.
+   - Click "Create Cluster".
 
 3. **Connect to your cluster:**
 
-    - Click on "Connect" to connect to your cluster.
-    - Whitelist your IP address.
-    - Create a MongoDB user and password.
+   - Click on "Connect" to connect to your cluster.
+   - Whitelist your IP address.
+   - Create a MongoDB user and password.
 
 4. **Get your connection string:**
 
-    - Click on "Connect" and choose "Connect your application".
-    - Copy the connection string.
+   - Click on "Connect" and choose "Connect your application".
+   - Copy the connection string.
 
 5. **Set up the connection string in the Django settings:**
-  
-      - Replace the `.env` configuration file with the connection string from MongoDB Atlas.
+
+   - Replace the `.env` configuration file with the connection string from MongoDB Atlas.
 
 Alternatively, you can use the local MongoDB server for development and testing purposes.
 
@@ -698,13 +757,13 @@ The project can be containerized using Docker. The `Dockerfile` and `docker-comp
    ```bash
    cd Learning-Management-System
    ```
-   
+
 2. **Build the Docker image:**
 
    ```bash
    docker compose up --build
    ```
-   
+
 The above command will build the Docker image and start the containers for the backend, frontend, MongoDB, and Redis. You can access the application at `http://localhost:4200` and the Django REST Framework API at `http://localhost:8000`.
 
 ## Kubernetes
@@ -724,37 +783,37 @@ To deploy the applications to a Kubernetes cluster, follow these steps:
    ```bash
    cd Kubernetes
    ```
-   
+
 2. **Create the configmap:**
 
    ```bash
     kubectl apply -f configmap.yaml
-    ```
-   
+   ```
+
 3. **Create the backend deployment:**
 
    ```bash
    kubectl apply -f backend-deployment.yaml
    ```
-   
+
 4. **Create the backend service:**
 
    ```bash
     kubectl apply -f backend-service.yaml
-    ```
-   
+   ```
+
 5. **Create the frontend deployment:**
 
    ```bash
     kubectl apply -f frontend-deployment.yaml
-    ```
-   
+   ```
+
 6. **Create the frontend service:**
 
    ```bash
     kubectl apply -f frontend-service.yaml
-    ```
-   
+   ```
+
 The above commands will create the deployments and services for the backend and frontend applications. You can access the applications using the NodePort or LoadBalancer service IP addresses.
 
 ## OpenAPI Specification
@@ -762,11 +821,13 @@ The above commands will create the deployments and services for the backend and 
 ### Using the `openapi.yaml` File
 
 1. **View the API Documentation**
+
 - Open [Swagger Editor](https://editor.swagger.io/).
 - Upload the `openapi.yaml` file or paste its content.
 - Visualize and interact with the API documentation.
 
 2. **Test the API**
+
 - Import `openapi.yaml` into [Postman](https://www.postman.com/):
   - Open Postman → Import → Select `openapi.yaml`.
   - Test the API endpoints directly from Postman.
@@ -774,6 +835,7 @@ The above commands will create the deployments and services for the backend and 
   - Provide the file URL or upload it to view and test endpoints.
 
 3. **Generate Client Libraries**
+
 - Install OpenAPI Generator:
   ```bash
   npm install @openapitools/openapi-generator-cli -g
@@ -785,6 +847,7 @@ The above commands will create the deployments and services for the backend and 
 - Replace `<language>` with the desired programming language.
 
 4. **Generate Server Stubs**
+
 - Generate a server stub:
   ```bash
   openapi-generator-cli generate -i openapi.yaml -g <framework> -o ./server
@@ -792,6 +855,7 @@ The above commands will create the deployments and services for the backend and 
 - Replace `<framework>` with the desired framework.
 
 5. **Run a Mock Server**
+
 - Install Prism:
   ```bash
   npm install -g @stoplight/prism-cli
@@ -802,6 +866,7 @@ The above commands will create the deployments and services for the backend and 
   ```
 
 6. **Validate the OpenAPI File**
+
 - Use [Swagger Validator](https://validator.swagger.io/):
   - Upload `openapi.yaml` or paste its content to check for errors.
 
@@ -828,28 +893,35 @@ The Jenkins pipeline will automatically build the Docker images, run the unit te
 ### Common Issues
 
 1. **CORS Errors**:
-  - Ensure backend CORS settings allow requests from `http://localhost:4200`.
+
+- Ensure backend CORS settings allow requests from `http://localhost:4200`.
 
 2. **Unauthorized Access**:
-  - Confirm that tokens are stored correctly in `localStorage`.
+
+- Confirm that tokens are stored correctly in `localStorage`.
 
 3. **API Connection**:
-  - Verify the backend server is running at `http://127.0.0.1:8000`.
+
+- Verify the backend server is running at `http://127.0.0.1:8000`.
 
 4. **Database Connection**:
-  - Check MongoDB and Redis are running and accessible.
+
+- Check MongoDB and Redis are running and accessible.
 
 5. **Dependencies**:
-  - Ensure all required dependencies are installed, using `pip install -r requirements.txt` and `npm install`.
+
+- Ensure all required dependencies are installed, using `pip install -r requirements.txt` and `npm install`.
 
 6. **UI Issues**:
-  - Check the Angular console for errors and warnings. Alternatively, you can try clearing the cache using `npm cache clean --force` and `npm install`.
+
+- Check the Angular console for errors and warnings. Alternatively, you can try clearing the cache using `npm cache clean --force` and `npm install`.
 
 7. **Unable to Log In**:
-  - Because we are using default Django Auth and SQLite to optimize infrastructure costs, perhaps the user you are trying to log in with does not exist. Sometimes SQLite does not save the data after the server is restarted. 
-  - Therefore, please try registering a new user and logging in with that user to bypass this issue.
-  - You can also try to create a new user using the Django admin panel or the `createsuperuser` command.
-  - Sorry for any inconvenience this may cause! I am planning to switch to Firebase Auth in the future to avoid this issue, but I will need to get some funding first since I have run out of free tier resources...
+
+- Because we are using default Django Auth and SQLite to optimize infrastructure costs, perhaps the user you are trying to log in with does not exist. Sometimes SQLite does not save the data after the server is restarted.
+- Therefore, please try registering a new user and logging in with that user to bypass this issue.
+- You can also try to create a new user using the Django admin panel or the `createsuperuser` command.
+- Sorry for any inconvenience this may cause! I am planning to switch to Firebase Auth in the future to avoid this issue, but I will need to get some funding first since I have run out of free tier resources...
 
 ### Debugging Tips
 

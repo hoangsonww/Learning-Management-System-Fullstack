@@ -1,28 +1,32 @@
-FROM node:18.19
+##
+## ─────────────────────────────────────────────────────────
+##  Angular 18 Front-end – multi-stage production image
+## ─────────────────────────────────────────────────────────
+##
 
-# Set the working directory
+# ── Builder stage ────────────────────────────────────────
+FROM node:18.19-alpine AS builder
+
 WORKDIR /app
 
-# Copy package.json and package-lock.json from the Angular app directory
-COPY ./app/package*.json ./
+# only the manifests first → better layer-caching
+COPY app/package*.json ./
+RUN npm ci --quiet
 
-# Install Angular CLI globally
-RUN npm install -g @angular/cli
+# copy the actual source and compile
+COPY app/ ./
+RUN npm run build -- --configuration production
 
-# Install frontend dependencies
-RUN npm install
+# ── Runtime stage (Nginx) ────────────────────────────────
+FROM nginx:1.27-alpine
 
-# Copy the entire Angular app to the working directory
-COPY ./app .
+# remove the default landing page
+RUN rm -rf /usr/share/nginx/html/*
 
-# Build the Angular application for production
-RUN ng build --configuration production
+# copy the compiled artefacts from the previous stage
+## (the build ends up in   /app/dist/<project-name> )
+# if your Angular project name differs, just adjust the * below.
+COPY --from=builder /app/dist/* /usr/share/nginx/html/
 
-# Install a lightweight HTTP server to serve the application
-RUN npm install -g http-server
-
-# Expose the port the application will run on
-EXPOSE 8080
-
-# Serve the Angular application
-CMD ["http-server", "dist/your-angular-app-name", "-p", "8080"]
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
