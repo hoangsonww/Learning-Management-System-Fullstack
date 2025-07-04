@@ -24,7 +24,7 @@ export class AuthInterceptor implements HttpInterceptor {
           Authorization: `Token ${token}`,
         },
       });
-      console.log('AuthInterceptor: Attaching token to request:', cloned);
+
       return next.handle(cloned);
     } else {
       return next.handle(req);

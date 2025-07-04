@@ -14,7 +14,7 @@
     "frontend": "cd LMS-Frontend/app && ng serve",
     "backend": "cd LMS-Backend && python manage.py runserver",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
-    "format": "prettier --write \"**/*.{ts,css}\""
+    "format": "prettier --write \"**/*.{ts,js,md,css}\""
   },
   "repository": {
     "type": "git",

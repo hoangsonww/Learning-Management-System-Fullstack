@@ -1,0 +1,4 @@
+LMS-Backend/.venv
+LMS-Frontend/app/.angular
+LMS-Frontend/app/node_modules
+LMS-Frontend/app/dist

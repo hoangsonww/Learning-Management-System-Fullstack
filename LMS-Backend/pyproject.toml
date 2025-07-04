@@ -1,0 +1,62 @@
+###############################################
+# pyproject.toml · LMS App backend Django     #
+###############################################
+
+[build-system]
+requires      = ["setuptools>=61", "wheel"]   # PEP 517 build backend
+build-backend = "setuptools.build_meta"
+
+[project]
+name         = "lms-backend"
+version      = "0.1.0"
+description  = "Backend for Learning Management System (LMS) built with Django and MongoDB"
+readme       = "README.md"
+requires-python = ">=3.10"
+license      = {text = "MIT"}
+authors      = [{name = "Son Nguyen", email = "hoangson091104@gmail.com"}]
+
+dependencies = [
+  "asgiref==3.8.1",
+  "certifi==2024.8.30",
+  "charset-normalizer==3.3.2",
+  "dataclasses==0.6",
+  "dj-rest-auth==6.0.0",
+  "Django==4.2.16",
+  "django-allauth==64.2.1",
+  "django-cors-headers==4.4.0",
+  "django-mongoengine==0.5.6",
+  "django-redis==5.4.0",
+  "django-rest-framework-mongoengine==3.4.1",
+  "djangorestframework==3.15.2",
+  "djangorestframework-simplejwt==5.3.1",
+  "djongo==1.2.31",
+  "dnspython==2.6.1",
+  "drf-yasg==1.21.8",
+  "Faker==28.4.1",
+  "idna==3.8",
+  "inflection==0.5.1",
+  "iniconfig==2.1.0",
+  "mongoengine==0.29.0",
+  "packaging==24.1",
+  "pluggy==1.6.0",
+  "Pygments==2.19.2",
+  "PyJWT==2.9.0",
+  "pymongo==4.8.0",
+  "python-dateutil==2.9.0.post0",
+  "python-decouple==3.8",
+  "pytz==2024.1",
+  "PyYAML==6.0.2",
+  "redis==5.0.8",
+  "requests==2.32.3",
+  "setuptools==74.1.2",
+  "six==1.16.0",
+  "sqlparse==0.5.1",
+  "uritemplate==4.1.1",
+  "urllib3==2.2.2",
+  "whitenoise==6.7.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==8.4.1"
+]

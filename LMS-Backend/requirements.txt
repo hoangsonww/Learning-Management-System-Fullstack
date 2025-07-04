@@ -17,10 +17,15 @@ drf-yasg==1.21.8
 Faker==28.4.1
 idna==3.8
 inflection==0.5.1
+iniconfig==2.1.0
 mongoengine==0.29.0
 packaging==24.1
+pluggy==1.6.0
+Pygments==2.19.2
 PyJWT==2.9.0
 pymongo==4.8.0
+pytest==8.4.1
+pytest-django==4.11.1
 python-dateutil==2.9.0.post0
 python-decouple==3.8
 pytz==2024.1
@@ -32,3 +37,4 @@ six==1.16.0
 sqlparse==0.5.1
 uritemplate==4.1.1
 urllib3==2.2.2
+whitenoise==6.7.0

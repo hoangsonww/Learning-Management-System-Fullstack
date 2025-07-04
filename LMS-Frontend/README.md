@@ -157,7 +157,7 @@ Learning-Management-System/
 │   │   ├── .editorconfig
 │   │   ├── .gitignore
 │   │   ├── angular.json
-│   │   ├── package.json 
+│   │   ├── package.json
 │   │   ├── package-lock.json
 │   │   ├── tsconfig.json
 │   │   ├── tsconfig.app.json
@@ -260,13 +260,16 @@ It is of utmost importance to set up the backend server before running the front
 ### Common Issues
 
 1. **CORS Errors:**
-  - Ensure your backend server is configured to accept requests from `http://localhost:4200`. This should have been set up already in the Django backend.
+
+- Ensure your backend server is configured to accept requests from `http://localhost:4200`. This should have been set up already in the Django backend.
 
 2. **Unauthorized Access Errors:**
-  - Make sure the token is correctly stored in `localStorage` after login and is sent with each request that requires authorization.
+
+- Make sure the token is correctly stored in `localStorage` after login and is sent with each request that requires authorization.
 
 3. **API Connection Issues:**
-  - Verify that the backend server is running and accessible at `http://127.0.0.1:8000`.
+
+- Verify that the backend server is running and accessible at `http://127.0.0.1:8000`.
 
 ### Debugging Tips
 
