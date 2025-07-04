@@ -132,8 +132,8 @@ jobs:
       - name: Build & push frontend image
         uses: docker/build-push-action@v3
         with:
-          context: .
-          file: ./LMS-Frontend/app/Dockerfile
+          context: ./LMS-Frontend
+          file: ./LMS-Frontend/Dockerfile
           push: true
           tags: |
             ghcr.io/${{ github.repository_owner }}/lms-frontend:${{ github.sha }}
