@@ -158,6 +158,10 @@ The **MAD-Stack** is a powerful combination that allows developers to build scal
 - **Data Visualization**: Dynamic charts using Chart.js.
 - **Comprehensive APIs**: Powerful RESTful APIs for all operations.
 - **API Documentation**: Comprehensive REST API documentation with Swagger and Redoc.
+- **Unit & Integration Tests**: Automated tests for backend APIs and frontend components.
+- **PWA Support**: Progressive Web App features for offline access and installation.
+- **CI/CD Pipeline**: Automated deployment using Jenkins, Docker, and GitHub Actions.
+- _and many more features!_
 
 ## Live Deployment
 
