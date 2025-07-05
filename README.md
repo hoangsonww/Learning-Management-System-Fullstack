@@ -31,6 +31,9 @@ Welcome to the **E-Learning Management System (LMS)**! This project consists of 
   - [MongoDB Atlas](#mongodb-atlas)
 - [Containerization](#containerization)
 - [Kubernetes](#kubernetes)
+- [Testing](#testing)
+  - [Backend Tests](#backend-tests)
+  - [Frontend Tests](#frontend-tests)
 - [OpenAPI Specification](#openapi-specification)
 - [Jenkins CI/CD](#jenkins-cicd)
 - [Troubleshooting](#troubleshooting)
@@ -164,8 +167,7 @@ The backend is deployed on Render: **[Backend API](https://learning-management-s
 
 Feel free to explore the platform, create an account, and test out the features!
 
-> [!IMPORTANT]
-> **Note:** Our backend server may spin down due to inactivity, so you may experience delays in loading data initially as the backend is hosted on the free tier of Render. If you encounter any issues, please let me know.
+> [!IMPORTANT] > **Note:** Our backend server may spin down due to inactivity, so you may experience delays in loading data initially as the backend is hosted on the free tier of Render. If you encounter any issues, please let me know.
 
 ## Detailed Project Information:
 
