@@ -164,7 +164,7 @@ The backend is deployed on Render: **[Backend API](https://learning-management-s
 
 Feel free to explore the platform, create an account, and test out the features!
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > **Note:** Our backend server may spin down due to inactivity, so you may experience delays in loading data initially as the backend is hosted on the free tier of Render. If you encounter any issues, please let me know.
 
 ## Detailed Project Information:
@@ -833,6 +833,34 @@ To deploy the applications to a Kubernetes cluster, follow these steps:
    ```
 
 The above commands will create the deployments and services for the backend and frontend applications. You can access the applications using the NodePort or LoadBalancer service IP addresses.
+
+## Testing
+
+The project includes unit tests for both the backend and frontend applications. You can run the tests using the following commands:
+
+### Backend Tests
+
+To run the backend tests, navigate to the `LMS-Backend` directory and run:
+
+```bash
+cd LMS-Backend
+
+pytest -q
+```
+
+### Frontend Tests
+
+To run the frontend tests, navigate to the `LMS-Frontend/app` directory and run:
+
+```bash
+cd LMS-Frontend/app
+
+# Run tests (normal mode)
+npm run test
+
+# Run tests (code coverage mode)
+npm run coverage
+```
 
 ## OpenAPI Specification
 
