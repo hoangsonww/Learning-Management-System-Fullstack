@@ -55,6 +55,8 @@ The **E-Learning Management System** is a web-based platform designed to facilit
 
 Because we use **MongoDB**, **Angular**, and **Django**, we call this a **MAD-Stack** application! _(Just a fun name to remember the technologies used)_
 
+Currently live at **[learning-manangement-system.vercel.app](https://learning-manangement-system.vercel.app).** ✨
+
 ### The MAD-Stack
 
 The **MAD-Stack** is a modern web development stack that combines the following technologies:
