@@ -65,6 +65,7 @@ The **MAD-Stack** is a modern web development stack that combines the following 
 
 The **MAD-Stack** is a powerful combination that allows developers to build scalable, responsive, and feature-rich web applications. It leverages the strengths of each technology to create a seamless user experience.
 
+> [!NOTE]
 > Sounds mad, but it's actually a great stack for building modern web applications!
 
 <p align="center">
@@ -171,7 +172,8 @@ The backend is deployed on Render: **[Backend API](https://learning-management-s
 
 Feel free to explore the platform, create an account, and test out the features!
 
-> [!IMPORTANT] > **Note:** Our backend server may spin down due to inactivity, so you may experience delays in loading data initially as the backend is hosted on the free tier of Render. If you encounter any issues, please let me know.
+> [!IMPORTANT]
+> **Note:** Our backend server may spin down due to inactivity, so you may experience delays in loading data initially as the backend is hosted on the free tier of Render. If you encounter any issues, please let me know.
 
 ## Detailed Project Information:
 
