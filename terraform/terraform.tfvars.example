@@ -1,0 +1,107 @@
+# ============================================================================
+# LMS Terraform Configuration Example
+# Copy this file to terraform.tfvars and customize for your environment
+# ============================================================================
+
+# General Configuration
+project_name = "lms"
+environment  = "production"  # dev, staging, production
+aws_region   = "us-east-1"
+
+# Network Configuration
+vpc_cidr             = "10.0.0.0/16"
+availability_zones   = ["us-east-1a", "us-east-1b", "us-east-1c"]
+public_subnet_cidrs  = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+private_subnet_cidrs = ["10.0.11.0/24", "10.0.12.0/24", "10.0.13.0/24"]
+database_subnet_cidrs = ["10.0.21.0/24", "10.0.22.0/24", "10.0.23.0/24"]
+
+# NAT Gateway Configuration
+enable_nat_gateway = true
+single_nat_gateway = false  # Set to true to save costs (not recommended for production)
+
+# Security
+alb_ingress_cidrs = ["0.0.0.0/0"]  # Restrict this in production
+enable_waf        = true
+
+# RDS PostgreSQL Configuration
+rds_instance_class        = "db.t3.medium"   # Use db.r5.large for production
+rds_allocated_storage     = 100
+rds_max_allocated_storage = 500
+rds_engine_version        = "15.3"
+rds_database_name         = "lmsdb"
+rds_master_username       = "lmsadmin"
+rds_multi_az              = true
+rds_deletion_protection   = true
+
+# ElastiCache Redis Configuration
+redis_node_type           = "cache.t3.medium"  # Use cache.r5.large for production
+redis_num_cache_nodes     = 2
+redis_engine_version      = "7.0"
+redis_automatic_failover  = true
+redis_multi_az            = true
+
+# DocumentDB (MongoDB) Configuration
+documentdb_instance_class       = "db.t3.medium"  # Use db.r5.large for production
+documentdb_instance_count       = 3
+documentdb_engine_version       = "5.0.0"
+documentdb_master_username      = "lmsadmin"
+documentdb_deletion_protection  = true
+documentdb_skip_final_snapshot  = false
+
+# ECS Fargate Configuration
+# Backend
+ecs_backend_cpu           = 512    # Use 1024-2048 for production
+ecs_backend_memory        = 1024   # Use 2048-4096 for production
+ecs_backend_count         = 2
+backend_image_tag         = "latest"
+
+# Frontend
+ecs_frontend_cpu          = 256    # Use 512-1024 for production
+ecs_frontend_memory       = 512    # Use 1024-2048 for production
+ecs_frontend_count        = 2
+frontend_image_tag        = "latest"
+
+# Auto-scaling
+enable_ecs_autoscaling              = true
+ecs_autoscaling_min_capacity        = 2
+ecs_autoscaling_max_capacity        = 10
+ecs_autoscaling_target_cpu          = 70
+ecs_autoscaling_target_memory       = 80
+
+# ALB Configuration
+alb_enable_deletion_protection = true
+alb_enable_http2              = true
+enable_https                  = true
+# ssl_certificate_arn         = "arn:aws:acm:us-east-1:ACCOUNT:certificate/CERT_ID"  # Required for HTTPS
+
+# S3 Configuration
+s3_enable_versioning      = true
+s3_enable_lifecycle_rules = true
+s3_lifecycle_glacier_days = 90
+s3_lifecycle_expiration_days = 365
+
+# CloudFront (Optional)
+enable_cloudfront                  = false
+cloudfront_price_class             = "PriceClass_100"
+# cloudfront_certificate_arn       = "arn:aws:acm:us-east-1:ACCOUNT:certificate/CERT_ID"
+
+# Route53 (Optional)
+create_route53_zone = false
+# domain_name       = "lms.yourdomain.com"
+
+# Monitoring
+enable_monitoring          = true
+enable_vpc_flow_logs       = true
+ecs_log_retention_days     = 30
+
+# Backup Configuration
+enable_backup           = true
+backup_retention_days   = 7
+
+# Tags
+tags = {
+  Project     = "Learning Management System"
+  Team        = "DevOps"
+  CostCenter  = "Engineering"
+  Compliance  = "HIPAA"  # Adjust as needed
+}
