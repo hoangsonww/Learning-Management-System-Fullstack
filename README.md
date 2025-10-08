@@ -8,64 +8,7 @@ Welcome to the **E-Learning Management System (LMS)**! This project consists of 
   </a>
 </p>
 
-## Table of Contents
-
-- [Project Overview](#project-overview)
-  - [The MAD-Stack](#the-mad-stack)
-- [Features](#features)
-- [Live Deployment](#live-deployment)
-- [Detailed Project Information](#detailed-project-information)
-  - [Frontend User Interfaces](#frontend-user-interfaces)
-  - [Available API Endpoints](#available-api-endpoints)
-  - [Unit Tests for APIs](#unit-tests-for-apis)
-- [File Structure](#file-structure)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Backend Setup (Django)](#backend-setup)
-  - [Frontend Setup (Angular)](#frontend-setup)
-- [API Documentation](#api-documentation)
-  - [Authentication](#authentication)
-  - [Testing the APIs](#testing-the-apis)
-  - [Seeding Sample Data](#seeding-sample-data)
-  - [Recommended GUI Tools](#recommended-gui-tools)
-  - [MongoDB Atlas](#mongodb-atlas)
-- [Containerization](#containerization)
-- [Kubernetes](#kubernetes)
-- [Testing](#testing)
-  - [Backend Tests](#backend-tests)
-  - [Frontend Tests](#frontend-tests)
-- [OpenAPI Specification](#openapi-specification)
-- [Jenkins CI/CD](#jenkins-cicd)
-- [Troubleshooting](#troubleshooting)
-  - [Common Issues](#common-issues)
-  - [Debugging Tips](#debugging-tips)
-- [Additional Information](#additional-information)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-
-## Project Overview
-
-The **E-Learning Management System** is a web-based platform designed to facilitate online education and training. It provides a comprehensive set of features for managing courses, lessons, users, quizzes, and more. The system is composed of:
-
-- **Frontend**: Built with **Angular** and **Bootstrap**, it offers a user-friendly interface for interacting with the platform.
-- **Backend**: Developed using **Django** and **Django REST Framework**, it provides robust **REST APIs** for all the operations.
-- **Database**: The system uses **MongoDB** to store data and **Redis** for efficient server-side caching, as well as **SQLite** for user authentication with Django Auth.
-- **CI/CD**: The project includes a `Dockerfile` and `docker-compose.yml` for containerization and deployment, as well as a `Jenkinsfile` for CI/CD pipelines and `Kubernetes` configuration files for orchestration.
-
-Because we use **MongoDB**, **Angular**, and **Django**, we call this a **MAD-Stack** application! _(Just a fun name to remember the technologies used)_
-
-### The MAD-Stack
-
-The **MAD-Stack** is a modern web development stack that combines the following technologies:
-
-- **MongoDB**: A NoSQL database used to store course, lessons, enrollments, users, and other data.
-- **Angular**: A frontend framework for building web applications.
-- **Django**: A high-level Python web framework for backend development.
-
-The **MAD-Stack** is a powerful combination that allows developers to build scalable, responsive, and feature-rich web applications. It leverages the strengths of each technology to create a seamless user experience.
-
-> Sounds mad, but it's actually a great stack for building modern web applications!
+**Visit the live demo app here: [E-Learning Management System](https://learning-manangement-system.vercel.app)**
 
 <p align="center">
   <!-- Frontend -->
@@ -112,15 +55,27 @@ The **MAD-Stack** is a powerful combination that allows developers to build scal
     <img src="https://img.shields.io/badge/Orchestration-Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white" alt="Kubernetes"/>
   </a>
   <a href="https://nginx.org/" target="_blank">
-    <img src="https://img.shields.io/badge/Proxy-NGINX-009639?style=for-the-badge&logo=nginx&logoColor=white" alt="NGINX"/>
+    <img src="https://img.shields.io/badge/Proxy_&_Load_Balancer-NGINX-009639?style=for-the-badge&logo=nginx&logoColor=white" alt="NGINX"/>
   </a>
 
   <!-- Hosting -->
   <a href="https://vercel.com/" target="_blank">
     <img src="https://img.shields.io/badge/Hosting-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel"/>
   </a>
+  <a href="https://www.mongodb.com/cloud/atlas" target="_blank">
+    <img src="https://img.shields.io/badge/Database%20Host-MongoDB%20Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB Atlas"/>
+  </a>
+  <a href="https://aws.amazon.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Cloud-AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white" alt="AWS"/>
+  </a>
+  <a href="https://terraform.io/" target="_blank">
+    <img src="https://img.shields.io/badge/Infrastructure-Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white" alt="Terraform"/>
+  </a>
+  <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank">
+    <img src="https://img.shields.io/badge/Container_Registry-GHCR-CF142B?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+  </a>
   <a href="https://render.com/" target="_blank">
-    <img src="https://img.shields.io/badge/Hosting-Render-46E3B7?style=for-the-badge&logo=render&logoColor=black" alt="Render"/>
+    <img src="https://img.shields.io/badge/Backup-Render-46E3B7?style=for-the-badge&logo=render&logoColor=black" alt="Render"/>
   </a>
 
   <!-- Testing -->
@@ -143,7 +98,469 @@ The **MAD-Stack** is a powerful combination that allows developers to build scal
   </a>
 </p>
 
+## Table of Contents
+
+- [Project Overview](#project-overview)
+  - [The MAD-Stack](#the-mad-stack)
+- [System Architecture](#system-architecture)
+  - [High-Level Architecture](#high-level-architecture)
+  - [Technology Stack](#technology-stack)
+  - [Database Schema](#database-schema)
+  - [Authentication Flow](#authentication-flow)
+  - [Component Architecture](#component-architecture)
+  - [Deployment Architecture](#deployment-architecture)
+  - [API Request Flow with Caching](#api-request-flow-with-caching)
+  - [CI/CD Pipeline](#cicd-pipeline)
+- [Features](#features)
+- [Live Deployment](#live-deployment)
+- [Detailed Project Information](#detailed-project-information)
+  - [Frontend User Interfaces](#frontend-user-interfaces)
+  - [Available API Endpoints](#available-api-endpoints)
+  - [Unit Tests for APIs](#unit-tests-for-apis)
+- [File Structure](#file-structure)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Backend Setup (Django)](#backend-setup)
+  - [Frontend Setup (Angular)](#frontend-setup)
+- [API Documentation](#api-documentation)
+  - [Authentication](#authentication)
+  - [Testing the APIs](#testing-the-apis)
+  - [Seeding Sample Data](#seeding-sample-data)
+  - [Recommended GUI Tools](#recommended-gui-tools)
+  - [MongoDB Atlas](#mongodb-atlas)
+- [Deployment](#deployment)
+- [Containerization](#containerization)
+- [Kubernetes](#kubernetes)
+- [Testing](#testing)
+  - [Backend Tests](#backend-tests)
+  - [Frontend Tests](#frontend-tests)
+- [OpenAPI Specification](#openapi-specification)
+- [Jenkins CI/CD](#jenkins-cicd)
+- [Troubleshooting](#troubleshooting)
+  - [Common Issues](#common-issues)
+  - [Debugging Tips](#debugging-tips)
+- [Additional Information](#additional-information)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## Project Overview
+
+The **E-Learning Management System** is a web-based platform designed to facilitate online education and training. It provides a comprehensive set of features for managing courses, lessons, users, quizzes, and more. The system is composed of:
+
+- **Frontend**: Built with **Angular** and **Bootstrap**, it offers a user-friendly interface for interacting with the platform.
+- **Backend**: Developed using **Django** and **Django REST Framework**, it provides robust **REST APIs** for all the operations.
+- **Database**: The system uses **MongoDB** to store data and **Redis** for efficient server-side caching, as well as **SQLite** for user authentication with Django Auth.
+- **CI/CD**: The project includes a `Dockerfile` and `docker-compose.yml` for containerization and deployment, as well as a `Jenkinsfile` for CI/CD pipelines and `Kubernetes` configuration files for orchestration.
+
+Because we use **MongoDB**, **Angular**, and **Django**, we call this a **MAD-Stack** application! _(Just a fun name to remember the technologies used)_
+
+### The MAD-Stack
+
+The **MAD-Stack** is a modern web development stack that combines the following technologies:
+
+- **MongoDB**: A NoSQL database used to store course, lessons, enrollments, users, and other data.
+- **Angular**: A frontend framework for building web applications.
+- **Django**: A high-level Python web framework for backend development.
+
+The **MAD-Stack** is a powerful combination that allows developers to build scalable, responsive, and feature-rich web applications. It leverages the strengths of each technology to create a seamless user experience.
+
+> Sounds mad, but it's actually a great stack for building modern web applications!
+
+## System Architecture
+
+For a comprehensive and detailed architecture documentation, please refer to [ARCHITECTURE.md](ARCHITECTURE.md).
+
+### High-Level Architecture
+
+The system follows a modern three-tier architecture with clear separation of concerns:
+
+```mermaid
+graph TB
+    subgraph "Client Layer"
+        A[Web Browser]
+        B[Mobile Browser]
+    end
+
+    subgraph "Frontend - Angular SPA"
+        C[Angular Components]
+        D[Angular Services]
+        E[HTTP Interceptors]
+        F[State Management]
+    end
+
+    subgraph "API Gateway"
+        G[NGINX Reverse Proxy]
+    end
+
+    subgraph "Backend - Django REST API"
+        H[Django REST Framework]
+        I[Authentication Layer]
+        J[Business Logic]
+        K[Serializers & ViewSets]
+    end
+
+    subgraph "Caching Layer"
+        L[Redis Cache]
+    end
+
+    subgraph "Data Persistence"
+        M[(MongoDB - Course Data)]
+        N[(SQLite - Auth Data)]
+    end
+
+    A --> C
+    B --> C
+    C --> D
+    D --> E
+    E --> G
+    G --> H
+    H --> I
+    I --> J
+    J --> K
+    K --> L
+    K --> M
+    I --> N
+```
+
+### Technology Stack
+
+```mermaid
+graph LR
+    subgraph "Frontend Stack"
+        A[Angular 18]
+        B[TypeScript]
+        C[Bootstrap 5]
+        D[RxJS]
+    end
+
+    subgraph "Backend Stack"
+        E[Django 4.2]
+        F[Django REST Framework]
+        G[Python 3.12]
+        H[MongoEngine ODM]
+    end
+
+    subgraph "Database Stack"
+        I[(MongoDB 5.0)]
+        J[(SQLite 3)]
+        K[(Redis 6)]
+    end
+
+    subgraph "DevOps Stack"
+        L[Docker]
+        M[Kubernetes]
+        N[Jenkins]
+        O[GitHub Actions]
+    end
+
+    A --> E
+    E --> I
+    E --> J
+    E --> K
+    L --> M
+    N --> O
+
+    style A fill:#dd0031
+    style E fill:#092e20
+    style I fill:#47a248
+    style K fill:#dc382d
+    style L fill:#2496ed
+```
+
+### Database Schema
+
+The system uses MongoDB for storing course-related data with the following entity relationships:
+
+```mermaid
+erDiagram
+    USER ||--o{ COURSE : instructs
+    USER ||--o{ ENROLLMENT : enrolls
+    USER ||--o{ PROGRESS : tracks
+    USER ||--o{ NOTIFICATION : receives
+
+    CATEGORY ||--o{ COURSE : categorizes
+
+    COURSE ||--o{ LESSON : contains
+    COURSE ||--o{ ENROLLMENT : has
+
+    LESSON ||--o{ QUIZ : includes
+    LESSON ||--o{ PROGRESS : tracks
+
+    QUIZ ||--o{ QUESTION : contains
+    QUESTION ||--o{ CHOICE : has
+
+    USER {
+        ObjectId id PK
+        string username UK
+        string email UK
+        boolean is_instructor
+        boolean is_student
+        string bio
+        string profile_picture
+    }
+
+    COURSE {
+        ObjectId id PK
+        string title
+        string description
+        ObjectId instructor_id FK
+        ObjectId category_id FK
+        decimal price
+        boolean published
+        datetime created_at
+    }
+
+    LESSON {
+        ObjectId id PK
+        string title
+        ObjectId course_id FK
+        string content
+        string video_url
+        datetime created_at
+    }
+
+    ENROLLMENT {
+        ObjectId id PK
+        ObjectId student_id FK
+        ObjectId course_id FK
+        datetime enrolled_at
+    }
+
+    PROGRESS {
+        ObjectId id PK
+        ObjectId student_id FK
+        ObjectId lesson_id FK
+        boolean completed
+        datetime completed_at
+    }
+```
+
+### Authentication Flow
+
+The system uses JWT-based authentication with token storage:
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Angular
+    participant Django
+    participant SQLite
+    participant Redis
+
+    User->>Angular: Enter Credentials
+    Angular->>Django: POST /api/auth/login/
+    Django->>SQLite: Verify Credentials
+
+    alt Valid Credentials
+        SQLite-->>Django: User Valid
+        Django->>Django: Generate JWT Token
+        Django->>Redis: Cache Token
+        Django-->>Angular: {token, user}
+        Angular->>Angular: Store in localStorage
+        Angular-->>User: Redirect to Dashboard
+    else Invalid Credentials
+        SQLite-->>Django: Invalid
+        Django-->>Angular: 401 Unauthorized
+        Angular-->>User: Show Error
+    end
+
+    Note over User,Redis: Subsequent Requests
+
+    User->>Angular: Access Protected Route
+    Angular->>Django: Request + Bearer Token
+    Django->>SQLite: Validate Token
+
+    alt Valid Token
+        Django->>Redis: Check Cache
+        Redis-->>Django: Data
+        Django-->>Angular: Protected Resource
+        Angular-->>User: Display Content
+    else Invalid Token
+        Django-->>Angular: 401 Unauthorized
+        Angular-->>User: Redirect to Login
+    end
+```
+
+### Component Architecture
+
+```mermaid
+graph TB
+    subgraph "Frontend Components"
+        A[Login Component]
+        B[Course List Component]
+        C[Lesson List Component]
+        D[Enrollment Component]
+        E[Progress Component]
+    end
+
+    subgraph "Angular Services"
+        F[Auth Service]
+        G[Course Service]
+        H[Lesson Service]
+        I[Enrollment Service]
+        J[Progress Service]
+    end
+
+    subgraph "Backend ViewSets"
+        K[CourseViewSet]
+        L[LessonViewSet]
+        M[EnrollmentViewSet]
+        N[ProgressViewSet]
+    end
+
+    subgraph "Data Models"
+        O[(Course Model)]
+        P[(Lesson Model)]
+        Q[(Enrollment Model)]
+        R[(Progress Model)]
+    end
+
+    A --> F
+    B --> G
+    C --> H
+    D --> I
+    E --> J
+
+    F --> K
+    G --> K
+    H --> L
+    I --> M
+    J --> N
+
+    K --> O
+    L --> P
+    M --> Q
+    N --> R
+```
+
+### Deployment Architecture
+
+```mermaid
+graph TB
+    subgraph "Cloud Infrastructure"
+        subgraph "Frontend Hosting - Vercel"
+            A[Vercel CDN]
+            B[Static Assets]
+        end
+
+        subgraph "Backend Hosting - Render"
+            C[Django Application]
+            D[Auto-scaling]
+        end
+
+        subgraph "Database Services"
+            E[(MongoDB Atlas)]
+            F[(Redis Cloud)]
+        end
+    end
+
+    subgraph "CI/CD Pipeline"
+        G[GitHub]
+        H[GitHub Actions]
+        I[Jenkins]
+    end
+
+    subgraph "Containerization"
+        J[Docker Images]
+        K[Kubernetes Cluster]
+    end
+
+    A --> B
+    C --> D
+    E --> F
+
+    G --> H
+    H --> I
+    I --> J
+    J --> K
+
+    B --> C
+    D --> E
+    D --> F
+
+    style A fill:#000000
+    style E fill:#47a248
+    style F fill:#dc382d
+    style G fill:#181717
+```
+
+### API Request Flow with Caching
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant NGINX
+    participant Django
+    participant Redis
+    participant MongoDB
+
+    Client->>NGINX: HTTP Request
+    NGINX->>Django: Forward Request
+
+    alt Cache Hit
+        Django->>Redis: Check Cache
+        Redis-->>Django: Cached Data
+        Django-->>Client: Response (Fast)
+    else Cache Miss
+        Django->>Redis: Check Cache
+        Redis-->>Django: Cache Miss
+        Django->>MongoDB: Query Database
+        MongoDB-->>Django: Fresh Data
+        Django->>Redis: Store Cache (TTL)
+        Django-->>Client: Response
+    end
+
+    Note over Client,MongoDB: Write Operations Invalidate Cache
+
+    Client->>Django: POST/PUT/DELETE Request
+    Django->>MongoDB: Update Database
+    MongoDB-->>Django: Success
+    Django->>Redis: Invalidate Related Caches
+    Django-->>Client: Response
+```
+
+### CI/CD Pipeline
+
+```mermaid
+graph LR
+    subgraph "Source Control"
+        A[GitHub Repository]
+        B[Push/PR]
+    end
+
+    subgraph "CI Pipeline"
+        C[Run Tests]
+        D[Lint Code]
+        E[Build Docker Image]
+    end
+
+    subgraph "CD Pipeline"
+        F[Deploy to Staging]
+        G{Tests Pass?}
+        H[Deploy to Production]
+    end
+
+    subgraph "Monitoring"
+        I[Health Checks]
+        J[Performance Monitoring]
+    end
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G -->|Yes| H
+    G -->|No| A
+    H --> I
+    I --> J
+```
+
 ## Features
+
+Our E-Learning Management System comes packed with a variety of features to enhance the learning experience:
 
 - **User Authentication**: Token-based authentication for secure login, built with Django Auth.
 - **Server-Side Caching**: Redis caching for improved performance and reduced server load.
@@ -165,13 +582,14 @@ The **MAD-Stack** is a powerful combination that allows developers to build scal
 
 ## Live Deployment
 
-The project is currently deployed live on Vercel and Render. You can access the live deployment using the following link: **[E-Learning Management System](https://learning-manangement-system.vercel.app).**
+The project is currently deployed live! You can access the live deployment using the following link: **[E-Learning Management System](https://learning-manangement-system.vercel.app).**
 
 The backend is deployed on Render: **[Backend API](https://learning-management-system-fullstack.onrender.com/).**
 
 Feel free to explore the platform, create an account, and test out the features!
 
-> [!IMPORTANT] > **Note:** Our backend server may spin down due to inactivity, so you may experience delays in loading data initially as the backend is hosted on the free tier of Render. If you encounter any issues, please let me know.
+> [!IMPORTANT] 
+> **Note:** Our backend server may spin down due to inactivity, so you may experience delays in loading data initially as the backend is hosted on the free tier of Render. If you encounter any issues, please let me know.
 
 ## Detailed Project Information:
 
@@ -771,6 +1189,57 @@ This project is set up to use MongoDB Atlas as the cloud database. You can creat
    - Replace the `.env` configuration file with the connection string from MongoDB Atlas.
 
 Alternatively, you can use the local MongoDB server for development and testing purposes.
+
+## Deployment
+
+The Learning Management System supports multiple deployment options, from local development to production-grade cloud infrastructure.
+
+### Deployment Options Overview
+
+| Option | Environment | Complexity | Cost | Scalability | Best For |
+|--------|-------------|------------|------|-------------|----------|
+| **Docker Compose** | Local/Dev | Low | Free | Limited | Development, Testing |
+| **Kubernetes** | Any | Medium | Variable | High | Self-hosted Production |
+| **AWS (Terraform)** | Cloud | Medium-High | ~$1400/mo | Very High | Enterprise Production |
+| **Vercel + Render** | Cloud | Low | ~$25/mo | Medium | Small-Medium Projects |
+
+### Quick Deployment Links
+
+- **Current Live Deployment**: [https://learning-manangement-system.vercel.app](https://learning-manangement-system.vercel.app)
+- **Backend API**: [https://learning-management-system-fullstack.onrender.com](https://learning-management-system-fullstack.onrender.com)
+- **Deployment Guide**: [DEPLOYMENT.md](DEPLOYMENT.md) - Comprehensive deployment documentation
+
+### Deployment Architecture
+
+```mermaid
+graph TB
+    subgraph "Development"
+        LOCAL[Local Development<br/>Docker Compose]
+    end
+
+    subgraph "Staging/Testing"
+        K8S[Kubernetes<br/>Self-Hosted]
+    end
+
+    subgraph "Production Options"
+        AWS[AWS Full Stack<br/>ECS + RDS + DocumentDB]
+        VERCEL[Vercel + Render<br/>Managed Services]
+    end
+
+    LOCAL --> K8S
+    K8S --> AWS
+    K8S --> VERCEL
+```
+
+### Infrastructure as Code
+
+The project includes production-ready Infrastructure as Code:
+
+- **`/aws`** - AWS deployment scripts and CloudFormation templates
+- **`/terraform`** - Terraform modules for complete AWS infrastructure
+- **`/kubernetes`** - Kubernetes manifests for container orchestration
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions for each option.
 
 ## Containerization
 
