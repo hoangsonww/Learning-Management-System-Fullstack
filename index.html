@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learning Management System - A comprehensive full-stack e-learning platform built with Angular, Django, MongoDB, and Redis. Features course management, student enrollment, progress tracking, and more.">
+    <meta name="keywords" content="LMS, Learning Management System, Angular, Django, MongoDB, Redis, Docker, Kubernetes, AWS, E-Learning, Education Platform">
+    <meta name="author" content="Son Nguyen">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Learning Management System - Full Stack E-Learning Platform">
+    <meta property="og:description" content="A comprehensive full-stack e-learning platform built with modern technologies">
+    <meta property="og:image" content="docs/logo.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Learning Management System">
+    <meta property="twitter:description" content="A comprehensive full-stack e-learning platform">
+    
+    <title>Learning Management System - Wiki & Documentation</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="docs/logo.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Mermaid for Diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="packages/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">📚</div>
+                <span>LMS Wiki</span>
+            </a>
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-links">
+                <li><a href="#overview" class="active">Overview</a></li>
+                <li><a href="#architecture">Architecture</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#tech-stack">Tech Stack</a></li>
+                <li><a href="#deployment">Deployment</a></li>
+                <li><a href="#api">API Docs</a></li>
+                <li><a href="#getting-started">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Scroll Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="docs/logo.png" alt="LMS Logo" class="hero-logo" onerror="this.style.display='none'">
+            <h1>Learning Management System</h1>
+            <p class="hero-subtitle">
+                A comprehensive full-stack e-learning platform built with the MAD Stack 
+                (MongoDB, Angular, Django) featuring modern DevOps practices, cloud-native architecture, 
+                and enterprise-grade security.
+            </p>
+            
+            <div class="tech-badges">
+                <span class="badge badge-angular">
+                    <i class="fab fa-angular"></i> Angular 18
+                </span>
+                <span class="badge badge-django">
+                    <i class="fab fa-python"></i> Django 4.2
+                </span>
+                <span class="badge badge-mongodb">
+                    <i class="fas fa-database"></i> MongoDB 5.0
+                </span>
+                <span class="badge badge-redis">
+                    <i class="fas fa-server"></i> Redis 6
+                </span>
+                <span class="badge badge-docker">
+                    <i class="fab fa-docker"></i> Docker
+                </span>
+                <span class="badge badge-k8s">
+                    <i class="fas fa-dharmachakra"></i> Kubernetes
+                </span>
+                <span class="badge badge-aws">
+                    <i class="fab fa-aws"></i> AWS
+                </span>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="https://learning-manangement-system.vercel.app" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Live Demo
+                </a>
+                <a href="https://github.com/hoangsonww/Learning-Management-System-Fullstack" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+                <a href="#getting-started" class="btn btn-secondary">
+                    <i class="fas fa-code"></i> Quick Start
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="overview">
+        <div class="section-header">
+            <h2 class="section-title">Project at a Glance</h2>
+            <p class="section-subtitle">Enterprise-grade learning management solution with comprehensive features</p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number" data-value="10">10</span>
+                <div class="stat-label">Core Features</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" data-value="25" data-suffix="+">25+</span>
+                <div class="stat-label">API Endpoints</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" data-value="3">3</span>
+                <div class="stat-label">Database Systems</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" data-value="100" data-suffix="%">100%</span>
+                <div class="stat-label">Containerized</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <div class="section-header">
+            <h2 class="section-title">Core Features</h2>
+            <p class="section-subtitle">Everything you need for a modern learning management system</p>
+        </div>
+        
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">👥</div>
+                <h3 class="card-title">User Management</h3>
+                <p class="card-description">
+                    Complete user authentication and authorization with JWT tokens, role-based access control (RBAC), 
+                    and support for students, instructors, and administrators.
+                </p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">📚</div>
+                <h3 class="card-title">Course Management</h3>
+                <p class="card-description">
+                    Create, update, delete, and organize courses with categories, lessons, multimedia content, 
+                    and rich text descriptions. Full CRUD operations available.
+                </p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">📝</div>
+                <h3 class="card-title">Quiz System</h3>
+                <p class="card-description">
+                    Interactive quizzes with multiple-choice questions, automatic grading, 
+                    progress tracking, and detailed analytics for instructors.
+                </p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3 class="card-title">Progress Tracking</h3>
+                <p class="card-description">
+                    Real-time progress monitoring for students, lesson completion tracking, 
+                    achievement milestones, and comprehensive reporting dashboards.
+                </p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3 class="card-title">Redis Caching</h3>
+                <p class="card-description">
+                    High-performance server-side caching with Redis for improved response times, 
+                    reduced database load, and enhanced scalability.
+                </p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">🔒</div>
+                <h3 class="card-title">Security</h3>
+                <p class="card-description">
+                    Enterprise-grade security with encrypted passwords, secure token management, 
+                    CORS protection, and comprehensive API authentication.
+                </p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">📱</div>
+                <h3 class="card-title">Responsive Design</h3>
+                <p class="card-description">
+                    Fully responsive interface built with Bootstrap 5, optimized for desktop, tablet, 
+                    and mobile devices with PWA capabilities.
+                </p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">📡</div>
+                <h3 class="card-title">RESTful API</h3>
+                <p class="card-description">
+                    Comprehensive REST API with Swagger/OpenAPI documentation, versioning support, 
+                    and extensive endpoint coverage for all features.
+                </p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">🔔</div>
+                <h3 class="card-title">Notifications</h3>
+                <p class="card-description">
+                    Real-time notification system for course updates, enrollment confirmations, 
+                    progress achievements, and important announcements.
+                </p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3 class="card-title">CI/CD Pipeline</h3>
+                <p class="card-description">
+                    Automated deployment with GitHub Actions and Jenkins, Docker containerization, 
+                    and Kubernetes orchestration for seamless updates.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section id="architecture">
+        <div class="section-header">
+            <h2 class="section-title">System Architecture</h2>
+            <p class="section-subtitle">Modern, scalable, and cloud-native architecture design</p>
+        </div>
+        
+        <div class="diagram-container">
+            <h3 class="text-center mb-md">High-Level Architecture</h3>
+            <div class="mermaid">
+graph TB
+    subgraph "Client Layer"
+        A[Web Browser]
+        B[Mobile Browser]
+    end
+
+    subgraph "Frontend - Angular SPA"
+        C[Angular Components]
+        D[Angular Services]
+        E[HTTP Interceptors]
+        F[State Management]
+    end
+
+    subgraph "API Gateway"
+        G[NGINX Reverse Proxy]
+    end
+
+    subgraph "Backend - Django REST API"
+        H[Django REST Framework]
+        I[Authentication Layer]
+        J[Business Logic]
+        K[Serializers & ViewSets]
+    end
+
+    subgraph "Caching Layer"
+        L[Redis Cache]
+    end
+
+    subgraph "Data Persistence"
+        M[(MongoDB - Course Data)]
+        N[(SQLite - Auth Data)]
+    end
+
+    A --> C
+    B --> C
+    C --> D
+    D --> E
+    E --> G
+    G --> H
+    H --> I
+    I --> J
+    J --> K
+    K --> L
+    K --> M
+    I --> N
+
+    style C fill:#dd0031
+    style H fill:#092e20
+    style M fill:#47a248
+    style L fill:#dc382d
+            </div>
+        </div>
+        
+        <div class="diagram-container mt-xl">
+            <h3 class="text-center mb-md">Authentication Flow</h3>
+            <div class="mermaid">
+sequenceDiagram
+    participant User
+    participant Angular
+    participant Django
+    participant SQLite
+    participant Redis
+
+    User->>Angular: Enter Credentials
+    Angular->>Django: POST /api/auth/login/
+    Django->>SQLite: Verify Credentials
+
+    alt Valid Credentials
+        SQLite-->>Django: User Valid
+        Django->>Django: Generate JWT Token
+        Django->>Redis: Cache Token
+        Django-->>Angular: {token, user}
+        Angular->>Angular: Store in localStorage
+        Angular-->>User: Redirect to Dashboard
+    else Invalid Credentials
+        SQLite-->>Django: Invalid
+        Django-->>Angular: 401 Unauthorized
+        Angular-->>User: Show Error
+    end
+            </div>
+        </div>
+        
+        <div class="diagram-container mt-xl">
+            <h3 class="text-center mb-md">Database Schema</h3>
+            <div class="mermaid">
+erDiagram
+    USER ||--o{ COURSE : instructs
+    USER ||--o{ ENROLLMENT : enrolls
+    USER ||--o{ PROGRESS : tracks
+    USER ||--o{ NOTIFICATION : receives
+
+    CATEGORY ||--o{ COURSE : categorizes
+
+    COURSE ||--o{ LESSON : contains
+    COURSE ||--o{ ENROLLMENT : has
+
+    LESSON ||--o{ QUIZ : includes
+    LESSON ||--o{ PROGRESS : tracks
+
+    QUIZ ||--o{ QUESTION : contains
+    QUESTION ||--o{ CHOICE : has
+
+    USER {
+        ObjectId id PK
+        string username UK
+        string email UK
+        boolean is_instructor
+        boolean is_student
+        string bio
+        string profile_picture
+    }
+
+    COURSE {
+        ObjectId id PK
+        string title
+        string description
+        ObjectId instructor_id FK
+        ObjectId category_id FK
+        decimal price
+        boolean published
+        datetime created_at
+    }
+
+    LESSON {
+        ObjectId id PK
+        string title
+        ObjectId course_id FK
+        string content
+        string video_url
+        datetime created_at
+    }
+
+    ENROLLMENT {
+        ObjectId id PK
+        ObjectId student_id FK
+        ObjectId course_id FK
+        datetime enrolled_at
+    }
+
+    PROGRESS {
+        ObjectId id PK
+        ObjectId student_id FK
+        ObjectId lesson_id FK
+        boolean completed
+        datetime completed_at
+    }
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="tech-stack">
+        <div class="section-header">
+            <h2 class="section-title">Technology Stack</h2>
+            <p class="section-subtitle">Built with modern, production-ready technologies</p>
+        </div>
+        
+        <div class="tabs" data-tab-group="techstack">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="frontend">Frontend</button>
+                <button class="tab-btn" data-tab="backend">Backend</button>
+                <button class="tab-btn" data-tab="database">Database</button>
+                <button class="tab-btn" data-tab="devops">DevOps</button>
+            </div>
+        </div>
+        
+        <div class="tab-content active" data-tab="frontend" data-tab-group="techstack">
+            <div class="cards-grid">
+                <div class="card">
+                    <h3 class="card-title"><i class="fab fa-angular" style="color: #dd0031;"></i> Angular 18</h3>
+                    <p class="card-description">
+                        Modern TypeScript-based framework with reactive forms, routing, HTTP client, 
+                        and comprehensive component architecture.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title"><i class="fab fa-bootstrap" style="color: #7952b3;"></i> Bootstrap 5</h3>
+                    <p class="card-description">
+                        Responsive CSS framework for mobile-first design with utility classes 
+                        and pre-built components.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title"><i class="fab fa-js-square" style="color: #f7df1e;"></i> RxJS</h3>
+                    <p class="card-description">
+                        Reactive programming library for handling asynchronous data streams 
+                        and event-based operations.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" data-tab="backend" data-tab-group="techstack">
+            <div class="cards-grid">
+                <div class="card">
+                    <h3 class="card-title"><i class="fab fa-python" style="color: #3776ab;"></i> Django 4.2</h3>
+                    <p class="card-description">
+                        High-level Python web framework with ORM, authentication, admin interface, 
+                        and comprehensive security features.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-code" style="color: #ff6c37;"></i> Django REST Framework</h3>
+                    <p class="card-description">
+                        Powerful toolkit for building Web APIs with serializers, viewsets, 
+                        authentication, and browsable API interface.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title"><i class="fab fa-python" style="color: #3776ab;"></i> Python 3.12</h3>
+                    <p class="card-description">
+                        Latest Python version with improved performance, better error messages, 
+                        and enhanced type hinting capabilities.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" data-tab="database" data-tab-group="techstack">
+            <div class="cards-grid">
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-leaf" style="color: #47a248;"></i> MongoDB 5.0</h3>
+                    <p class="card-description">
+                        NoSQL document database for storing courses, lessons, enrollments, 
+                        and user data with flexible schema design.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-server" style="color: #dc382d;"></i> Redis 6</h3>
+                    <p class="card-description">
+                        In-memory data store for caching, session management, and real-time 
+                        data processing with sub-millisecond latency.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-database" style="color: #003b57;"></i> SQLite 3</h3>
+                    <p class="card-description">
+                        Lightweight database for Django authentication and user management 
+                        with zero-configuration setup.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" data-tab="devops" data-tab-group="techstack">
+            <div class="cards-grid">
+                <div class="card">
+                    <h3 class="card-title"><i class="fab fa-docker" style="color: #2496ed;"></i> Docker</h3>
+                    <p class="card-description">
+                        Container platform for packaging applications with all dependencies 
+                        in isolated, portable environments.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-dharmachakra" style="color: #326ce5;"></i> Kubernetes</h3>
+                    <p class="card-description">
+                        Container orchestration platform for automated deployment, scaling, 
+                        and management of containerized applications.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title"><i class="fab fa-jenkins" style="color: #d24939;"></i> Jenkins</h3>
+                    <p class="card-description">
+                        Automation server for CI/CD pipelines with build, test, and deployment 
+                        automation capabilities.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title"><i class="fab fa-github" style="color: #181717;"></i> GitHub Actions</h3>
+                    <p class="card-description">
+                        Native CI/CD workflows integrated with GitHub for automated testing 
+                        and deployment on every push.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title"><i class="fab fa-aws" style="color: #ff9900;"></i> AWS</h3>
+                    <p class="card-description">
+                        Cloud infrastructure with ECS Fargate, RDS, DocumentDB, ElastiCache, 
+                        and comprehensive monitoring services.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-code-branch" style="color: #764abc;"></i> Terraform</h3>
+                    <p class="card-description">
+                        Infrastructure as Code tool for provisioning and managing cloud 
+                        resources with declarative configuration.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deployment Section -->
+    <section id="deployment">
+        <div class="section-header">
+            <h2 class="section-title">Deployment Options</h2>
+            <p class="section-subtitle">Multiple deployment strategies for different needs and scales</p>
+        </div>
+        
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">🐳</div>
+                <h3 class="card-title">Docker Compose</h3>
+                <p class="card-description">
+                    <strong>Best for:</strong> Local development and testing
+                    <br><br>
+                    Quick setup with docker-compose.yml including frontend, backend, MongoDB, 
+                    and Redis services. Perfect for development environments.
+                    <br><br>
+                    <strong>Setup time:</strong> 5-10 minutes
+                </p>
+                <a href="#getting-started" class="card-link">
+                    Learn More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">☸️</div>
+                <h3 class="card-title">Kubernetes</h3>
+                <p class="card-description">
+                    <strong>Best for:</strong> Self-hosted production environments
+                    <br><br>
+                    Complete Kubernetes manifests for deploying to any K8s cluster with auto-scaling, 
+                    service discovery, and health monitoring.
+                    <br><br>
+                    <strong>Setup time:</strong> 30-60 minutes
+                </p>
+                <a href="DEPLOYMENT.md#kubernetes" class="card-link">
+                    View Guide <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">☁️</div>
+                <h3 class="card-title">AWS with Terraform</h3>
+                <p class="card-description">
+                    <strong>Best for:</strong> Enterprise production deployments
+                    <br><br>
+                    Full Infrastructure as Code with Terraform modules for VPC, ECS, RDS, 
+                    ElastiCache, CloudFront, and comprehensive AWS services.
+                    <br><br>
+                    <strong>Cost:</strong> ~$1,400/month
+                </p>
+                <a href="DEPLOYMENT.md#aws" class="card-link">
+                    Deploy Now <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">▲</div>
+                <h3 class="card-title">Vercel + Render</h3>
+                <p class="card-description">
+                    <strong>Best for:</strong> Quick deployments and MVPs
+                    <br><br>
+                    Simple managed deployment with Vercel for frontend and Render for backend. 
+                    Includes MongoDB Atlas and Redis Cloud.
+                    <br><br>
+                    <strong>Cost:</strong> ~$25/month
+                </p>
+                <a href="https://learning-manangement-system.vercel.app" target="_blank" class="card-link">
+                    Live Demo <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="diagram-container mt-xl">
+            <h3 class="text-center mb-md">Deployment Architecture (AWS)</h3>
+            <div class="mermaid">
+graph TB
+    subgraph "Cloud Infrastructure"
+        subgraph "Frontend Hosting - Vercel"
+            A[Vercel CDN]
+            B[Static Assets]
+        end
+
+        subgraph "Backend Hosting - AWS ECS"
+            C[Django Application]
+            D[Auto-scaling]
+        end
+
+        subgraph "Database Services"
+            E[(MongoDB Atlas)]
+            F[(Redis Cloud)]
+        end
+    end
+
+    subgraph "CI/CD Pipeline"
+        G[GitHub]
+        H[GitHub Actions]
+        I[Docker Build]
+    end
+
+    A --> B
+    C --> D
+    E --> F
+
+    G --> H
+    H --> I
+    I --> C
+
+    B --> C
+    D --> E
+    D --> F
+
+    style A fill:#000000
+    style C fill:#ff9900
+    style E fill:#47a248
+    style F fill:#dc382d
+            </div>
+        </div>
+    </section>
+
+    <!-- API Documentation Section -->
+    <section id="api">
+        <div class="section-header">
+            <h2 class="section-title">API Documentation</h2>
+            <p class="section-subtitle">Comprehensive RESTful API with Swagger documentation</p>
+        </div>
+        
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">📖</div>
+                <h3 class="card-title">Swagger UI</h3>
+                <p class="card-description">
+                    Interactive API documentation with try-it-out functionality. Test all endpoints 
+                    directly from your browser with authentication support.
+                </p>
+                <a href="http://localhost:8000/swagger/" target="_blank" class="card-link">
+                    Open Swagger UI <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">📄</div>
+                <h3 class="card-title">ReDoc</h3>
+                <p class="card-description">
+                    Beautiful API documentation with detailed endpoint descriptions, request/response 
+                    examples, and schema definitions.
+                </p>
+                <a href="http://localhost:8000/redoc/" target="_blank" class="card-link">
+                    Open ReDoc <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">📋</div>
+                <h3 class="card-title">OpenAPI Spec</h3>
+                <p class="card-description">
+                    Download the complete OpenAPI 3.0 specification for code generation, 
+                    testing, and integration with your tools.
+                </p>
+                <a href="openapi.yaml" download class="card-link">
+                    Download YAML <i class="fas fa-download"></i>
+                </a>
+            </div>
+        </div>
+        
+        <h3 class="mt-xl mb-md">Key API Endpoints</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Endpoint</th>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Auth Required</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/api/auth/login/</code></td>
+                        <td><span class="badge" style="background: #10b981;">POST</span></td>
+                        <td>User login with credentials</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/auth/registration/</code></td>
+                        <td><span class="badge" style="background: #10b981;">POST</span></td>
+                        <td>Register new user account</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/courses/</code></td>
+                        <td><span class="badge" style="background: #2563eb;">GET</span></td>
+                        <td>List all available courses</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/courses/</code></td>
+                        <td><span class="badge" style="background: #10b981;">POST</span></td>
+                        <td>Create new course</td>
+                        <td>Yes (Instructor)</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/courses/{id}/</code></td>
+                        <td><span class="badge" style="background: #2563eb;">GET</span></td>
+                        <td>Get course details</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/lessons/</code></td>
+                        <td><span class="badge" style="background: #2563eb;">GET</span></td>
+                        <td>List all lessons</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/enrollments/</code></td>
+                        <td><span class="badge" style="background: #10b981;">POST</span></td>
+                        <td>Enroll in a course</td>
+                        <td>Yes (Student)</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/progress/</code></td>
+                        <td><span class="badge" style="background: #2563eb;">GET</span></td>
+                        <td>Get learning progress</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/quizzes/{id}/</code></td>
+                        <td><span class="badge" style="background: #2563eb;">GET</span></td>
+                        <td>Get quiz questions</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/users/</code></td>
+                        <td><span class="badge" style="background: #2563eb;">GET</span></td>
+                        <td>List all users</td>
+                        <td>Yes (Admin)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section id="getting-started">
+        <div class="section-header">
+            <h2 class="section-title">Getting Started</h2>
+            <p class="section-subtitle">Quick setup guide for local development</p>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>1. Clone Repository</h3>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-language">bash</span>
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <pre><code>git clone https://github.com/hoangsonww/Learning-Management-System-Fullstack.git
+cd Learning-Management-System-Fullstack</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>2. Setup Backend (Django)</h3>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-language">bash</span>
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <pre><code>cd LMS-Backend
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver</code></pre>
+                    </div>
+                    <p class="mt-sm text-secondary">Backend will run on <code>http://localhost:8000</code></p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>3. Setup Frontend (Angular)</h3>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-language">bash</span>
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <pre><code>cd LMS-Frontend/app
+npm install
+ng serve</code></pre>
+                    </div>
+                    <p class="mt-sm text-secondary">Frontend will run on <code>http://localhost:4200</code></p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>4. Configure Databases</h3>
+                    <p class="mb-sm">Ensure MongoDB and Redis are running:</p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-language">bash</span>
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <pre><code># Using Docker
+docker run -d -p 27017:27017 --name mongodb mongo:5.0
+docker run -d -p 6379:6379 --name redis redis:6
+
+# Or use MongoDB Atlas and Redis Cloud for production</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>5. Access the Application</h3>
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h4>Frontend</h4>
+                            <p><a href="http://localhost:4200" target="_blank">http://localhost:4200</a></p>
+                        </div>
+                        <div class="card">
+                            <h4>Backend API</h4>
+                            <p><a href="http://localhost:8000" target="_blank">http://localhost:8000</a></p>
+                        </div>
+                        <div class="card">
+                            <h4>Admin Panel</h4>
+                            <p><a href="http://localhost:8000/admin" target="_blank">http://localhost:8000/admin</a></p>
+                        </div>
+                        <div class="card">
+                            <h4>API Docs</h4>
+                            <p><a href="http://localhost:8000/swagger" target="_blank">http://localhost:8000/swagger</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-xl text-center">
+            <h3 class="mb-md">Or use Docker Compose for instant setup:</h3>
+            <div class="code-block" style="max-width: 600px; margin: 0 auto;">
+                <div class="code-header">
+                    <span class="code-language">bash</span>
+                    <button class="copy-btn">Copy</button>
+                </div>
+                <pre><code>docker-compose up --build</code></pre>
+            </div>
+            <p class="mt-md text-secondary">All services will start automatically with proper networking</p>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section id="screenshots">
+        <div class="section-header">
+            <h2 class="section-title">Screenshots & UI</h2>
+            <p class="section-subtitle">Preview of the application interface</p>
+        </div>
+        
+        <div class="cards-grid">
+            <div class="card">
+                <h3 class="card-title">Home Page</h3>
+                <img src="docs/home-ui.png" alt="Home Page" style="width: 100%; border-radius: 8px; margin-top: 1rem;" onerror="this.style.display='none'">
+            </div>
+            <div class="card">
+                <h3 class="card-title">Course Management</h3>
+                <img src="docs/course-ui.png" alt="Courses" style="width: 100%; border-radius: 8px; margin-top: 1rem;" onerror="this.style.display='none'">
+            </div>
+            <div class="card">
+                <h3 class="card-title">Lesson View</h3>
+                <img src="docs/lesson-ui.png" alt="Lessons" style="width: 100%; border-radius: 8px; margin-top: 1rem;" onerror="this.style.display='none'">
+            </div>
+            <div class="card">
+                <h3 class="card-title">Progress Tracking</h3>
+                <img src="docs/progress-ui.png" alt="Progress" style="width: 100%; border-radius: 8px; margin-top: 1rem;" onerror="this.style.display='none'">
+            </div>
+            <div class="card">
+                <h3 class="card-title">API Documentation</h3>
+                <img src="docs/swagger-ui.png" alt="Swagger" style="width: 100%; border-radius: 8px; margin-top: 1rem;" onerror="this.style.display='none'">
+            </div>
+            <div class="card">
+                <h3 class="card-title">User Management</h3>
+                <img src="docs/user-ui.png" alt="Users" style="width: 100%; border-radius: 8px; margin-top: 1rem;" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources">
+        <div class="section-header">
+            <h2 class="section-title">Documentation & Resources</h2>
+            <p class="section-subtitle">Additional guides and references</p>
+        </div>
+        
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">📘</div>
+                <h3 class="card-title">Architecture Guide</h3>
+                <p class="card-description">
+                    Comprehensive architecture documentation with detailed diagrams, 
+                    component interactions, and design decisions.
+                </p>
+                <a href="ARCHITECTURE.md" class="card-link">
+                    Read Guide <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3 class="card-title">Deployment Guide</h3>
+                <p class="card-description">
+                    Step-by-step deployment instructions for Docker, Kubernetes, AWS, 
+                    and managed services with cost estimates.
+                </p>
+                <a href="DEPLOYMENT.md" class="card-link">
+                    View Deployment <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">📝</div>
+                <h3 class="card-title">README</h3>
+                <p class="card-description">
+                    Complete project overview, installation instructions, features list, 
+                    and troubleshooting guide.
+                </p>
+                <a href="README.md" class="card-link">
+                    Read README <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <h3 class="card-title">GitHub Repository</h3>
+                <p class="card-description">
+                    Source code, issues, pull requests, releases, and contributions. 
+                    Star the repo and contribute!
+                </p>
+                <a href="https://github.com/hoangsonww/Learning-Management-System-Fullstack" target="_blank" class="card-link">
+                    View Repository <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About LMS</h3>
+                <p style="color: var(--text-secondary); margin-top: 1rem;">
+                    A comprehensive full-stack learning management system built with modern 
+                    technologies and best practices for enterprise-grade applications.
+                </p>
+                <div class="social-links">
+                    <a href="https://github.com/hoangsonww/Learning-Management-System-Fullstack" target="_blank" class="social-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://learning-manangement-system.vercel.app" target="_blank" class="social-link" title="Live Demo">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a href="mailto:hoangson091104@gmail.com" class="social-link" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#architecture">Architecture</a></li>
+                    <li><a href="#tech-stack">Tech Stack</a></li>
+                    <li><a href="#deployment">Deployment</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Documentation</h3>
+                <ul class="footer-links">
+                    <li><a href="README.md">README</a></li>
+                    <li><a href="ARCHITECTURE.md">Architecture</a></li>
+                    <li><a href="DEPLOYMENT.md">Deployment</a></li>
+                    <li><a href="openapi.yaml" download>OpenAPI Spec</a></li>
+                    <li><a href="http://localhost:8000/swagger/" target="_blank">API Docs</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Community</h3>
+                <ul class="footer-links">
+                    <li><a href="https://github.com/hoangsonww/Learning-Management-System-Fullstack/issues" target="_blank">Report Issue</a></li>
+                    <li><a href="https://github.com/hoangsonww/Learning-Management-System-Fullstack/pulls" target="_blank">Pull Requests</a></li>
+                    <li><a href="https://github.com/hoangsonww/Learning-Management-System-Fullstack/discussions" target="_blank">Discussions</a></li>
+                    <li><a href="LICENSE">License (MIT)</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>
+                &copy; 2025 Learning Management System. Built with ❤️ by Son Nguyen.
+                <br>
+                Licensed under MIT License. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Custom Scripts -->
+    <script src="packages/script.js"></script>
+</body>
+</html>
